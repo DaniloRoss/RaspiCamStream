@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Sockets;
 using System.Text.RegularExpressions;
+using AForge.Video;
 
 
 namespace RaspiCamStream
@@ -16,16 +17,38 @@ namespace RaspiCamStream
     public partial class Form1 : Form
     {
         MJPEGStream Stream;
+        int streamexist = default(int);
 
         public Form1()
         {
             InitializeComponent();
+            pictureBox1.Size = new Size(640, 480);
         }
+
+        private void Btn_ip_Click(object sender, EventArgs e)
+        {
+            if (!Regex.IsMatch(Txt_ip.Text, @"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b"))
+            {
+                Label_ip.Text = "indirizzo non valido";
+                Txt_ip.Clear();
+                return;
+            }
+
+            if (Label_Search_ip.Text != "")
+            {
+                Label_Search_ip.Text = "";
+            }
+
+            ip = Txt_ip.Text.ToString();
+            Stream = new MJPEGStream($"http://{ip}:8080/?action=stream");
+            Stream.NewFrame += Stream_NewFrame;
+            streamexist = 1;
+            Txt_ip.Clear();
+        }
+
         //STREAMING LATO CLIENT E FACE DETECTION (opzionale)
         private void Stream_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
-
-
             if (radioButton1.Checked == true)
             {
                 CascadeClassifier cascadeClassifier = new CascadeClassifier("haarcascade_frontalface_alt_tree.xml");
@@ -43,7 +66,6 @@ namespace RaspiCamStream
                     }
                 }
                 pictureBox1.Image = bitmap;
-
             }
 
             if (radioButton2.Checked == true)
@@ -56,8 +78,6 @@ namespace RaspiCamStream
 
         private void Btn_stream_Click(object sender, EventArgs e)  //AVVIO O PAUSA STREAMING
         {
-
-
             if (Stream.IsRunning == true)
             {
                 Stream.Stop();
@@ -70,8 +90,6 @@ namespace RaspiCamStream
             Btn_stream.Normalcolor = Color.DarkRed;
             Btn_stream.OnHovercolor = Color.Red;
             Btn_stream.Iconimage = new Bitmap("stop.png");
-
-
         }
 
         //SOCKET
