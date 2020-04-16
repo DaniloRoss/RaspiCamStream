@@ -18,6 +18,7 @@ namespace RaspiCamStream
     {
         MJPEGStream Stream;
         int streamexist = default(int);
+        string ip = default(string);
 
         public Form1()
         {
