@@ -20,6 +20,8 @@ namespace RaspiCamStream
         public Form1()
         {
             InitializeComponent();
+            Stream = new MJPEGStream("inserire ip");
+            Stream.NewFrame += Stream_NewFrame;
         }
 
         private void sendmessage(string msg)
