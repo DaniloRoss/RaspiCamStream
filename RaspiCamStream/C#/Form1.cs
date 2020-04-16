@@ -21,7 +21,60 @@ namespace RaspiCamStream
         {
             InitializeComponent();
         }
+        //STREAMING LATO CLIENT E FACE DETECTION (opzionale)
+        private void Stream_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        {
 
+
+            if (radioButton1.Checked == true)
+            {
+                CascadeClassifier cascadeClassifier = new CascadeClassifier("haarcascade_frontalface_alt_tree.xml");
+                Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone();
+                Image<Bgr, byte> grayimage = new Image<Bgr, byte>(bitmap);
+                Rectangle[] rectangles = cascadeClassifier.DetectMultiScale(grayimage, 1.2, 1);
+                foreach (Rectangle rectangle in rectangles)
+                {
+                    using (Graphics graphics = Graphics.FromImage(bitmap))
+                    {
+                        using (Pen pen = new Pen(Color.Red, 5))
+                        {
+                            graphics.DrawRectangle(pen, rectangle);
+                        }
+                    }
+                }
+                pictureBox1.Image = bitmap;
+
+            }
+
+            if (radioButton2.Checked == true)
+            {
+                Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone();
+                pictureBox1.Image = bitmap;
+
+            }
+        }
+
+        private void bunifuFlatButton1_Click(object sender, EventArgs e)  //AVVIO O PAUSA STREAMING
+        {
+
+
+            if (Stream.IsRunning == true)
+            {
+                Stream.Stop();
+                bunifuFlatButton1.Normalcolor = Color.DarkGreen;
+                bunifuFlatButton1.OnHovercolor = Color.Lime;
+                bunifuFlatButton1.Iconimage = new Bitmap("play.png");
+                return;
+            }
+            Stream.Start();
+            bunifuFlatButton1.Normalcolor = Color.DarkRed;
+            bunifuFlatButton1.OnHovercolor = Color.Red;
+            bunifuFlatButton1.Iconimage = new Bitmap("stop.png");
+
+
+        }
+
+        //SOCKET
         private void sendmessage(string msg)
         {
             TcpClient clientSocket = new TcpClient();
@@ -110,55 +163,3 @@ namespace RaspiCamStream
 
 
 
-//STREAMING LATO CLIENT E FACE DETECTION (opzionale)
-private void Stream_NewFrame(object sender, NewFrameEventArgs eventArgs)
-{
-
-
-    if (radioButton1.Checked == true)
-    {
-        CascadeClassifier cascadeClassifier = new CascadeClassifier("haarcascade_frontalface_alt_tree.xml");
-        Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone();
-        Image<Bgr, byte> grayimage = new Image<Bgr, byte>(bitmap);
-        Rectangle[] rectangles = cascadeClassifier.DetectMultiScale(grayimage, 1.2, 1);
-        foreach (Rectangle rectangle in rectangles)
-        {
-            using (Graphics graphics = Graphics.FromImage(bitmap))
-            {
-                using (Pen pen = new Pen(Color.Red, 5))
-                {
-                    graphics.DrawRectangle(pen, rectangle);
-                }
-            }
-        }
-        pictureBox1.Image = bitmap;
-
-    }
-
-    if (radioButton2.Checked == true)
-    {
-        Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone();
-        pictureBox1.Image = bitmap;
-
-    }
-}
-
-private void bunifuFlatButton1_Click(object sender, EventArgs e)  //AVVIO O PAUSA STREAMING
-{
-
-
-    if (Stream.IsRunning == true)
-    {
-        Stream.Stop();
-        bunifuFlatButton1.Normalcolor = Color.DarkGreen;
-        bunifuFlatButton1.OnHovercolor = Color.Lime;
-        bunifuFlatButton1.Iconimage = new Bitmap("play.png");
-        return;
-    }
-    Stream.Start();
-    bunifuFlatButton1.Normalcolor = Color.DarkRed;
-    bunifuFlatButton1.OnHovercolor = Color.Red;
-    bunifuFlatButton1.Iconimage = new Bitmap("stop.png");
-
-
-}
