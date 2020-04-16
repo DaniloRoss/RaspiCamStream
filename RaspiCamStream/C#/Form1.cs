@@ -54,22 +54,22 @@ namespace RaspiCamStream
             }
         }
 
-        private void bunifuFlatButton1_Click(object sender, EventArgs e)  //AVVIO O PAUSA STREAMING
+        private void Btn_stream_Click(object sender, EventArgs e)  //AVVIO O PAUSA STREAMING
         {
 
 
             if (Stream.IsRunning == true)
             {
                 Stream.Stop();
-                bunifuFlatButton1.Normalcolor = Color.DarkGreen;
-                bunifuFlatButton1.OnHovercolor = Color.Lime;
-                bunifuFlatButton1.Iconimage = new Bitmap("play.png");
+                Btn_stream.Normalcolor = Color.DarkGreen;
+                Btn_stream.OnHovercolor = Color.Lime;
+                Btn_stream.Iconimage = new Bitmap("play.png");
                 return;
             }
             Stream.Start();
-            bunifuFlatButton1.Normalcolor = Color.DarkRed;
-            bunifuFlatButton1.OnHovercolor = Color.Red;
-            bunifuFlatButton1.Iconimage = new Bitmap("stop.png");
+            Btn_stream.Normalcolor = Color.DarkRed;
+            Btn_stream.OnHovercolor = Color.Red;
+            Btn_stream.Iconimage = new Bitmap("stop.png");
 
 
         }
