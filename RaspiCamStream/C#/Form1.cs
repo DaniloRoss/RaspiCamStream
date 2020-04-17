@@ -32,6 +32,11 @@ namespace RaspiCamStream
             numIp = 0;
         }
 
+        private void ListView_ip_Click(object sender, EventArgs e)
+        {
+            Txt_ip.Text = ListView_ip.SelectedItems[0].SubItems[0].Text;
+        }
+
         private void Btn_ip_Click(object sender, EventArgs e)
         {
             if (!Regex.IsMatch(Txt_ip.Text, @"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b"))
