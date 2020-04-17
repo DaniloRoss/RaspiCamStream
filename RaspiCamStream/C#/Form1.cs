@@ -216,6 +216,79 @@ namespace RaspiCamStream
             ListView_ip.Visible = true;
             Btn_go.Visible = true;
         }
+
+        private void bunifuThinButton22_Click(object sender, EventArgs e)
+        {
+            listView1.Items.Clear();
+
+            string ipt = textBox1.Text;
+
+            int i = 1;
+            if (textBox2.Text != "")
+                i = int.Parse(textBox2.Text);
+
+            TxB2 = i;
+
+            int x = 0;
+            if (textBox3.Text != "")
+                x = int.Parse(textBox3.Text) + 1;
+            else
+                x = 256;
+
+            TxB3 = x;
+
+            Thread thread = new Thread(new ThreadStart(delegate { loopIp(ipt, i, x, listView1); }));
+
+            thread.Start();
+          
+        }
+        private void ControlloPassaggio(string ip, string nome, ListView listview)
+        {
+            if (listview.InvokeRequired)
+            {
+                var d = new SafeCallDelegate(ControlloPassaggio);
+                listview.Invoke(d, new object[] { ip, nome, listview });
+            }
+            else
+            {
+               
+                listview.Items.Add(new ListViewItem(new string[] { ip, GetMachineNameFromIPAddress(ip), "online" }));
+                numIp++;
+
+            }
+        }// controlla il passaggio da Thread a UI
+        private static void loopIp(string ipt, int i, int x, ListView listview)
+        {
+            while (i < x)
+            {
+                string ip = String.Concat(ipt, ".", i);
+
+                Ping myPing = new Ping();
+                PingReply reply = myPing.Send(ip, 900);
+
+                if (reply.Status == IPStatus.Success)
+                {
+                    Form1 foo = new Form1();
+                    foo.ControlloPassaggio(ip, GetMachineNameFromIPAddress(ip).ToString(), listview);
+                }
+                i++;
+            }
+        } // riempe lista di ip nome e stato
+        private static string GetMachineNameFromIPAddress(string ipAdress)
+        {
+            string machineName = string.Empty;
+            try
+            {
+                IPHostEntry hostEntry = Dns.GetHostEntry(ipAdress);
+                machineName = hostEntry.HostName;
+            }
+            catch (Exception ex)
+            {
+                machineName = ex.ToString();
+            }
+            return machineName;
+        }
+
     }
 }
 
