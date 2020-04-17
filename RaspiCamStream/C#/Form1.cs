@@ -180,6 +180,7 @@ namespace RaspiCamStream
         {
             sendmessage("C");
         }
+        #endregion
 		private void Pb_exit_Click(object sender, EventArgs e)
         {
             if(streamexist == 1)
@@ -217,38 +218,9 @@ namespace RaspiCamStream
             ListView_ip.Visible = true;
             Btn_go.Visible = true;
         }
-		private void pictureBox6_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Stream.Stop();
-        }
-
-        private void pictureBox7_Click(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Normal)
-            {
-                this.WindowState = FormWindowState.Minimized;
-            }
-            if (this.WindowState == FormWindowState.Maximized)
-            {
-                this.WindowState = FormWindowState.Normal;
-            }
-        }
-
-        private void pictureBox8_Click(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Minimized)
-            {
-                this.WindowState = FormWindowState.Normal;
-            }
-            if (this.WindowState == FormWindowState.Normal)
-            {
-                this.WindowState = FormWindowState.Maximized;
-            }
-        }
     }
 }
-#endregion
+
 
 
 
