@@ -19,14 +19,17 @@ namespace RaspiCamStream
 {
     public partial class Form1 : Form
     {
-        MJPEGStream Stream;
-        int streamexist = default(int);
+         MJPEGStream Stream;
+        private delegate void SafeCallDelegate(string ip, string nome, ListView listview);
+        private int numIp;
         string ip = default(string);
+        int streamexist = default(int);
 
         public Form1()
         {
             InitializeComponent();
             pictureBox1.Size = new Size(640, 480);
+            numIp = 0;
         }
 
         private void Btn_ip_Click(object sender, EventArgs e)
@@ -217,31 +220,29 @@ namespace RaspiCamStream
             Btn_go.Visible = true;
         }
 
-        private void bunifuThinButton22_Click(object sender, EventArgs e)
+       private void Btn_go_Click(object sender, EventArgs e)
         {
-            listView1.Items.Clear();
+            if (!Regex.IsMatch(Txt_Search_ip.Text, @"\b\d{1,3}\.\d{1,3}\.\d{1,3}\b"))
+            {
+                Label_Search_ip.Text = "indirizzo non valido";
+                Txt_Search_ip.Clear();
+                return;
+            }
+            if (Label_Search_ip.Text != "")
+                Label_Search_ip.Text = "";
 
-            string ipt = textBox1.Text;
+            ListView_ip.Items.Clear();
+
+            string ipt = Txt_Search_ip.Text;
 
             int i = 1;
-            if (textBox2.Text != "")
-                i = int.Parse(textBox2.Text);
+            int x = 256;
 
-            TxB2 = i;
-
-            int x = 0;
-            if (textBox3.Text != "")
-                x = int.Parse(textBox3.Text) + 1;
-            else
-                x = 256;
-
-            TxB3 = x;
-
-            Thread thread = new Thread(new ThreadStart(delegate { loopIp(ipt, i, x, listView1); }));
+            Thread thread = new Thread(new ThreadStart(delegate { loopIp(ipt, i, x, ListView_ip); }));
 
             thread.Start();
-          
         }
+
         private void ControlloPassaggio(string ip, string nome, ListView listview)
         {
             if (listview.InvokeRequired)
@@ -251,12 +252,11 @@ namespace RaspiCamStream
             }
             else
             {
-               
-                listview.Items.Add(new ListViewItem(new string[] { ip, GetMachineNameFromIPAddress(ip), "online" }));
+                listview.Items.Add(new ListViewItem(new string[] { ip, GetMachineNameFromIPAddress(ip), "Online" }));
                 numIp++;
-
             }
         }// controlla il passaggio da Thread a UI
+
         private static void loopIp(string ipt, int i, int x, ListView listview)
         {
             while (i < x)
@@ -274,6 +274,7 @@ namespace RaspiCamStream
                 i++;
             }
         } // riempe lista di ip nome e stato
+
         private static string GetMachineNameFromIPAddress(string ipAdress)
         {
             string machineName = string.Empty;
@@ -287,8 +288,7 @@ namespace RaspiCamStream
                 machineName = ex.ToString();
             }
             return machineName;
-        }
-
+        } // da ip a nome host
     }
 }
 
