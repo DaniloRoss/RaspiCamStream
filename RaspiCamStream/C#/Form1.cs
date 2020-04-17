@@ -26,8 +26,6 @@ namespace RaspiCamStream
         public Form1()
         {
             InitializeComponent();
-            Stream = new MJPEGStream("inserire ip");
-            Stream.NewFrame += Stream_NewFrame;
             pictureBox1.Size = new Size(640, 480);
         }
 
