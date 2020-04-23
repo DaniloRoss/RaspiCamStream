@@ -482,17 +482,17 @@
             this.Label_Search_ip.Size = new System.Drawing.Size(0, 13);
             this.Label_Search_ip.TabIndex = 21;
             // 
-            // Btn_screen
+            // button1
             // 
-            this.Btn_screen.BackColor = System.Drawing.Color.Lime;
-            this.Btn_screen.ForeColor = System.Drawing.SystemColors.Window;
-            this.Btn_screen.Location = new System.Drawing.Point(746, 141);
-            this.Btn_screen.Name = "Btn_screen";
-            this.Btn_screen.Size = new System.Drawing.Size(198, 45);
-            this.Btn_screen.TabIndex = 22;
-            this.Btn_screen.Text = "Cattura Immagine";
-            this.Btn_screen.UseVisualStyleBackColor = false;
-            this.Btn_screen.Click += new System.EventHandler(this.Btn_screen_Click);
+            this.button1.BackColor = System.Drawing.Color.Lime;
+            this.button1.ForeColor = System.Drawing.SystemColors.Window;
+            this.button1.Location = new System.Drawing.Point(746, 141);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(198, 45);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "Cattura Immagine";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
