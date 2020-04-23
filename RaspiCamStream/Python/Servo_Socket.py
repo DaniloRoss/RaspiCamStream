@@ -131,7 +131,7 @@ while True:
 	clientConnection,clientAddress = server.accept()
 	print ("connected client: ", clientAddress)
 	data = clientConnection.recv(1024)
-	data = "T"
+	#data = "T"
 	if data == "T":
 		trackSERVO()
 	else:	
