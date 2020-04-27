@@ -5,6 +5,7 @@ import curses
 import curses.wrapper
 import cv2
 import numpy as np
+import os
 
 HOST = ''
 PASSO = 5
@@ -16,11 +17,6 @@ PINH = 15
 pi = pigpio.pi()
 pi.set_mode(PINV, pigpio.OUTPUT)
 pi.set_mode(PINH, pigpio.OUTPUT)
-
-def center():
-	pi.set_servo_pulsewidth(PINH, 1500)
-	pi.set_servo_pulsewidth(PINV, 1500)
-	time.sleep(1)
 
 def moveSERVO(direction):
 	global PWV
@@ -57,17 +53,9 @@ def moveSERVO(direction):
 		PWH = PWH - PASSO
 		
 def trackSERVO():
+	moveSERVO("C")
 	
-	center()
-	cap = cv2.VideoCapture(0)
-
-	cap.set(3, 480)
-	cap.set(4, 320)
-	_, frame = cap.read()
-	rows, cols, _ = frame.shape
-
-	xc = int(cols / 2)
-	yc = int(rows / 2)
+	threshold = 30
 	x = 0
 	y = 0 
 	w = 0
@@ -75,49 +63,75 @@ def trackSERVO():
 	x_medium = 0
 	y_medium = 0
 	
+	face_cascade = cv2.CascadeClassifier('/home/pi/opencv/data/haarcascades/haarcascade_frontalface_default.xml')
+	eye_cascade = cv2.CascadeClassifier('/home/pi/opencv/data/haarcascades/haarcascade_eye.xml')
+	
 	while True:
-		_, frame = cap.read()
-		hsv_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+
+		frames = os.listdir("/home/pi/frames/")
+		frame = cv2.imread("/home/pi/frames/" + frames[0])
 		
-		# red color
-		low_red = np.array([161, 155, 84])
-		high_red = np.array([179, 255, 255])
-		red_mask = cv2.inRange(hsv_frame, low_red, high_red)
-		contours, _ = cv2.findContours(red_mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-		contours = sorted(contours, key=lambda x:cv2.contourArea(x), reverse=True)
-		
-		for cnt in contours:
-			(x, y, w, h) = cv2.boundingRect(cnt)
+		if not frame is None:
+			height, width, _ = frame.shape	
+
+			xc = width/2
+			yc = height/2
 			
-			x_medium = int(x + w / 2)
-			y_medium = int(y + h / 2)
-			break
+			if 1 == 0:
+				hsv_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+				# red color
+				low_red = np.array([161, 155, 84])
+				high_red = np.array([179, 255, 255])
+				red_mask = cv2.inRange(hsv_frame, low_red, high_red)
+				contours, _ = cv2.findContours(red_mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+				contours = sorted(contours, key=lambda x:cv2.contourArea(x), reverse=True)
+			
+				for cnt in contours:
+					(x, y, w, h) = cv2.boundingRect(cnt)
+					
+					x_medium = int(x + w / 2)
+					y_medium = int(y + h / 2)
+					break
+				
+				cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
+				cv2.rectangle(frame, (x_medium, y_medium), (x_medium +3, y_medium+3), (255, 0, 0), 2)
+
+			else:
+				
+				gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+				faces = face_cascade.detectMultiScale(gray, 1.3, 5)
+				for (x, y, w, h) in faces:
+					frame = cv2.rectangle(frame, (x,y), (x+w,y+h), (255,0,0), 2)
+					roi_gray = gray[y:y+h, x:x+w]
+					roi_color = frame[y:y+h, x:x+w]
+					eyes = eye_cascade.detectMultiScale(roi_gray)
+					for (ex, ey, ew, eh) in eyes:
+						cv2.rectangle(roi_color, (ex,ey), (ex+ew, ey+eh), (0,255,0), 2)
+					x_medium = int(x + w / 2)
+					y_medium = int(y + h / 2)
+				
+			cv2.imshow("Frame", frame)
+			
+			if x_medium > xc and abs(x_medium - xc) > threshold:
+				moveSERVO("R")
+			if x_medium < xc and abs(x_medium - xc) > threshold:
+				moveSERVO("L")
+			if y_medium > yc and abs(y_medium - yc) > threshold:
+				moveSERVO("D")
+			if y_medium < yc and abs(y_medium - yc) > threshold:
+				moveSERVO("U")	
 		
-		cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
-		cv2.rectangle(frame, (x_medium, y_medium), (x_medium +3, y_medium+3), (255, 0, 0), 2)
 		
-		cv2.imshow("Frame", frame)
+			key = cv2.waitKey(1)
 		
-		if x_medium > xc:
-			moveSERVO("L")
-		if x_medium < xc:
-			moveSERVO("R")
-		if y_medium > yc:
-			moveSERVO("U")
-		if y_medium < yc:
-			moveSERVO("D")	
-		
-		
-		key = cv2.waitKey(1)
-		
-		if key == 27:
-			break
+			if key == 27:
+				break
 		
 		
 	cap.release()
 	cv2.destroyAllWindows()
 
-center()
+moveSERVO("C")
 
 #socket
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
