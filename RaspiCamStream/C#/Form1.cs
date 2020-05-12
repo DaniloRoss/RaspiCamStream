@@ -289,6 +289,16 @@ namespace RaspiCamStream
             }
             return machineName;
         } // da ip a nome host
+
+        private void button2_Click(object sender, EventArgs e) //pulsante da host a ip
+        {
+            string HostName = textBox4.Text;
+            IPAddress[] ipaddress = Dns.GetHostAddresses(HostName);
+            foreach (IPAddress ip4 in ipaddress.Where(ip => ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork))
+            {
+                label1.Text = $"l' ip da nome è: {ip4.ToString()}";
+            }
+        }
     }
 }
 
