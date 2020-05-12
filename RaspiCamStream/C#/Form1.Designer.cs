@@ -203,39 +203,42 @@
             this.Rb_detection.AutoSize = true;
             this.Rb_detection.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Rb_detection.ForeColor = System.Drawing.Color.Transparent;
-            this.Rb_detection.Location = new System.Drawing.Point(37, 91);
+            this.Rb_detection.Location = new System.Drawing.Point(1034, 354);
             this.Rb_detection.Name = "Rb_detection";
             this.Rb_detection.Size = new System.Drawing.Size(98, 21);
             this.Rb_detection.TabIndex = 28;
             this.Rb_detection.TabStop = true;
             this.Rb_detection.Text = "Detection";
             this.Rb_detection.UseVisualStyleBackColor = true;
+            this.Rb_detection.Click += new System.EventHandler(this.Rb_detection_Click);
             // 
             // Rb_tracking
             // 
             this.Rb_tracking.AutoSize = true;
             this.Rb_tracking.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Rb_tracking.ForeColor = System.Drawing.Color.Transparent;
-            this.Rb_tracking.Location = new System.Drawing.Point(37, 64);
+            this.Rb_tracking.Location = new System.Drawing.Point(1034, 327);
             this.Rb_tracking.Name = "Rb_tracking";
             this.Rb_tracking.Size = new System.Drawing.Size(92, 21);
             this.Rb_tracking.TabIndex = 27;
             this.Rb_tracking.TabStop = true;
             this.Rb_tracking.Text = "Tracking";
             this.Rb_tracking.UseVisualStyleBackColor = true;
+            this.Rb_tracking.Click += new System.EventHandler(this.Rb_tracking_Click);
             // 
             // Rb_normal
             // 
             this.Rb_normal.AutoSize = true;
             this.Rb_normal.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Rb_normal.ForeColor = System.Drawing.Color.Transparent;
-            this.Rb_normal.Location = new System.Drawing.Point(37, 37);
+            this.Rb_normal.Location = new System.Drawing.Point(1034, 300);
             this.Rb_normal.Name = "Rb_normal";
             this.Rb_normal.Size = new System.Drawing.Size(80, 21);
             this.Rb_normal.TabIndex = 26;
             this.Rb_normal.TabStop = true;
             this.Rb_normal.Text = "Normal";
             this.Rb_normal.UseVisualStyleBackColor = true;
+            this.Rb_normal.Click += new System.EventHandler(this.Rb_normal_Click);
             // 
             // Btn_screen
             // 
