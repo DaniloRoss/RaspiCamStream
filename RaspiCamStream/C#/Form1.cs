@@ -290,13 +290,36 @@ namespace RaspiCamStream
             return machineName;
         } // da ip a nome host
 
-        private void button2_Click(object sender, EventArgs e) //pulsante da host a ip
+        private void button2_Click(object sender, EventArgs e) //pulsante da host a ip textBoxHostIP
         {
-            string HostName = textBox4.Text;
-            IPAddress[] ipaddress = Dns.GetHostAddresses(HostName);
-            foreach (IPAddress ip4 in ipaddress.Where(ip => ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork))
+            if (string.IsNullOrEmpty(textBoxHostIP.Text) == true)
             {
-                label1.Text = $"l' ip da nome è: {ip4.ToString()}";
+                MessageBox.Show("inserire un valore come hostname");
+                return;
+            }
+            string HostName = textBoxHostIP.Text;
+
+            IPAddress[] ipaddress = new IPAddress[100];
+            try
+            {
+                ipaddress = Dns.GetHostAddresses(HostName);
+            }
+            catch (Exception a)
+            {
+                LabelIP.Text = $"{a}, riprova";
+            }
+
+            try
+            {
+                foreach (IPAddress ip4 in ipaddress.Where(ip => ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork))
+                {
+                    LabelIP.Text = $"l' ip da nome è: {ip4.ToString()}";
+                }
+            }
+            catch (NullReferenceException a)
+            {
+                LabelIP.Text = $"l'hostname non esiste";
+                return;
             }
         }
     }
