@@ -76,23 +76,7 @@ namespace RaspiCamStream
             {
 
             }
-        }
-
-        private void Btn_stream_Click(object sender, EventArgs e)  //AVVIO STREAM
-        {
-            if (Stream.IsRunning == true)
-            {
-                Stream.Stop();
-                Btn_stream.Normalcolor = Color.DarkGreen;
-                Btn_stream.OnHovercolor = Color.Lime;
-                Btn_stream.Iconimage = new Bitmap("play.png");
-                return;
-            }
-            Stream.Start();
-            Btn_stream.Normalcolor = Color.DarkRed;
-            Btn_stream.OnHovercolor = Color.Red;
-            Btn_stream.Iconimage = new Bitmap("stop.png");
-        }
+        }      
 
         private void Btn_stream_Click(object sender, EventArgs e)  //AVVIO O PAUSA STREAMING
         {
