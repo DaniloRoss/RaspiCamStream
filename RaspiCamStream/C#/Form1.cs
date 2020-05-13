@@ -241,54 +241,7 @@ namespace RaspiCamStream
             Thread thread = new Thread(new ThreadStart(delegate { loopIp(ipt, i, x, ListView_ip); }));
 
             thread.Start();
-        }
-
-        private void ControlloPassaggio(string ip, string nome, ListView listview)
-        {
-            if (listview.InvokeRequired)
-            {
-                var d = new SafeCallDelegate(ControlloPassaggio);
-                listview.Invoke(d, new object[] { ip, nome, listview });
-            }
-            else
-            {
-                listview.Items.Add(new ListViewItem(new string[] { ip, GetMachineNameFromIPAddress(ip), "Online" }));
-                numIp++;
-            }
-        }// controlla il passaggio da Thread a UI
-
-        private static void loopIp(string ipt, int i, int x, ListView listview)
-        {
-            while (i < x)
-            {
-                string ip = String.Concat(ipt, ".", i);
-
-                Ping myPing = new Ping();
-                PingReply reply = myPing.Send(ip, 900);
-
-                if (reply.Status == IPStatus.Success)
-                {
-                    Form1 foo = new Form1();
-                    foo.ControlloPassaggio(ip, GetMachineNameFromIPAddress(ip).ToString(), listview);
-                }
-                i++;
-            }
-        } // riempe lista di ip nome e stato
-
-        private static string GetMachineNameFromIPAddress(string ipAdress)
-        {
-            string machineName = string.Empty;
-            try
-            {
-                IPHostEntry hostEntry = Dns.GetHostEntry(ipAdress);
-                machineName = hostEntry.HostName;
-            }
-            catch (Exception ex)
-            {
-                machineName = ex.ToString();
-            }
-            return machineName;
-        } // da ip a nome host
+        }       
 
         private void button2_Click(object sender, EventArgs e) //pulsante da host a ip textBoxHostIP
         {
@@ -311,7 +264,7 @@ namespace RaspiCamStream
 
             try
             {
-                foreach (IPAddress ip4 in ipaddress.Where(ip => ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork))
+                foreach (IPAddress ip4 in ipaddress.Where(ip => ip.AddressFamily == AddressFamily.InterNetwork))
                 {
                     LabelIP.Text = $"l' ip da nome è: {ip4.ToString()}";
                 }
