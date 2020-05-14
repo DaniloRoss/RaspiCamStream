@@ -293,13 +293,8 @@ namespace RaspiCamStream
         {
             
 
-            using (Bitmap bmp = new Bitmap(pictureBox1.ClientSize.Width,
-                               pictureBox1.ClientSize.Height))
-            {
-                pictureBox1.DrawToBitmap(bmp, pictureBox1.ClientRectangle);
-                bmp.Save("Screenshot" + DateTime.Now.ToString("dd_MM_yyyy_hh_mm_ss")+".bmp");
-
-            }
+            Bitmap bmp = (Bitmap)pictureBox1.Image;
+			bmp.Save("Screenshot" + DateTime.Now.ToString("dd_MM_yyyy_hh_mm_ss") + ".bmp");
         }// Cattura schermo
     }
 }
