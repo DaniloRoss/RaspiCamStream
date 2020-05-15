@@ -38,8 +38,6 @@
             this.Pb_exit = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.Label_ip = new System.Windows.Forms.Label();
             this.Btn_ip = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,22 +47,27 @@
             this.Pb_right = new System.Windows.Forms.PictureBox();
             this.Pb_up = new System.Windows.Forms.PictureBox();
             this.Pb_down = new System.Windows.Forms.PictureBox();
+            this.Rb_detection = new System.Windows.Forms.RadioButton();
+            this.Rb_tracking = new System.Windows.Forms.RadioButton();
+            this.Rb_normal = new System.Windows.Forms.RadioButton();
             this.Btn_stream = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.label2 = new System.Windows.Forms.Label();
-            this.Btn_search = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.ListView_ip = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Txt_Search_ip = new System.Windows.Forms.TextBox();
-            this.Btn_go = new Bunifu.Framework.UI.BunifuThinButton2();
             this.Timer_up = new System.Windows.Forms.Timer(this.components);
             this.Timer_down = new System.Windows.Forms.Timer(this.components);
             this.Timer_right = new System.Windows.Forms.Timer(this.components);
             this.Timer_left = new System.Windows.Forms.Timer(this.components);
             this.Label_Search_ip = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Timer_tracking = new System.Windows.Forms.Timer(this.components);
+            this.Timer_face = new System.Windows.Forms.Timer(this.components);
+            this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.Txt_search = new System.Windows.Forms.TextBox();
+            this.Label_search = new System.Windows.Forms.Label();
+            this.Btn_go = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.Picturebox_colore = new System.Windows.Forms.PictureBox();
+            this.Btn_change = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.Btn_screenshot = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.bunifuThinButton21 = new Bunifu.Framework.UI.BunifuThinButton2();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_maximize)).BeginInit();
@@ -77,6 +80,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.Pb_right)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_up)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_down)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Picturebox_colore)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -87,6 +92,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(716, 625);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label1
             // 
@@ -158,8 +164,6 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.radioButton2);
-            this.panel3.Controls.Add(this.radioButton1);
             this.panel3.Controls.Add(this.Label_ip);
             this.panel3.Controls.Add(this.Btn_ip);
             this.panel3.Controls.Add(this.label3);
@@ -174,30 +178,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(716, 184);
             this.panel3.TabIndex = 10;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(17, 69);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(2);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(85, 17);
-            this.radioButton2.TabIndex = 24;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "radioButton2";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(17, 47);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(2);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(85, 17);
-            this.radioButton1.TabIndex = 23;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
-            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // Label_ip
             // 
@@ -300,6 +280,51 @@
             this.Pb_down.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Pb_down_MouseDown);
             this.Pb_down.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Pb_down_MouseUp);
             // 
+            // Rb_detection
+            // 
+            this.Rb_detection.AutoSize = true;
+            this.Rb_detection.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Rb_detection.ForeColor = System.Drawing.Color.Transparent;
+            this.Rb_detection.Location = new System.Drawing.Point(757, 284);
+            this.Rb_detection.Margin = new System.Windows.Forms.Padding(2);
+            this.Rb_detection.Name = "Rb_detection";
+            this.Rb_detection.Size = new System.Drawing.Size(80, 17);
+            this.Rb_detection.TabIndex = 28;
+            this.Rb_detection.TabStop = true;
+            this.Rb_detection.Text = "Detection";
+            this.Rb_detection.UseVisualStyleBackColor = true;
+            this.Rb_detection.Click += new System.EventHandler(this.Rb_detection_Click);
+            // 
+            // Rb_tracking
+            // 
+            this.Rb_tracking.AutoSize = true;
+            this.Rb_tracking.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Rb_tracking.ForeColor = System.Drawing.Color.Transparent;
+            this.Rb_tracking.Location = new System.Drawing.Point(757, 262);
+            this.Rb_tracking.Margin = new System.Windows.Forms.Padding(2);
+            this.Rb_tracking.Name = "Rb_tracking";
+            this.Rb_tracking.Size = new System.Drawing.Size(75, 17);
+            this.Rb_tracking.TabIndex = 27;
+            this.Rb_tracking.TabStop = true;
+            this.Rb_tracking.Text = "Tracking";
+            this.Rb_tracking.UseVisualStyleBackColor = true;
+            this.Rb_tracking.Click += new System.EventHandler(this.Rb_tracking_Click);
+            // 
+            // Rb_normal
+            // 
+            this.Rb_normal.AutoSize = true;
+            this.Rb_normal.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Rb_normal.ForeColor = System.Drawing.Color.Transparent;
+            this.Rb_normal.Location = new System.Drawing.Point(757, 240);
+            this.Rb_normal.Margin = new System.Windows.Forms.Padding(2);
+            this.Rb_normal.Name = "Rb_normal";
+            this.Rb_normal.Size = new System.Drawing.Size(64, 17);
+            this.Rb_normal.TabIndex = 26;
+            this.Rb_normal.TabStop = true;
+            this.Rb_normal.Text = "Normal";
+            this.Rb_normal.UseVisualStyleBackColor = true;
+            this.Rb_normal.Click += new System.EventHandler(this.Rb_normal_Click);
+            // 
             // Btn_stream
             // 
             this.Btn_stream.Active = false;
@@ -338,120 +363,6 @@
             this.Btn_stream.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_stream.Click += new System.EventHandler(this.Btn_stream_Click);
             // 
-            // bunifuDragControl1
-            // 
-            this.bunifuDragControl1.Fixed = true;
-            this.bunifuDragControl1.Horizontal = true;
-            this.bunifuDragControl1.TargetControl = this.panel1;
-            this.bunifuDragControl1.Vertical = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(705, 249);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(273, 20);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Inserire Indirizzo rete (primi 3 membri)";
-            this.label2.Visible = false;
-            // 
-            // Btn_search
-            // 
-            this.Btn_search.ActiveBorderThickness = 1;
-            this.Btn_search.ActiveCornerRadius = 20;
-            this.Btn_search.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.Btn_search.ActiveForecolor = System.Drawing.Color.White;
-            this.Btn_search.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.Btn_search.BackColor = System.Drawing.Color.Black;
-            this.Btn_search.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn_search.BackgroundImage")));
-            this.Btn_search.ButtonText = "Cerca Dipositivi";
-            this.Btn_search.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btn_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_search.ForeColor = System.Drawing.Color.Green;
-            this.Btn_search.IdleBorderThickness = 1;
-            this.Btn_search.IdleCornerRadius = 20;
-            this.Btn_search.IdleFillColor = System.Drawing.Color.Black;
-            this.Btn_search.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.Btn_search.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.Btn_search.Location = new System.Drawing.Point(746, 184);
-            this.Btn_search.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.Btn_search.Name = "Btn_search";
-            this.Btn_search.Size = new System.Drawing.Size(198, 44);
-            this.Btn_search.TabIndex = 13;
-            this.Btn_search.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Btn_search.Click += new System.EventHandler(this.Btn_search_Click);
-            // 
-            // ListView_ip
-            // 
-            this.ListView_ip.BackColor = System.Drawing.Color.Black;
-            this.ListView_ip.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
-            this.ListView_ip.ForeColor = System.Drawing.Color.White;
-            this.ListView_ip.HideSelection = false;
-            this.ListView_ip.Location = new System.Drawing.Point(667, 328);
-            this.ListView_ip.MultiSelect = false;
-            this.ListView_ip.Name = "ListView_ip";
-            this.ListView_ip.Size = new System.Drawing.Size(336, 321);
-            this.ListView_ip.TabIndex = 14;
-            this.ListView_ip.UseCompatibleStateImageBehavior = false;
-            this.ListView_ip.View = System.Windows.Forms.View.Details;
-            this.ListView_ip.Visible = false;
-            this.ListView_ip.Click += new System.EventHandler(this.ListView_ip_Click);
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "IP";
-            this.columnHeader1.Width = 143;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Nome";
-            this.columnHeader2.Width = 185;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Status";
-            this.columnHeader3.Width = 122;
-            // 
-            // Txt_Search_ip
-            // 
-            this.Txt_Search_ip.Location = new System.Drawing.Point(710, 286);
-            this.Txt_Search_ip.Name = "Txt_Search_ip";
-            this.Txt_Search_ip.Size = new System.Drawing.Size(181, 20);
-            this.Txt_Search_ip.TabIndex = 15;
-            this.Txt_Search_ip.Visible = false;
-            // 
-            // Btn_go
-            // 
-            this.Btn_go.ActiveBorderThickness = 1;
-            this.Btn_go.ActiveCornerRadius = 20;
-            this.Btn_go.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.Btn_go.ActiveForecolor = System.Drawing.Color.White;
-            this.Btn_go.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.Btn_go.BackColor = System.Drawing.Color.Black;
-            this.Btn_go.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn_go.BackgroundImage")));
-            this.Btn_go.ButtonText = "Go";
-            this.Btn_go.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btn_go.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_go.ForeColor = System.Drawing.Color.Green;
-            this.Btn_go.IdleBorderThickness = 1;
-            this.Btn_go.IdleCornerRadius = 20;
-            this.Btn_go.IdleFillColor = System.Drawing.Color.Black;
-            this.Btn_go.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.Btn_go.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.Btn_go.Location = new System.Drawing.Point(898, 274);
-            this.Btn_go.Margin = new System.Windows.Forms.Padding(5);
-            this.Btn_go.Name = "Btn_go";
-            this.Btn_go.Size = new System.Drawing.Size(92, 46);
-            this.Btn_go.TabIndex = 18;
-            this.Btn_go.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Btn_go.Visible = false;
-            this.Btn_go.Click += new System.EventHandler(this.Btn_go_Click);
-            // 
             // Timer_up
             // 
             this.Timer_up.Interval = 1;
@@ -476,23 +387,175 @@
             // 
             this.Label_Search_ip.AutoSize = true;
             this.Label_Search_ip.ForeColor = System.Drawing.Color.Red;
-            this.Label_Search_ip.Location = new System.Drawing.Point(773, 274);
+            this.Label_Search_ip.Location = new System.Drawing.Point(754, 271);
             this.Label_Search_ip.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Label_Search_ip.Name = "Label_Search_ip";
             this.Label_Search_ip.Size = new System.Drawing.Size(0, 13);
             this.Label_Search_ip.TabIndex = 21;
             // 
-            // button1
+            // Timer_tracking
             // 
-            this.button1.BackColor = System.Drawing.Color.Lime;
-            this.button1.ForeColor = System.Drawing.SystemColors.Window;
-            this.button1.Location = new System.Drawing.Point(746, 141);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(198, 45);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "Cattura Immagine";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Timer_tracking.Interval = 10;
+            this.Timer_tracking.Tick += new System.EventHandler(this.Timer_tracking_Tick);
+            // 
+            // Timer_face
+            // 
+            this.Timer_face.Interval = 10;
+            this.Timer_face.Tick += new System.EventHandler(this.Timer_face_Tick);
+            // 
+            // bunifuDragControl1
+            // 
+            this.bunifuDragControl1.Fixed = true;
+            this.bunifuDragControl1.Horizontal = true;
+            this.bunifuDragControl1.TargetControl = this.panel1;
+            this.bunifuDragControl1.Vertical = true;
+            // 
+            // Txt_search
+            // 
+            this.Txt_search.Location = new System.Drawing.Point(829, 170);
+            this.Txt_search.Margin = new System.Windows.Forms.Padding(2);
+            this.Txt_search.Name = "Txt_search";
+            this.Txt_search.Size = new System.Drawing.Size(116, 20);
+            this.Txt_search.TabIndex = 23;
+            // 
+            // Label_search
+            // 
+            this.Label_search.AutoSize = true;
+            this.Label_search.ForeColor = System.Drawing.SystemColors.Control;
+            this.Label_search.Location = new System.Drawing.Point(814, 206);
+            this.Label_search.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Label_search.Name = "Label_search";
+            this.Label_search.Size = new System.Drawing.Size(0, 13);
+            this.Label_search.TabIndex = 24;
+            // 
+            // Btn_go
+            // 
+            this.Btn_go.ActiveBorderThickness = 1;
+            this.Btn_go.ActiveCornerRadius = 20;
+            this.Btn_go.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.Btn_go.ActiveForecolor = System.Drawing.Color.White;
+            this.Btn_go.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.Btn_go.BackColor = System.Drawing.Color.Black;
+            this.Btn_go.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn_go.BackgroundImage")));
+            this.Btn_go.ButtonText = "Go";
+            this.Btn_go.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_go.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_go.ForeColor = System.Drawing.Color.Green;
+            this.Btn_go.IdleBorderThickness = 1;
+            this.Btn_go.IdleCornerRadius = 20;
+            this.Btn_go.IdleFillColor = System.Drawing.Color.Black;
+            this.Btn_go.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.Btn_go.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.Btn_go.Location = new System.Drawing.Point(748, 158);
+            this.Btn_go.Margin = new System.Windows.Forms.Padding(5);
+            this.Btn_go.Name = "Btn_go";
+            this.Btn_go.Size = new System.Drawing.Size(67, 40);
+            this.Btn_go.TabIndex = 29;
+            this.Btn_go.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Btn_go.Click += new System.EventHandler(this.Btn_go_Click);
+            // 
+            // Picturebox_colore
+            // 
+            this.Picturebox_colore.Location = new System.Drawing.Point(843, 240);
+            this.Picturebox_colore.Margin = new System.Windows.Forms.Padding(2);
+            this.Picturebox_colore.Name = "Picturebox_colore";
+            this.Picturebox_colore.Size = new System.Drawing.Size(59, 61);
+            this.Picturebox_colore.TabIndex = 30;
+            this.Picturebox_colore.TabStop = false;
+            // 
+            // Btn_change
+            // 
+            this.Btn_change.ActiveBorderThickness = 1;
+            this.Btn_change.ActiveCornerRadius = 20;
+            this.Btn_change.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.Btn_change.ActiveForecolor = System.Drawing.Color.White;
+            this.Btn_change.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.Btn_change.BackColor = System.Drawing.Color.Black;
+            this.Btn_change.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn_change.BackgroundImage")));
+            this.Btn_change.ButtonText = "Cambia Colore";
+            this.Btn_change.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_change.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_change.ForeColor = System.Drawing.Color.Green;
+            this.Btn_change.IdleBorderThickness = 1;
+            this.Btn_change.IdleCornerRadius = 20;
+            this.Btn_change.IdleFillColor = System.Drawing.Color.Black;
+            this.Btn_change.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.Btn_change.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.Btn_change.Location = new System.Drawing.Point(902, 235);
+            this.Btn_change.Margin = new System.Windows.Forms.Padding(5);
+            this.Btn_change.Name = "Btn_change";
+            this.Btn_change.Size = new System.Drawing.Size(67, 72);
+            this.Btn_change.TabIndex = 31;
+            this.Btn_change.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Btn_change.Click += new System.EventHandler(this.Btn_change_Click);
+            // 
+            // Btn_screenshot
+            // 
+            this.Btn_screenshot.ActiveBorderThickness = 1;
+            this.Btn_screenshot.ActiveCornerRadius = 20;
+            this.Btn_screenshot.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.Btn_screenshot.ActiveForecolor = System.Drawing.Color.White;
+            this.Btn_screenshot.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.Btn_screenshot.BackColor = System.Drawing.Color.Black;
+            this.Btn_screenshot.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn_screenshot.BackgroundImage")));
+            this.Btn_screenshot.ButtonText = "Screenshot";
+            this.Btn_screenshot.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_screenshot.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_screenshot.ForeColor = System.Drawing.Color.Green;
+            this.Btn_screenshot.IdleBorderThickness = 1;
+            this.Btn_screenshot.IdleCornerRadius = 20;
+            this.Btn_screenshot.IdleFillColor = System.Drawing.Color.Black;
+            this.Btn_screenshot.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.Btn_screenshot.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.Btn_screenshot.Location = new System.Drawing.Point(757, 317);
+            this.Btn_screenshot.Margin = new System.Windows.Forms.Padding(5);
+            this.Btn_screenshot.Name = "Btn_screenshot";
+            this.Btn_screenshot.Size = new System.Drawing.Size(212, 52);
+            this.Btn_screenshot.TabIndex = 32;
+            this.Btn_screenshot.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Btn_screenshot.Click += new System.EventHandler(this.Btn_screenshot_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(757, 477);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(212, 115);
+            this.pictureBox2.TabIndex = 33;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(754, 450);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 13);
+            this.label2.TabIndex = 34;
+            // 
+            // bunifuThinButton21
+            // 
+            this.bunifuThinButton21.ActiveBorderThickness = 1;
+            this.bunifuThinButton21.ActiveCornerRadius = 20;
+            this.bunifuThinButton21.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton21.ActiveForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton21.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton21.BackColor = System.Drawing.Color.Black;
+            this.bunifuThinButton21.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton21.BackgroundImage")));
+            this.bunifuThinButton21.ButtonText = "Inizia cattura video";
+            this.bunifuThinButton21.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuThinButton21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuThinButton21.ForeColor = System.Drawing.Color.Green;
+            this.bunifuThinButton21.IdleBorderThickness = 1;
+            this.bunifuThinButton21.IdleCornerRadius = 20;
+            this.bunifuThinButton21.IdleFillColor = System.Drawing.Color.Black;
+            this.bunifuThinButton21.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton21.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton21.Location = new System.Drawing.Point(757, 379);
+            this.bunifuThinButton21.Margin = new System.Windows.Forms.Padding(5);
+            this.bunifuThinButton21.Name = "bunifuThinButton21";
+            this.bunifuThinButton21.Size = new System.Drawing.Size(212, 52);
+            this.bunifuThinButton21.TabIndex = 35;
+            this.bunifuThinButton21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
@@ -501,13 +564,19 @@
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1015, 661);
             this.ControlBox = false;
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.Label_Search_ip);
-            this.Controls.Add(this.Btn_go);
-            this.Controls.Add(this.Txt_Search_ip);
-            this.Controls.Add(this.ListView_ip);
-            this.Controls.Add(this.Btn_search);
+            this.Controls.Add(this.bunifuThinButton21);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.Btn_screenshot);
+            this.Controls.Add(this.Btn_change);
+            this.Controls.Add(this.Picturebox_colore);
+            this.Controls.Add(this.Btn_go);
+            this.Controls.Add(this.Rb_detection);
+            this.Controls.Add(this.Label_search);
+            this.Controls.Add(this.Rb_tracking);
+            this.Controls.Add(this.Txt_search);
+            this.Controls.Add(this.Rb_normal);
+            this.Controls.Add(this.Label_Search_ip);
             this.Controls.Add(this.Btn_stream);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -528,6 +597,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.Pb_right)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_up)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_down)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Picturebox_colore)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -548,15 +619,6 @@
         private System.Windows.Forms.PictureBox Pb_maximize;
         private System.Windows.Forms.PictureBox Pb_minimize;
         private System.Windows.Forms.PictureBox Pb_exit;
-        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
-        private System.Windows.Forms.Label label2;
-        private Bunifu.Framework.UI.BunifuThinButton2 Btn_search;
-        private System.Windows.Forms.ListView ListView_ip;
-        private System.Windows.Forms.TextBox Txt_Search_ip;
-        private Bunifu.Framework.UI.BunifuThinButton2 Btn_go;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox Txt_ip;
         private System.Windows.Forms.Timer Timer_up;
@@ -566,9 +628,21 @@
         private System.Windows.Forms.Button Btn_ip;
         private System.Windows.Forms.Label Label_Search_ip;
         private System.Windows.Forms.Label Label_ip;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Timer Timer_tracking;
+        private System.Windows.Forms.Timer Timer_face;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
+        private System.Windows.Forms.RadioButton Rb_detection;
+        private System.Windows.Forms.RadioButton Rb_tracking;
+        private System.Windows.Forms.RadioButton Rb_normal;
+        private System.Windows.Forms.TextBox Txt_search;
+        private System.Windows.Forms.Label Label_search;
+        private Bunifu.Framework.UI.BunifuThinButton2 Btn_go;
+        private System.Windows.Forms.PictureBox Picturebox_colore;
+        private Bunifu.Framework.UI.BunifuThinButton2 Btn_change;
+        private Bunifu.Framework.UI.BunifuThinButton2 Btn_screenshot;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label2;
+        private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton21;
     }
 }
 
