@@ -331,84 +331,39 @@ namespace RaspiCamStream
 
             if (this.WindowState == FormWindowState.Maximized)
                 this.WindowState = FormWindowState.Normal;
-        }
+        } 
 
-        private void Btn_search_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //pulsante da host a ip textBoxHostIP
         {
-            label2.Visible = true;
-            Txt_Search_ip.Visible = true;
-            ListView_ip.Visible = true;
-            Btn_go.Visible = true;
-        }
-
-        private void Btn_go_Click(object sender, EventArgs e)
-        {
-            if (!Regex.IsMatch(Txt_Search_ip.Text, @"\b\d{1,3}\.\d{1,3}\.\d{1,3}\b"))
+            if (string.IsNullOrEmpty(textBoxHostIP.Text) == true)
             {
-                Label_Search_ip.Text = "indirizzo non valido";
-                Txt_Search_ip.Clear();
+                MessageBox.Show("inserire un valore come hostname");
                 return;
             }
-            if (Label_Search_ip.Text != "")          
-                Label_Search_ip.Text = "";
-            
-            ListView_ip.Items.Clear();
+            string HostName = textBoxHostIP.Text;
 
-            string ipt = Txt_Search_ip.Text;
-
-            int i = 1;
-            int x = 256;
-
-            Thread thread = new Thread(new ThreadStart(delegate { loopIp(ipt, i, x, ListView_ip); }));
-
-            thread.Start();            
-        }
-
-        private void ControlloPassaggio(string ip, string nome, ListView listview)
-        {
-            if (listview.InvokeRequired)
-            {
-                var d = new SafeCallDelegate(ControlloPassaggio);
-                listview.Invoke(d, new object[] { ip, nome, listview });
-            }
-            else
-            {
-                listview.Items.Add(new ListViewItem(new string[] { ip, GetMachineNameFromIPAddress(ip), "Online" }));
-                numIp++;
-            }
-        }// controlla il passaggio da Thread a UI
-
-        private static void loopIp(string ipt, int i, int x, ListView listview)
-        {
-            while (i < x)
-            {
-                string ip = String.Concat(ipt, ".", i);
-
-                Ping myPing = new Ping();
-                PingReply reply = myPing.Send(ip, 900);
-
-                if (reply.Status == IPStatus.Success)
-                {
-                    Form1 foo = new Form1();
-                    foo.ControlloPassaggio(ip, GetMachineNameFromIPAddress(ip).ToString(), listview);
-                }
-                i++;
-            }
-        } // riempe lista di ip nome e stato
-
-        private static string GetMachineNameFromIPAddress(string ipAdress)
-        {
-            string machineName = string.Empty;
+            IPAddress[] ipaddress = new IPAddress[100];
             try
             {
-                IPHostEntry hostEntry = Dns.GetHostEntry(ipAdress);
-                machineName = hostEntry.HostName;
+                ipaddress = Dns.GetHostAddresses(HostName);
             }
-            catch (Exception ex)
+            catch (Exception a)
             {
-                machineName = ex.ToString();
+                LabelIP.Text = $"{a}, riprova";
             }
-            return machineName;
-        } // da ip a nome host        
+
+            try
+            {
+                foreach (IPAddress ip4 in ipaddress.Where(ip => ip.AddressFamily == AddressFamily.InterNetwork))
+                {
+                    LabelIP.Text = $"l' ip da nome è: {ip4.ToString()}";
+                }
+            }
+            catch (NullReferenceException a)
+            {
+                LabelIP.Text = $"l'hostname non esiste";
+                return;
+            }
+        }
     }
 }
