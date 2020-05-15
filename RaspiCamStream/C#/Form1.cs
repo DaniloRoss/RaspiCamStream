@@ -389,8 +389,6 @@ namespace RaspiCamStream
                 Label_search.Text = $"l'hostname non esiste";
                 return;
             }
-        }
-
-        
+        }      
     }
 }
