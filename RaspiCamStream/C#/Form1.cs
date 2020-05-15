@@ -364,6 +364,19 @@ namespace RaspiCamStream
                 LabelIP.Text = $"l'hostname non esiste";
                 return;
             }
-        }
+            catch (Exception ex)
+            {
+                machineName = ex.ToString();
+            }
+            return machineName;
+        } // da ip a nome host
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+
+            Bitmap bmp = (Bitmap)pictureBox1.Image;
+			bmp.Save("Screenshot" + DateTime.Now.ToString("dd_MM_yyyy_hh_mm_ss") + ".bmp");
+        }// Cattura schermo
     }
 }
