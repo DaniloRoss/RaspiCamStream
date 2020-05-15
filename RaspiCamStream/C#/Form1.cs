@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Drawing;
 using System.Text;
-using System.Threading;
 using System.Net;
-using System.Net.NetworkInformation;
 using System.Windows.Forms;
 using System.Net.Sockets;
 using System.Text.RegularExpressions;
 using AForge.Video;
+using System.Linq;
 
 namespace RaspiCamStream
 {
@@ -25,16 +24,16 @@ namespace RaspiCamStream
             InitializeComponent();
             pictureBox1.Size = new Size(640, 480);
             pictureBox1.Enabled = false;
-            numIp = 0;
-        }
-
-        private void ListView_ip_Click(object sender, EventArgs e)
-        {
-            Txt_ip.Text = ListView_ip.SelectedItems[0].SubItems[0].Text;
+            Rb_normal.Checked = true;
+            Btn_change.Visible = false;
+            Rb_tracking.Enabled = false;
+            Rb_detection.Enabled = false;
+            Btn_screenshot.Enabled = false;
+            numIp = 0;           
         }
 
         private void Btn_ip_Click(object sender, EventArgs e)
-        {
+        {          
             if (!Regex.IsMatch(Txt_ip.Text, @"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b"))
             {
                 Label_ip.Text = "indirizzo non valido";
@@ -45,7 +44,7 @@ namespace RaspiCamStream
             if (Label_Search_ip.Text != "")
             {
                 Label_Search_ip.Text = "";
-            }                
+            }
 
             ip = Txt_ip.Text.ToString();
             Stream = new MJPEGStream($"http://{ip}:8080/?action=stream");
@@ -76,9 +75,9 @@ namespace RaspiCamStream
             {
 
             }
-        }      
+        }
 
-        private void Btn_stream_Click(object sender, EventArgs e)  //AVVIO O PAUSA STREAMING
+        private void Btn_stream_Click(object sender, EventArgs e)  //AVVIO STREAM
         {
             if (Stream.IsRunning == true)
             {
@@ -92,9 +91,11 @@ namespace RaspiCamStream
             Btn_stream.Normalcolor = Color.DarkRed;
             Btn_stream.OnHovercolor = Color.Red;
             Btn_stream.Iconimage = new Bitmap("stop.png");
+            Rb_tracking.Enabled = true;
+            Rb_detection.Enabled = true;
+            Btn_screenshot.Enabled = true;
         }
 
-        //SOCKET
         private void sendmessage(string msg)
         {
             TcpClient clientSocket = new TcpClient();
@@ -113,6 +114,7 @@ namespace RaspiCamStream
             }
             clientSocket.Close();
         }
+
         private void Draw_rectangle(string c)
         {
             // quando il modulo di face detection manda un set di coordinate, 
@@ -126,7 +128,7 @@ namespace RaspiCamStream
                 int h = int.Parse(coordinate[3]);
                 using (Graphics graphics = Graphics.FromImage(bitmap))
                 {
-                    using (Pen pen = new Pen(Color.Red, 5))
+                    using (Pen pen = new Pen(Color.Red, 2))
                     {
                         graphics.DrawRectangle(pen, x, y,  w,  h);
                     }
@@ -137,7 +139,7 @@ namespace RaspiCamStream
             {
 
             }
-        }       
+        }
 
         //CONTROLLI CAM-----------------------------------------------
         #region
@@ -205,6 +207,7 @@ namespace RaspiCamStream
         {
             sendmessage("C");
         }
+    
         private void Rb_normal_Click(object sender, EventArgs e)
         {
             if (Timer_face.Enabled == true)
@@ -214,9 +217,10 @@ namespace RaspiCamStream
             if (Timer_tracking.Enabled == true)
             {
                 Timer_tracking.Stop();
-                pictureBox1.Enabled = false;
+                Picturebox_colore.BackColor = Color.Transparent;                
             }
             sendmessage("Q");
+            Btn_change.Visible = false;
         }
 
         private void Rb_tracking_Click(object sender, EventArgs e)
@@ -224,9 +228,10 @@ namespace RaspiCamStream
             if (Timer_face.Enabled == true)
             {
                 Timer_face.Stop();
+                sendmessage("Q");
             }
             pictureBox1.Enabled = true;
-            //Timer_tracking.Start();
+            Btn_change.Visible = true;
         }
 
         private void Rb_detection_Click(object sender, EventArgs e)
@@ -234,9 +239,12 @@ namespace RaspiCamStream
             if (Timer_tracking.Enabled == true)
             {
                 Timer_tracking.Stop();
-                pictureBox1.Enabled = false;
+                Picturebox_colore.BackColor = Color.Transparent;
+                Btn_change.Visible = false;
+                sendmessage("Q");
             }
             Timer_face.Start();
+            Btn_change.Visible = false;
         }
 
         private void Timer_tracking_Tick(object sender, EventArgs e)
@@ -248,7 +256,51 @@ namespace RaspiCamStream
         {
             sendmessage("F");
         }
+
+        private void Btn_change_Click(object sender, EventArgs e)
+        {
+            Timer_tracking.Stop();
+            sendmessage("Q");
+            pictureBox1.Enabled = true;
+        }
         #endregion
+
+        private void Btn_screenshot_Click(object sender, EventArgs e)
+        {
+            Bitmap bmp = (Bitmap)pictureBox1.Image;
+            bmp.Save("Screenshot" + DateTime.Now.ToString("dd_MM_yyyy_hh_mm_ss") + ".bmp");
+        }
+
+        private void Pb_exit_Click(object sender, EventArgs e)
+        {
+            if (streamexist == 1)
+            {
+                if (Stream.IsRunning == true)
+                {
+                    Stream.Stop();
+                }
+            }
+
+            this.Close();
+        }
+
+        private void Pb_minimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void Pb_maximize_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
+                return;
+            }
+
+            if (this.WindowState == FormWindowState.Maximized)
+                this.WindowState = FormWindowState.Normal;
+        }       
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             var mouseEventArgs = e as MouseEventArgs;
@@ -264,6 +316,7 @@ namespace RaspiCamStream
                 int py = mouseEventArgs.Y;
                 var bmp = pictureBox1.Image as Bitmap;
                 Color target = bmp.GetPixel(px, py);
+                Picturebox_colore.BackColor = target;
 
                 //converte dalla scala di c# con h 0-360 s 0-1 e v 0-1
                 //alla scala di python con h 0-180 s 0-255 e v 0-255
@@ -301,46 +354,18 @@ namespace RaspiCamStream
                 sendmessage("T");
                 sendmessage(HSV);
                 Timer_tracking.Start();
+                pictureBox1.Enabled = false;
             }
         }
-        private void Pb_exit_Click(object sender, EventArgs e)
-        {
-            if(streamexist == 1)
-            {
-                if (Stream.IsRunning == true)
-                {
-                    Stream.Stop();
-                }
-            }
-            
-            this.Close();
-        }
 
-        private void Pb_minimize_Click(object sender, EventArgs e)
+        private void Btn_go_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;           
-        }
-
-        private void Pb_maximize_Click(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Normal)
-            {
-                this.WindowState = FormWindowState.Maximized;
-                return;
-            }                
-
-            if (this.WindowState == FormWindowState.Maximized)
-                this.WindowState = FormWindowState.Normal;
-        } 
-
-        private void button2_Click(object sender, EventArgs e) //pulsante da host a ip textBoxHostIP
-        {
-            if (string.IsNullOrEmpty(textBoxHostIP.Text) == true)
+            if (string.IsNullOrEmpty(Txt_search.Text) == true)
             {
                 MessageBox.Show("inserire un valore come hostname");
                 return;
             }
-            string HostName = textBoxHostIP.Text;
+            string HostName = Txt_search.Text;
 
             IPAddress[] ipaddress = new IPAddress[100];
             try
@@ -349,34 +374,23 @@ namespace RaspiCamStream
             }
             catch (Exception a)
             {
-                LabelIP.Text = $"{a}, riprova";
+                Label_search.Text = $"{a}, riprova";
             }
 
             try
             {
-                foreach (IPAddress ip4 in ipaddress.Where(ip => ip.AddressFamily == AddressFamily.InterNetwork))
+                foreach (IPAddress ip4 in ipaddress.Where(ip => ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork))
                 {
-                    LabelIP.Text = $"l' ip da nome è: {ip4.ToString()}";
+                    Label_search.Text = $"l' ip da nome è: {ip4.ToString()}";
                 }
             }
             catch (NullReferenceException a)
             {
-                LabelIP.Text = $"l'hostname non esiste";
+                Label_search.Text = $"l'hostname non esiste";
                 return;
             }
-            catch (Exception ex)
-            {
-                machineName = ex.ToString();
-            }
-            return machineName;
-        } // da ip a nome host
+        }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-
-            Bitmap bmp = (Bitmap)pictureBox1.Image;
-			bmp.Save("Screenshot" + DateTime.Now.ToString("dd_MM_yyyy_hh_mm_ss") + ".bmp");
-        }// Cattura schermo
+        
     }
 }
