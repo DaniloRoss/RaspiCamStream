@@ -66,6 +66,7 @@
             this.Picturebox_colore = new System.Windows.Forms.PictureBox();
             this.Btn_change = new Bunifu.Framework.UI.BunifuThinButton2();
             this.Btn_screenshot = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.btn_visible = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_maximize)).BeginInit();
@@ -162,6 +163,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btn_visible);
             this.panel3.Controls.Add(this.Label_ip);
             this.panel3.Controls.Add(this.Btn_ip);
             this.panel3.Controls.Add(this.label3);
@@ -530,6 +532,21 @@
             this.Btn_screenshot.Visible = false;
             this.Btn_screenshot.Click += new System.EventHandler(this.Btn_screenshot_Click);
             // 
+            // btn_visible
+            // 
+            this.btn_visible.BackColor = System.Drawing.Color.DarkGreen;
+            this.btn_visible.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_visible.ForeColor = System.Drawing.Color.White;
+            this.btn_visible.Location = new System.Drawing.Point(642, 60);
+            this.btn_visible.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_visible.Name = "btn_visible";
+            this.btn_visible.Size = new System.Drawing.Size(46, 35);
+            this.btn_visible.TabIndex = 23;
+            this.btn_visible.Text = "IP";
+            this.btn_visible.UseVisualStyleBackColor = false;
+            this.btn_visible.Visible = false;
+            this.btn_visible.Click += new System.EventHandler(this.btn_visible_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -609,6 +626,7 @@
         private System.Windows.Forms.PictureBox Picturebox_colore;
         private Bunifu.Framework.UI.BunifuThinButton2 Btn_change;
         private Bunifu.Framework.UI.BunifuThinButton2 Btn_screenshot;
+        private System.Windows.Forms.Button btn_visible;
     }
 }
 
