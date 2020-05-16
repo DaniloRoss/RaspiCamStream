@@ -60,6 +60,13 @@ namespace RaspiCamStream
             Stream.NewFrame += Stream_NewFrame;
             streamexist = 1;
             Txt_ip.Clear();
+            Pb_up.Visible = true; Pb_left.Visible = true; Pb_right.Visible = true; Pb_down.Visible = true; Pb_center.Visible = true;
+            Btn_stream.Visible = true; Btn_go.Visible = true; Rb_normal.Visible = true;
+            Rb_tracking.Visible = true;
+            Rb_detection.Visible = true;
+            Picturebox_colore.Visible = true;
+            Btn_change.Visible = true;
+            Btn_screenshot.Visible = true;
         }
 
         private void Stream_NewFrame(object sender, NewFrameEventArgs eventArgs)
