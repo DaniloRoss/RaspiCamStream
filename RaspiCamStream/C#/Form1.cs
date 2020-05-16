@@ -283,9 +283,53 @@ namespace RaspiCamStream
 
             this.Close();
         }
+        Point btn_streamax = new Point(1536, 149); Point btn_streammin = new Point(746, 86);
+        Point btn_gomax = new Point(1538, 221); Point btn_gomin = new Point(748, 158);
+        Point txt_searchmax = new Point(1619, 233); Point txt_searchmin = new Point(829, 170);
+        Point rbnormalmax = new Point(1547, 303); Point rbnormalmin = new Point(757, 240);
+        Point rbtrackramx = new Point(1547, 325); Point rbtrackmin = new Point(757, 262);
+        Point rbdetectmax = new Point(1547, 347); Point rbdetectmin = new Point(757, 284);
+        Point pbcoloremax = new Point(1633, 303); Point pbcolormin = new Point(843, 240);
+        Point btnchangemax = new Point(1692, 298); Point btnchangemin = new Point(902, 235);
+        Point btnscreenmax = new Point(1547, 418); Point btn_screenmin = new Point(757, 355);
+        Point pbupmax = new Point(507, 3); Point pbupmin = new Point(183, 0);
+        Point pbleftmax = new Point(443, 63); Point pbleftmin = new Point(119, 60);
+        Point pbrightmax = new Point(571, 63); Point pbrightmin = new Point(247, 60);
+        Point pbdownmax = new Point(507, 121); Point pbdownmin = new Point(183, 118);
+        Point pbcentermax = new Point(507, 63); Point pbcentermin = new Point(183, 60);
+        Point label3max = new Point(777, 26); Point label3min = new Point(453, 23);
+        Point txtipmax = new Point(737, 51); Point txtipmin = new Point(413, 48);
+        Point btnipmax = new Point(737, 83); Point btn_ipmin = new Point(413, 80);
+        Size panel2max = new Size(1500, 625); Size panel2min = new Size(716, 625);
+        Size pb1max = new Size(1500, 625); Size pb1min = new Size(716, 625);
 
         private void Pb_minimize_Click(object sender, EventArgs e)
         {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+                Btn_stream.Location = btn_streammin;
+                Btn_go.Location = btn_gomin;
+                Txt_search.Location = txt_searchmin;
+                Rb_normal.Location = rbnormalmin;
+                Rb_tracking.Location = rbtrackmin;
+                Rb_detection.Location = rbdetectmin;
+                Picturebox_colore.Location = pbcolormin;
+                Btn_change.Location = btnchangemin;
+                Btn_screenshot.Location = btn_screenmin;
+                Pb_up.Location = pbupmin;
+                Pb_left.Location = pbleftmin;
+                Pb_right.Location = pbrightmin;
+                Pb_down.Location = pbdownmin;
+                Pb_center.Location = pbcentermin;
+                label3.Location = label3min;
+                Txt_ip.Location = txtipmin;
+                Btn_ip.Location = btn_ipmin;
+                panel2.Size = panel2min;
+                pictureBox1.Size = pb1min;
+
+                return;
+            }
             this.WindowState = FormWindowState.Minimized;
         }
 
@@ -294,11 +338,55 @@ namespace RaspiCamStream
             if (this.WindowState == FormWindowState.Normal)
             {
                 this.WindowState = FormWindowState.Maximized;
+
+                Btn_stream.Location = btn_streamax;
+                Btn_go.Location = btn_gomax;
+                Txt_search.Location = txt_searchmax;
+                Rb_normal.Location = rbnormalmax;
+                Rb_tracking.Location = rbtrackramx;
+                Rb_detection.Location = rbdetectmax;
+                Picturebox_colore.Location = pbcoloremax;
+                Btn_change.Location = btnchangemax;
+                Btn_screenshot.Location = btnscreenmax;
+                Pb_up.Location = pbupmax;
+                Pb_left.Location = pbleftmax;
+                Pb_right.Location = pbrightmax;
+                Pb_down.Location = pbdownmax;
+                Pb_center.Location = pbcentermax;
+                label3.Location = label3max;
+                Txt_ip.Location = txtipmax;
+                Btn_ip.Location = btnipmax;
+                panel2.Size = panel2max;
+                pictureBox1.Size = pb1max;
+
                 return;
             }
 
             if (this.WindowState == FormWindowState.Maximized)
+            {
                 this.WindowState = FormWindowState.Normal;
+                Btn_stream.Location = btn_streammin;
+                Btn_go.Location = btn_gomin;
+                Txt_search.Location = txt_searchmin;
+                Rb_normal.Location = rbnormalmin;
+                Rb_tracking.Location = rbtrackmin;
+                Rb_detection.Location = rbdetectmin;
+                Picturebox_colore.Location = pbcolormin;
+                Btn_change.Location = btnchangemin;
+                Btn_screenshot.Location = btn_screenmin;
+                Pb_up.Location = pbupmin;
+                Pb_left.Location = pbleftmin;
+                Pb_right.Location = pbrightmin;
+                Pb_down.Location = pbdownmin;
+                Pb_center.Location = pbcentermin;
+                label3.Location = label3min;
+                Txt_ip.Location = txtipmin;
+                Btn_ip.Location = btn_ipmin;
+                panel2.Size = panel2min;
+                pictureBox1.Size = pb1min;
+            }
+
+            
         }       
 
         private void pictureBox1_Click(object sender, EventArgs e)
