@@ -283,6 +283,7 @@ namespace RaspiCamStream
 
             this.Close();
         }
+        //VARIABILI GLOBALI NECESSARIE PER LA RESPONSIVITA'
         Point btn_streamax = new Point(1536, 149); Point btn_streammin = new Point(746, 86);
         Point btn_gomax = new Point(1538, 221); Point btn_gomin = new Point(748, 158);
         Point txt_searchmax = new Point(1619, 233); Point txt_searchmin = new Point(829, 170);
@@ -302,7 +303,7 @@ namespace RaspiCamStream
         Point btnipmax = new Point(737, 83); Point btn_ipmin = new Point(413, 80);
         Size panel2max = new Size(1500, 625); Size panel2min = new Size(716, 625);
         Size pb1max = new Size(1500, 625); Size pb1min = new Size(716, 625);
-
+        //BOTTONE PER LA RIDUZIONE DELLA FINESTRA
         private void Pb_minimize_Click(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Maximized)
@@ -332,7 +333,7 @@ namespace RaspiCamStream
             }
             this.WindowState = FormWindowState.Minimized;
         }
-
+        //BOTTONE PER LA MASSIMIZZAZIONE DELLA FINESTRA
         private void Pb_maximize_Click(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Normal)
