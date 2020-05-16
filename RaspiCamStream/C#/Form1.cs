@@ -79,6 +79,11 @@ namespace RaspiCamStream
 
         private void Btn_stream_Click(object sender, EventArgs e)  //AVVIO STREAM
         {
+            if (string.IsNullOrEmpty(Txt_ip.Text) == true)
+            {
+                MessageBox.Show("inserire un indirizzo ip");
+                return;
+            }
             if (Stream.IsRunning == true)
             {
                 Stream.Stop();
@@ -94,6 +99,7 @@ namespace RaspiCamStream
             Rb_tracking.Enabled = true;
             Rb_detection.Enabled = true;
             Btn_screenshot.Enabled = true;
+            Btn_stream.Text = "Interrompi Stream";
         }
 
         private void sendmessage(string msg)
