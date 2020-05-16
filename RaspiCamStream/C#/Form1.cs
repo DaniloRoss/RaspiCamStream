@@ -491,6 +491,20 @@ namespace RaspiCamStream
                 Label_search.Text = $"l'hostname non esiste";
                 return;
             }
-        }      
+        }
+        private void btn_visible_Click(object sender, EventArgs e)
+        {
+            if (Btn_ip.Visible == true)
+            {
+                label3.Visible = false;
+                Txt_ip.Visible = false;
+                Btn_ip.Visible = false;
+                return;
+            }
+            label3.Visible = true;
+            Txt_ip.Visible = true;
+            Btn_ip.Visible = true;
+        }
+
     }
 }
