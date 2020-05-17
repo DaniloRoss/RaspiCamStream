@@ -78,27 +78,28 @@ namespace RaspiCamStream
 
         private void Btn_stream_Click(object sender, EventArgs e)  //AVVIO STREAM
         {
-            if (string.IsNullOrEmpty(Txt_ip.Text) == true)
-            {
-                MessageBox.Show("inserire un indirizzo ip");
-                return;
-            }
+
             if (Stream.IsRunning == true)
             {
                 Stream.Stop();
                 Btn_stream.Normalcolor = Color.DarkGreen;
                 Btn_stream.OnHovercolor = Color.Lime;
                 Btn_stream.Iconimage = new Bitmap("play.png");
+                Btn_stream.Text = "Riprendi stream";
                 return;
             }
-            Stream.Start();
-            Btn_stream.Normalcolor = Color.DarkRed;
-            Btn_stream.OnHovercolor = Color.Red;
-            Btn_stream.Iconimage = new Bitmap("stop.png");
-            Rb_tracking.Enabled = true;
-            Rb_detection.Enabled = true;
-            Btn_screenshot.Enabled = true;
-            Btn_stream.Text = "Interrompi Stream";
+            if (Stream.IsRunning == false)
+            {
+                Stream.Start();
+                Btn_stream.Normalcolor = Color.DarkRed;
+                Btn_stream.OnHovercolor = Color.Red;
+                Btn_stream.Iconimage = new Bitmap("stop.png");
+                Rb_tracking.Enabled = true;
+                Rb_detection.Enabled = true;
+                Btn_screenshot.Enabled = true;
+                Btn_stream.Text = "Interrompi stream";
+                return;
+            }
         }
 
         private void sendmessage(string msg)
@@ -557,6 +558,26 @@ namespace RaspiCamStream
             }
 
         }
+        private void btn_visible_Click(object sender, EventArgs e)
+        {
+            Pb_up.Visible = false; Pb_left.Visible = false; Pb_right.Visible = false; Pb_down.Visible = false; Pb_center.Visible = false;
+            Btn_stream.Visible = false; Btn_go.Visible = false; Rb_normal.Visible = false;
+            Rb_tracking.Visible = false;
+            Rb_detection.Visible = false;
+            Picturebox_colore.Visible = false;
+            Btn_change.Visible = false;
+            Btn_screenshot.Visible = false;
+            Btn_ip.Visible = true;
+            Txt_ip.Visible = true;
+            label3.Visible = true;
+            Btn_go.Visible = true;
+            Txt_search.Visible = true;
+            Label_search.Visible = true;
+            btn_visible.Visible = false;
 
+            Stream.Stop();
+            pictureBox1.Image = null;
+            return;
+        }
     }
 }
