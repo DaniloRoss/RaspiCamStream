@@ -48,7 +48,7 @@ namespace RaspiCamStream
             Stream = new MJPEGStream($"http://{ip}:8080/?action=stream");
             try
             {
-                sendmessage("Q");
+                sendmessage("C");
             }
             catch
             {
