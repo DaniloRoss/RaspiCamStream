@@ -46,15 +46,9 @@ namespace RaspiCamStream
 
             ip = Txt_ip.Text.ToString();
             Stream = new MJPEGStream($"http://{ip}:8080/?action=stream");
-            try
-            {
-                sendmessage("C");
-            }
-            catch
-            {
-                MessageBox.Show("L'IP inserito non è corretto o il raspberry pi non risponde, riprova");
-                return;
-            }
+
+            sendmessage("C");
+
             Stream.NewFrame += Stream_NewFrame;
             streamexist = 1;
             Txt_ip.Clear();
@@ -110,7 +104,15 @@ namespace RaspiCamStream
         private void sendmessage(string msg)
         {
             TcpClient clientSocket = new TcpClient();
-            clientSocket.Connect($"{ip}", 8081);
+            try
+            {
+                clientSocket.Connect($"{ip}", 8081);
+            }
+            catch (SocketException)
+            {
+                MessageBox.Show("L'IP inserito non è corretto o il raspberry pi non risponde, riprova");
+                return;
+            }
 
             NetworkStream serverStream = clientSocket.GetStream();
             byte[] outStream = Encoding.ASCII.GetBytes(msg);
