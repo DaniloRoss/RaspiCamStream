@@ -490,14 +490,14 @@ namespace RaspiCamStream
 
             using (StreamReader leggere = new StreamReader("hostnameListbox.txt"))
             {
-                listBx_hostNames.Items.Clear();
+                listBoxHostnames.Items.Clear();
                 if (new FileInfo("hostnameListbox.txt").Length == 0)
                 {
                     return;
                 }
                 while (leggere.EndOfStream == false)
                 {
-                    listBx_hostNames.Items.Add(leggere.ReadLine());
+                    listBoxHostnames.Items.Add(leggere.ReadLine());
                 }
             }
 
@@ -513,14 +513,22 @@ namespace RaspiCamStream
                 Label_search.Text = $"l'hostname non esiste";
                 return;
             }
+            Txt_search.Clear();
         }
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e) // listbox nomi host
         {
-            txtBoxHostname.Text = listBoxHostnames.GetItemText(listBoxHostnames.SelectedItem);
+            Txt_search.Text = listBoxHostnames.GetItemText(listBoxHostnames.SelectedItem);
         }
 
-        private void button3_Click(object sender, EventArgs e) // pulsante elimina cronologia
+        
+
+        private void listBoxHostnames_Click(object sender, EventArgs e)
+        {
+            Txt_search.Text = listBoxHostnames.SelectedItem.ToString();
+        }
+
+        private void Btn_eliminacronologia_Click(object sender, EventArgs e)
         {
             File.WriteAllText("hostnameListbox.txt", String.Empty);
             listBoxHostnames.Items.Clear();
