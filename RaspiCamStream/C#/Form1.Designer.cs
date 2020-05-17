@@ -38,6 +38,7 @@
             this.Pb_exit = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.Label_ip = new System.Windows.Forms.Label();
             this.Btn_ip = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -66,8 +67,12 @@
             this.Btn_change = new Bunifu.Framework.UI.BunifuThinButton2();
             this.Btn_screenshot = new Bunifu.Framework.UI.BunifuThinButton2();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.bunifuThinButton21 = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.btVideo = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.NomeSalvataggio = new System.Windows.Forms.TextBox();
+            this.btSalva = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.btElimina = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.TimerVideo = new System.Windows.Forms.Timer(this.components);
+            this.btZoom = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_maximize)).BeginInit();
@@ -75,6 +80,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Pb_exit)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_center)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_left)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_right)).BeginInit();
@@ -164,6 +170,8 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btZoom);
+            this.panel3.Controls.Add(this.trackBar1);
             this.panel3.Controls.Add(this.Label_ip);
             this.panel3.Controls.Add(this.Btn_ip);
             this.panel3.Controls.Add(this.label3);
@@ -179,11 +187,19 @@
             this.panel3.Size = new System.Drawing.Size(716, 184);
             this.panel3.TabIndex = 10;
             // 
+            // trackBar1
+            // 
+            this.trackBar1.Location = new System.Drawing.Point(285, 75);
+            this.trackBar1.Maximum = 3;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(104, 45);
+            this.trackBar1.TabIndex = 23;
+            // 
             // Label_ip
             // 
             this.Label_ip.AutoSize = true;
             this.Label_ip.ForeColor = System.Drawing.Color.Red;
-            this.Label_ip.Location = new System.Drawing.Point(310, 50);
+            this.Label_ip.Location = new System.Drawing.Point(291, 65);
             this.Label_ip.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Label_ip.Name = "Label_ip";
             this.Label_ip.Size = new System.Drawing.Size(0, 13);
@@ -194,7 +210,7 @@
             this.Btn_ip.BackColor = System.Drawing.Color.DarkGreen;
             this.Btn_ip.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_ip.ForeColor = System.Drawing.Color.White;
-            this.Btn_ip.Location = new System.Drawing.Point(413, 80);
+            this.Btn_ip.Location = new System.Drawing.Point(438, 87);
             this.Btn_ip.Margin = new System.Windows.Forms.Padding(2);
             this.Btn_ip.Name = "Btn_ip";
             this.Btn_ip.Size = new System.Drawing.Size(207, 35);
@@ -208,7 +224,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(453, 23);
+            this.label3.Location = new System.Drawing.Point(478, 30);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(154, 20);
             this.label3.TabIndex = 16;
@@ -216,7 +232,7 @@
             // 
             // Txt_ip
             // 
-            this.Txt_ip.Location = new System.Drawing.Point(413, 48);
+            this.Txt_ip.Location = new System.Drawing.Point(438, 55);
             this.Txt_ip.Name = "Txt_ip";
             this.Txt_ip.Size = new System.Drawing.Size(208, 20);
             this.Txt_ip.TabIndex = 15;
@@ -224,7 +240,7 @@
             // Pb_center
             // 
             this.Pb_center.Image = ((System.Drawing.Image)(resources.GetObject("Pb_center.Image")));
-            this.Pb_center.Location = new System.Drawing.Point(183, 60);
+            this.Pb_center.Location = new System.Drawing.Point(121, 67);
             this.Pb_center.Name = "Pb_center";
             this.Pb_center.Size = new System.Drawing.Size(58, 51);
             this.Pb_center.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -235,7 +251,7 @@
             // Pb_left
             // 
             this.Pb_left.Image = ((System.Drawing.Image)(resources.GetObject("Pb_left.Image")));
-            this.Pb_left.Location = new System.Drawing.Point(119, 60);
+            this.Pb_left.Location = new System.Drawing.Point(57, 67);
             this.Pb_left.Name = "Pb_left";
             this.Pb_left.Size = new System.Drawing.Size(58, 51);
             this.Pb_left.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -247,7 +263,7 @@
             // Pb_right
             // 
             this.Pb_right.Image = ((System.Drawing.Image)(resources.GetObject("Pb_right.Image")));
-            this.Pb_right.Location = new System.Drawing.Point(247, 60);
+            this.Pb_right.Location = new System.Drawing.Point(185, 67);
             this.Pb_right.Name = "Pb_right";
             this.Pb_right.Size = new System.Drawing.Size(58, 51);
             this.Pb_right.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -259,7 +275,7 @@
             // Pb_up
             // 
             this.Pb_up.Image = ((System.Drawing.Image)(resources.GetObject("Pb_up.Image")));
-            this.Pb_up.Location = new System.Drawing.Point(183, 0);
+            this.Pb_up.Location = new System.Drawing.Point(121, 7);
             this.Pb_up.Name = "Pb_up";
             this.Pb_up.Size = new System.Drawing.Size(58, 51);
             this.Pb_up.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -271,7 +287,7 @@
             // Pb_down
             // 
             this.Pb_down.Image = ((System.Drawing.Image)(resources.GetObject("Pb_down.Image")));
-            this.Pb_down.Location = new System.Drawing.Point(183, 118);
+            this.Pb_down.Location = new System.Drawing.Point(121, 125);
             this.Pb_down.Name = "Pb_down";
             this.Pb_down.Size = new System.Drawing.Size(58, 51);
             this.Pb_down.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -285,7 +301,7 @@
             this.Rb_detection.AutoSize = true;
             this.Rb_detection.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Rb_detection.ForeColor = System.Drawing.Color.Transparent;
-            this.Rb_detection.Location = new System.Drawing.Point(757, 284);
+            this.Rb_detection.Location = new System.Drawing.Point(762, 243);
             this.Rb_detection.Margin = new System.Windows.Forms.Padding(2);
             this.Rb_detection.Name = "Rb_detection";
             this.Rb_detection.Size = new System.Drawing.Size(80, 17);
@@ -300,7 +316,7 @@
             this.Rb_tracking.AutoSize = true;
             this.Rb_tracking.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Rb_tracking.ForeColor = System.Drawing.Color.Transparent;
-            this.Rb_tracking.Location = new System.Drawing.Point(757, 262);
+            this.Rb_tracking.Location = new System.Drawing.Point(762, 221);
             this.Rb_tracking.Margin = new System.Windows.Forms.Padding(2);
             this.Rb_tracking.Name = "Rb_tracking";
             this.Rb_tracking.Size = new System.Drawing.Size(75, 17);
@@ -315,7 +331,7 @@
             this.Rb_normal.AutoSize = true;
             this.Rb_normal.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Rb_normal.ForeColor = System.Drawing.Color.Transparent;
-            this.Rb_normal.Location = new System.Drawing.Point(757, 240);
+            this.Rb_normal.Location = new System.Drawing.Point(762, 199);
             this.Rb_normal.Margin = new System.Windows.Forms.Padding(2);
             this.Rb_normal.Name = "Rb_normal";
             this.Rb_normal.Size = new System.Drawing.Size(64, 17);
@@ -348,14 +364,14 @@
             this.Btn_stream.IconVisible = true;
             this.Btn_stream.IconZoom = 90D;
             this.Btn_stream.IsTab = false;
-            this.Btn_stream.Location = new System.Drawing.Point(746, 86);
+            this.Btn_stream.Location = new System.Drawing.Point(762, 68);
             this.Btn_stream.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_stream.Name = "Btn_stream";
             this.Btn_stream.Normalcolor = System.Drawing.Color.DarkGreen;
             this.Btn_stream.OnHovercolor = System.Drawing.Color.Lime;
             this.Btn_stream.OnHoverTextColor = System.Drawing.Color.White;
             this.Btn_stream.selected = false;
-            this.Btn_stream.Size = new System.Drawing.Size(198, 48);
+            this.Btn_stream.Size = new System.Drawing.Size(212, 48);
             this.Btn_stream.TabIndex = 11;
             this.Btn_stream.Text = "Avvia Stream";
             this.Btn_stream.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -387,7 +403,7 @@
             // 
             this.Label_Search_ip.AutoSize = true;
             this.Label_Search_ip.ForeColor = System.Drawing.Color.Red;
-            this.Label_Search_ip.Location = new System.Drawing.Point(754, 271);
+            this.Label_Search_ip.Location = new System.Drawing.Point(759, 230);
             this.Label_Search_ip.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Label_Search_ip.Name = "Label_Search_ip";
             this.Label_Search_ip.Size = new System.Drawing.Size(0, 13);
@@ -412,17 +428,17 @@
             // 
             // Txt_search
             // 
-            this.Txt_search.Location = new System.Drawing.Point(829, 170);
+            this.Txt_search.Location = new System.Drawing.Point(844, 148);
             this.Txt_search.Margin = new System.Windows.Forms.Padding(2);
             this.Txt_search.Name = "Txt_search";
-            this.Txt_search.Size = new System.Drawing.Size(116, 20);
+            this.Txt_search.Size = new System.Drawing.Size(130, 20);
             this.Txt_search.TabIndex = 23;
             // 
             // Label_search
             // 
             this.Label_search.AutoSize = true;
             this.Label_search.ForeColor = System.Drawing.SystemColors.Control;
-            this.Label_search.Location = new System.Drawing.Point(814, 206);
+            this.Label_search.Location = new System.Drawing.Point(819, 165);
             this.Label_search.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Label_search.Name = "Label_search";
             this.Label_search.Size = new System.Drawing.Size(0, 13);
@@ -446,7 +462,7 @@
             this.Btn_go.IdleFillColor = System.Drawing.Color.Black;
             this.Btn_go.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.Btn_go.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.Btn_go.Location = new System.Drawing.Point(748, 158);
+            this.Btn_go.Location = new System.Drawing.Point(762, 138);
             this.Btn_go.Margin = new System.Windows.Forms.Padding(5);
             this.Btn_go.Name = "Btn_go";
             this.Btn_go.Size = new System.Drawing.Size(67, 40);
@@ -456,7 +472,7 @@
             // 
             // Picturebox_colore
             // 
-            this.Picturebox_colore.Location = new System.Drawing.Point(843, 240);
+            this.Picturebox_colore.Location = new System.Drawing.Point(841, 199);
             this.Picturebox_colore.Margin = new System.Windows.Forms.Padding(2);
             this.Picturebox_colore.Name = "Picturebox_colore";
             this.Picturebox_colore.Size = new System.Drawing.Size(59, 61);
@@ -481,7 +497,7 @@
             this.Btn_change.IdleFillColor = System.Drawing.Color.Black;
             this.Btn_change.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.Btn_change.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.Btn_change.Location = new System.Drawing.Point(902, 235);
+            this.Btn_change.Location = new System.Drawing.Point(907, 194);
             this.Btn_change.Margin = new System.Windows.Forms.Padding(5);
             this.Btn_change.Name = "Btn_change";
             this.Btn_change.Size = new System.Drawing.Size(67, 72);
@@ -507,7 +523,7 @@
             this.Btn_screenshot.IdleFillColor = System.Drawing.Color.Black;
             this.Btn_screenshot.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.Btn_screenshot.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.Btn_screenshot.Location = new System.Drawing.Point(757, 317);
+            this.Btn_screenshot.Location = new System.Drawing.Point(762, 276);
             this.Btn_screenshot.Margin = new System.Windows.Forms.Padding(5);
             this.Btn_screenshot.Name = "Btn_screenshot";
             this.Btn_screenshot.Size = new System.Drawing.Size(212, 52);
@@ -517,45 +533,111 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(757, 477);
+            this.pictureBox2.Location = new System.Drawing.Point(762, 436);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(212, 115);
+            this.pictureBox2.Size = new System.Drawing.Size(212, 152);
             this.pictureBox2.TabIndex = 33;
             this.pictureBox2.TabStop = false;
             // 
-            // label2
+            // btVideo
             // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(754, 450);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 13);
-            this.label2.TabIndex = 34;
+            this.btVideo.ActiveBorderThickness = 1;
+            this.btVideo.ActiveCornerRadius = 20;
+            this.btVideo.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btVideo.ActiveForecolor = System.Drawing.Color.White;
+            this.btVideo.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btVideo.BackColor = System.Drawing.Color.Black;
+            this.btVideo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btVideo.BackgroundImage")));
+            this.btVideo.ButtonText = "Inizia cattura video";
+            this.btVideo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btVideo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btVideo.ForeColor = System.Drawing.Color.Green;
+            this.btVideo.IdleBorderThickness = 1;
+            this.btVideo.IdleCornerRadius = 20;
+            this.btVideo.IdleFillColor = System.Drawing.Color.Black;
+            this.btVideo.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btVideo.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btVideo.Location = new System.Drawing.Point(762, 338);
+            this.btVideo.Margin = new System.Windows.Forms.Padding(5);
+            this.btVideo.Name = "btVideo";
+            this.btVideo.Size = new System.Drawing.Size(212, 52);
+            this.btVideo.TabIndex = 35;
+            this.btVideo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btVideo.Click += new System.EventHandler(this.btVideo_Click);
             // 
-            // bunifuThinButton21
+            // NomeSalvataggio
             // 
-            this.bunifuThinButton21.ActiveBorderThickness = 1;
-            this.bunifuThinButton21.ActiveCornerRadius = 20;
-            this.bunifuThinButton21.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.ActiveForecolor = System.Drawing.Color.White;
-            this.bunifuThinButton21.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.BackColor = System.Drawing.Color.Black;
-            this.bunifuThinButton21.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton21.BackgroundImage")));
-            this.bunifuThinButton21.ButtonText = "Inizia cattura video";
-            this.bunifuThinButton21.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuThinButton21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuThinButton21.ForeColor = System.Drawing.Color.Green;
-            this.bunifuThinButton21.IdleBorderThickness = 1;
-            this.bunifuThinButton21.IdleCornerRadius = 20;
-            this.bunifuThinButton21.IdleFillColor = System.Drawing.Color.Black;
-            this.bunifuThinButton21.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.Location = new System.Drawing.Point(757, 379);
-            this.bunifuThinButton21.Margin = new System.Windows.Forms.Padding(5);
-            this.bunifuThinButton21.Name = "bunifuThinButton21";
-            this.bunifuThinButton21.Size = new System.Drawing.Size(212, 52);
-            this.bunifuThinButton21.TabIndex = 35;
-            this.bunifuThinButton21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.NomeSalvataggio.Location = new System.Drawing.Point(762, 398);
+            this.NomeSalvataggio.Name = "NomeSalvataggio";
+            this.NomeSalvataggio.Size = new System.Drawing.Size(212, 20);
+            this.NomeSalvataggio.TabIndex = 23;
+            // 
+            // btSalva
+            // 
+            this.btSalva.ActiveBorderThickness = 1;
+            this.btSalva.ActiveCornerRadius = 20;
+            this.btSalva.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btSalva.ActiveForecolor = System.Drawing.Color.White;
+            this.btSalva.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btSalva.BackColor = System.Drawing.Color.Black;
+            this.btSalva.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btSalva.BackgroundImage")));
+            this.btSalva.ButtonText = "Salva";
+            this.btSalva.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btSalva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSalva.ForeColor = System.Drawing.Color.Green;
+            this.btSalva.IdleBorderThickness = 1;
+            this.btSalva.IdleCornerRadius = 20;
+            this.btSalva.IdleFillColor = System.Drawing.Color.Black;
+            this.btSalva.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btSalva.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btSalva.Location = new System.Drawing.Point(762, 596);
+            this.btSalva.Margin = new System.Windows.Forms.Padding(5);
+            this.btSalva.Name = "btSalva";
+            this.btSalva.Size = new System.Drawing.Size(99, 52);
+            this.btSalva.TabIndex = 37;
+            this.btSalva.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btSalva.Click += new System.EventHandler(this.btSalva_Click);
+            // 
+            // btElimina
+            // 
+            this.btElimina.ActiveBorderThickness = 1;
+            this.btElimina.ActiveCornerRadius = 20;
+            this.btElimina.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btElimina.ActiveForecolor = System.Drawing.Color.White;
+            this.btElimina.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btElimina.BackColor = System.Drawing.Color.Black;
+            this.btElimina.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btElimina.BackgroundImage")));
+            this.btElimina.ButtonText = "Elimina";
+            this.btElimina.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btElimina.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btElimina.ForeColor = System.Drawing.Color.Red;
+            this.btElimina.IdleBorderThickness = 1;
+            this.btElimina.IdleCornerRadius = 20;
+            this.btElimina.IdleFillColor = System.Drawing.Color.Black;
+            this.btElimina.IdleForecolor = System.Drawing.Color.Red;
+            this.btElimina.IdleLineColor = System.Drawing.Color.Red;
+            this.btElimina.Location = new System.Drawing.Point(875, 596);
+            this.btElimina.Margin = new System.Windows.Forms.Padding(5);
+            this.btElimina.Name = "btElimina";
+            this.btElimina.Size = new System.Drawing.Size(99, 52);
+            this.btElimina.TabIndex = 38;
+            this.btElimina.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btElimina.Click += new System.EventHandler(this.btElimina_Click);
+            // 
+            // TimerVideo
+            // 
+            this.TimerVideo.Interval = 25;
+            this.TimerVideo.Tick += new System.EventHandler(this.TimerVideo_Tick);
+            // 
+            // btZoom
+            // 
+            this.btZoom.Location = new System.Drawing.Point(285, 30);
+            this.btZoom.Name = "btZoom";
+            this.btZoom.Size = new System.Drawing.Size(104, 23);
+            this.btZoom.TabIndex = 24;
+            this.btZoom.Text = "Zoom";
+            this.btZoom.UseVisualStyleBackColor = true;
+            this.btZoom.Click += new System.EventHandler(this.btZoom_Click_1);
             // 
             // Form1
             // 
@@ -564,8 +646,10 @@
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1015, 661);
             this.ControlBox = false;
-            this.Controls.Add(this.bunifuThinButton21);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btElimina);
+            this.Controls.Add(this.btSalva);
+            this.Controls.Add(this.NomeSalvataggio);
+            this.Controls.Add(this.btVideo);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.Btn_screenshot);
             this.Controls.Add(this.Btn_change);
@@ -592,6 +676,7 @@
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_center)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_left)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_right)).EndInit();
@@ -641,8 +726,13 @@
         private Bunifu.Framework.UI.BunifuThinButton2 Btn_change;
         private Bunifu.Framework.UI.BunifuThinButton2 Btn_screenshot;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label2;
-        private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton21;
+        private Bunifu.Framework.UI.BunifuThinButton2 btVideo;
+        private System.Windows.Forms.TextBox NomeSalvataggio;
+        private Bunifu.Framework.UI.BunifuThinButton2 btSalva;
+        private Bunifu.Framework.UI.BunifuThinButton2 btElimina;
+        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.Timer TimerVideo;
+        private System.Windows.Forms.Button btZoom;
     }
 }
 

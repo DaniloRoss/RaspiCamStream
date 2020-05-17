@@ -7,18 +7,22 @@ using System.Net.Sockets;
 using System.Text.RegularExpressions;
 using AForge.Video;
 using System.Linq;
+using Accord.Video.FFMPEG;
 
 
 namespace RaspiCamStream
 {
     public partial class Form1 : Form
     {
-        Bitmap bitmap = default(Bitmap);
+        int x = default(int);
+        Bitmap bitmap = new Bitmap(640, 480);
         MJPEGStream Stream;
         private delegate void SafeCallDelegate(string ip, string nome, ListView listview);
         private int numIp;
         string ip = default(string);
         int streamexist = default(int);
+        VideoFileWriter writer = default(VideoFileWriter);
+        Bitmap bmp = default(Bitmap);
 
         public Form1()
         {
@@ -30,17 +34,24 @@ namespace RaspiCamStream
             Rb_tracking.Enabled = false;
             Rb_detection.Enabled = false;
             Btn_screenshot.Enabled = false;
-            numIp = 0;           
+            numIp = 0;
+
+            using (Graphics gfx = Graphics.FromImage(bitmap))
+            using (SolidBrush brush = new SolidBrush(Color.FromArgb(1, 1, 1)))
+            {
+                gfx.FillRectangle(brush, 0, 0, 1, 1);
+            }
+
         }
 
         private void Btn_ip_Click(object sender, EventArgs e)
         {          
-            if (!Regex.IsMatch(Txt_ip.Text, @"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b"))
-            {
-                Label_ip.Text = "indirizzo non valido";
-                Txt_ip.Clear();
-                return;
-            }
+            //if (!Regex.IsMatch(Txt_ip.Text, @"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b"))
+            //{
+            //    Label_ip.Text = "indirizzo non valido";
+            //    Txt_ip.Clear();
+            //    return;
+            //}
 
             if (Label_Search_ip.Text != "")
             {
@@ -48,17 +59,17 @@ namespace RaspiCamStream
             }
 
             ip = Txt_ip.Text.ToString();
-            Stream = new MJPEGStream($"http://{ip}:8080/?action=stream");
+            Stream = new MJPEGStream($"http://192.168.1.155:4747/video");
             try
             {
-                sendmessage("Q");
+                //sendmessage("Q");
             }
             catch
             {
                 MessageBox.Show("L'IP inserito non è corretto o il raspberry pi non risponde, riprova");
                 return;
             }
-            Stream.NewFrame += Stream_NewFrame;
+
             streamexist = 1;
             Txt_ip.Clear();
         }
@@ -80,6 +91,7 @@ namespace RaspiCamStream
 
         private void Btn_stream_Click(object sender, EventArgs e)  //AVVIO STREAM
         {
+            
             if (Stream.IsRunning == true)
             {
                 Stream.Stop();
@@ -88,6 +100,10 @@ namespace RaspiCamStream
                 Btn_stream.Iconimage = new Bitmap("play.png");
                 return;
             }
+
+            
+            
+
             Stream.Start();
             Btn_stream.Normalcolor = Color.DarkRed;
             Btn_stream.OnHovercolor = Color.Red;
@@ -95,6 +111,7 @@ namespace RaspiCamStream
             Rb_tracking.Enabled = true;
             Rb_detection.Enabled = true;
             Btn_screenshot.Enabled = true;
+            btZoom.PerformClick();
         }
 
         private void sendmessage(string msg)
@@ -266,14 +283,216 @@ namespace RaspiCamStream
         }
         #endregion
 
+        //cattura schermo(img)----------------------------------------------
+
         private void Btn_screenshot_Click(object sender, EventArgs e)
         {
+             bmp = (Bitmap)pictureBox1.Image;
+            Bitmap newImage = ResizeBitmap(bmp, pictureBox2.Size.Width, pictureBox2.Size.Height,0);
+            pictureBox2.Image = newImage;
+        }
+
+        private void btSalva_Click(object sender, EventArgs e)
+        {
+            
+            bmp.Save(NomeSalvataggio.Text + ".bmp");
+
+        }
+        private void btElimina_Click(object sender, EventArgs e)
+        {
+            NomeSalvataggio.Text = "";
+            pictureBox2.Image = null;
+        }
+        public Bitmap ResizeBitmap(Bitmap bmp, int width, int height , int caso)
+        {
+            Bitmap result = new Bitmap(width, height);
+            if(caso==0)
+            {
+                using (Graphics g = Graphics.FromImage(result))
+                {
+                    g.DrawImage(bmp, 0, 0, width, height);
+                }
+            }
+
+            if (caso == 1)
+            {
+                using (Graphics g = Graphics.FromImage(result))
+                {
+                    g.DrawImage(bmp, -(width/4*10/15), -(height/4*10/15), width, height);
+                }
+            }
+            if (caso == 2)
+            {
+                using (Graphics g = Graphics.FromImage(result))
+                {
+                    g.DrawImage(bmp, -(width /4), -(height / 4), width, height);
+                }
+            }
+            if (caso == 3)
+            {
+                using (Graphics g = Graphics.FromImage(result))
+                {
+                    g.DrawImage(bmp, -(width*15/10/4), -(height*15/10/4), width, height);
+
+                }
+            }
+
+            return result;
+        }
+        //cattura schermo(img)----------------------------------------------
+
+        //cattura schermo(video)----------------------------------------------
+
+        private void btVideo_Click(object sender, EventArgs e)
+        {
+            if(btVideo.ButtonText=="Inizia cattura video")
+            {
+                btVideo.ActiveFillColor = Color.Red;
+                btVideo.ActiveLineColor = Color.Red;
+                btVideo.IdleForecolor = Color.Red;
+                btVideo.IdleLineColor = Color.Red;
+                btVideo.ButtonText = "Termina cattura video";
+
+                writer = new VideoFileWriter();
+                writer.Open("Video" + DateTime.Now.ToString("dd_MM_yyyy_hh_mm_ss") + ".avi", 640, 480, 25, VideoCodec.MPEG4);
+                TimerVideo.Start();
+            }
+            else
+            {
+                btVideo.ActiveFillColor = Color.SeaGreen;
+                btVideo.ActiveLineColor = Color.SeaGreen;
+                btVideo.IdleForecolor = Color.SeaGreen;
+                btVideo.IdleLineColor = Color.SeaGreen;
+                btVideo.ButtonText = "Inizia cattura video";
+                TimerVideo.Stop();
+                writer.Close();
+
+            }
+        }
+
+        private void TimerVideo_Tick(object sender, EventArgs e)
+        {
             Bitmap bmp = (Bitmap)pictureBox1.Image;
-            bmp.Save("Screenshot" + DateTime.Now.ToString("dd_MM_yyyy_hh_mm_ss") + ".bmp");
-            pictureBox2.Image = bmp;
-            label2.Text = "Screenshot" + DateTime.Now.ToString("dd_MM_yyyy_hh_mm_ss");
-        }//cattura schermo
-      
+            writer.WriteVideoFrame(bmp);
+        }
+
+        //cattura schermo(video)----------------------------------------------
+
+        //zoom----------------------------------------------------------------
+        private void btZoom_Click_1(object sender, EventArgs e)
+        {
+
+        
+        
+            if (trackBar1.Value == 0)
+            {
+                Stream.NewFrame -= Stream_NewFrame;
+                Stream.NewFrame -= Stream_NewFrame2;
+                Stream.NewFrame -= Stream_NewFrame3;
+                Stream.NewFrame -= Stream_NewFrame4;
+
+
+                Stream.NewFrame += Stream_NewFrame;
+
+            }
+            if (trackBar1.Value == 1)
+            {
+                Stream.NewFrame -= Stream_NewFrame;
+                Stream.NewFrame -= Stream_NewFrame2;
+                Stream.NewFrame -= Stream_NewFrame3;
+                Stream.NewFrame -= Stream_NewFrame4;
+
+
+                Stream.NewFrame += Stream_NewFrame2;
+
+            }
+            if (trackBar1.Value == 2)
+            {
+                Stream.NewFrame -= Stream_NewFrame;
+                Stream.NewFrame -= Stream_NewFrame2;
+                Stream.NewFrame -= Stream_NewFrame3;
+                Stream.NewFrame -= Stream_NewFrame4;
+
+
+
+                Stream.NewFrame += Stream_NewFrame3;
+
+            }
+            if (trackBar1.Value == 3)
+            {
+                Stream.NewFrame -= Stream_NewFrame;
+                Stream.NewFrame -= Stream_NewFrame2;
+                Stream.NewFrame -= Stream_NewFrame3;
+                Stream.NewFrame -= Stream_NewFrame4;
+
+
+
+                Stream.NewFrame += Stream_NewFrame4;
+
+            }
+
+        }
+
+        private void Stream_NewFrame2(object sender, NewFrameEventArgs eventArgs)
+        {
+            bitmap = (Bitmap)eventArgs.Frame.Clone();
+
+            
+            
+                bitmap = ResizeBitmap(bitmap, bitmap.Width*15/10, bitmap.Height * 15 / 10,1);
+
+            try
+            {
+                pictureBox1.Image = bitmap;
+            }
+            catch
+            {
+
+            }
+
+
+        }
+        private void Stream_NewFrame3(object sender, NewFrameEventArgs eventArgs)
+        {
+            bitmap = (Bitmap)eventArgs.Frame.Clone();
+
+
+
+            bitmap = ResizeBitmap(bitmap, bitmap.Width * 2 , bitmap.Height *2,2);
+            
+            try
+            {
+                pictureBox1.Image = bitmap;
+            }
+            catch
+            {
+
+            }
+
+
+        }
+        private void Stream_NewFrame4(object sender, NewFrameEventArgs eventArgs)
+        {
+            bitmap = (Bitmap)eventArgs.Frame.Clone();
+
+
+
+            bitmap = ResizeBitmap(bitmap, bitmap.Width * 4, bitmap.Height * 4,3);
+
+            try
+            {
+                pictureBox1.Image = bitmap;
+            }
+            catch
+            {
+
+            }
+
+
+        }
+
+        //zoom----------------------------------------------------------------
+
 
 
         private void Pb_exit_Click(object sender, EventArgs e)
@@ -396,6 +615,6 @@ namespace RaspiCamStream
             }
         }
 
-    
+      
     }
 }
