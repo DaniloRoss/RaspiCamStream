@@ -520,29 +520,31 @@
         private System.Windows.Forms.PictureBox Pb_maximize;
         private System.Windows.Forms.PictureBox Pb_minimize;
         private System.Windows.Forms.PictureBox Pb_exit;
-        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
-        private System.Windows.Forms.Label label2;
-        private Bunifu.Framework.UI.BunifuThinButton2 Btn_search;
-        private System.Windows.Forms.ListView ListView_ip;
-        private System.Windows.Forms.TextBox Txt_Search_ip;
-        private Bunifu.Framework.UI.BunifuThinButton2 Btn_go;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.Label label3;
-
-        private System.Windows.Forms.TextBox txtBoxHostname;
-        private System.Windows.Forms.Button ipFromName;
-        private System.Windows.Forms.Label LabelIp;
-        private System.Windows.Forms.ListBox listBoxHostnames;
-        private System.Windows.Forms.Button BtnDelHostnames;
-
+        private System.Windows.Forms.TextBox Txt_ip;
         private System.Windows.Forms.Timer Timer_up;
         private System.Windows.Forms.Timer Timer_down;
         private System.Windows.Forms.Timer Timer_right;
         private System.Windows.Forms.Timer Timer_left;
         private System.Windows.Forms.Button Btn_ip;
-        
+        private System.Windows.Forms.Label Label_Search_ip;
+        private System.Windows.Forms.Label Label_ip;
+        private System.Windows.Forms.Timer Timer_tracking;
+        private System.Windows.Forms.Timer Timer_face;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
+        private System.Windows.Forms.RadioButton Rb_detection;
+        private System.Windows.Forms.RadioButton Rb_tracking;
+        private System.Windows.Forms.RadioButton Rb_normal;
+        private System.Windows.Forms.TextBox Txt_search;
+        private System.Windows.Forms.Label Label_search;
+        private Bunifu.Framework.UI.BunifuThinButton2 Btn_go;
+        private System.Windows.Forms.PictureBox Picturebox_colore;
+        private Bunifu.Framework.UI.BunifuThinButton2 Btn_change;
+        private Bunifu.Framework.UI.BunifuThinButton2 Btn_screenshot;
+        private System.Windows.Forms.Button btn_visible;
+        private System.Windows.Forms.ListBox listBx_hostNames;
+        private System.Windows.Forms.Button Btn_DelCronologia;
+
     }
 }
 

@@ -245,14 +245,12 @@ namespace RaspiCamStream
 
         private void button2_Click(object sender, EventArgs e) //pulsante da host a ip textBoxHostIP
         {
-            listBoxHostnames.Items.Clear();
-
-            if (string.IsNullOrEmpty(txtBoxHostname.Text) == true)
+            if (string.IsNullOrEmpty(Txt_search.Text) == true)
             {
                 MessageBox.Show("inserire un valore come hostname");
                 return;
             }
-            string HostName = txtBoxHostname.Text;
+            string HostName = Txt_search.Text;
 
             IPAddress[] ipaddress = new IPAddress[100];
             try
@@ -261,48 +259,42 @@ namespace RaspiCamStream
             }
             catch (Exception a)
             {
-                LabelIp.Text = $"{a}, riprova";
+                Label_search.Text = $"{a}, riprova";
+            }
+
+            if (File.ReadAllText("hostnameListbox.txt").Contains(Txt_search.Text) == false)
+            {
+                using (StreamWriter scrivere = new StreamWriter("hostnameListbox.txt", true))
+                {
+                    scrivere.WriteLine($"{Txt_search.Text}");
+                }
+            }
+
+            using (StreamReader leggere = new StreamReader("hostnameListbox.txt"))
+            {
+                listBx_hostNames.Items.Clear();
+                if (new FileInfo("hostnameListbox.txt").Length == 0)
+                {
+                    return;
+                }
+                while (leggere.EndOfStream == false)
+                {
+                    listBx_hostNames.Items.Add(leggere.ReadLine());
+                }
             }
 
             try
             {
                 foreach (IPAddress ip4 in ipaddress.Where(ip => ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork))
                 {
-                    LabelIp.Text = $"l' ip da nome è: {ip4.ToString()}";
-
+                    Label_search.Text = $"l' ip da nome è: {ip4.ToString()}";
                 }
             }
             catch (NullReferenceException)
             {
-                LabelIp.Text = $"l'hostname non esiste";
+                Label_search.Text = $"l'hostname non esiste";
                 return;
             }
-
-            if (File.ReadAllText("hostnameListbox.txt").Contains(txtBoxHostname.Text))
-            {
-
-            }
-            else
-            {
-                StreamWriter scrivere = new StreamWriter("hostnameListbox.txt", true);
-                scrivere.WriteLine($"{txtBoxHostname.Text}");
-                scrivere.Close();
-            }
-
-            StreamReader leggere;
-            leggere = new StreamReader("hostnameListbox.txt");
-
-            if (new FileInfo("hostnameListbox.txt").Length == 0)
-            {
-                return;
-            }
-
-            while (leggere.EndOfStream == false)
-            {
-                listBoxHostnames.Items.Add(leggere.ReadLine());
-            }
-
-            leggere.Close();
         }
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e) // listbox nomi host
@@ -319,10 +311,10 @@ namespace RaspiCamStream
         private void Form1_Load(object sender, EventArgs e) // riempie la listbox
         {
 
-            StreamReader miofile;
             try
             {
-                miofile = new StreamReader("hostnameListbox.txt");
+                StreamReader miofile = new StreamReader("hostnameListbox.txt");
+                miofile.Close();
             }
             catch (FileNotFoundException)
             {
@@ -330,20 +322,22 @@ namespace RaspiCamStream
                 scrivere.Close();
             }
 
-            miofile = new StreamReader("hostnameListbox.txt");
 
-            if (new FileInfo("hostnameListbox.txt").Length == 0)
+
+
+            using (StreamReader miofile = new StreamReader("hostnameListbox.txt"))
             {
-                miofile.Close();
-                return;
-            }
+                if (new FileInfo("hostnameListbox.txt").Length == 0)
+                {
+                    miofile.Close();
+                    return;
+                }
 
-            while (miofile.EndOfStream == false)
-            {
-                listBoxHostnames.Items.Add(miofile.ReadLine());
+                while (miofile.EndOfStream == false)
+                {
+                    listBx_hostNames.Items.Add(miofile.ReadLine());
+                }
             }
-
-            miofile.Close();
 
         }
     }
