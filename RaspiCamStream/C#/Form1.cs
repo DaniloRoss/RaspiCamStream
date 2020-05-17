@@ -15,7 +15,6 @@ namespace RaspiCamStream
         Bitmap bitmap = default(Bitmap);
         MJPEGStream Stream;
         private delegate void SafeCallDelegate(string ip, string nome, ListView listview);
-        private int numIp;
         string ip = default(string);
         int streamexist = default(int);
 
@@ -28,8 +27,7 @@ namespace RaspiCamStream
             Btn_change.Visible = false;
             Rb_tracking.Enabled = false;
             Rb_detection.Enabled = false;
-            Btn_screenshot.Enabled = false;
-            numIp = 0;           
+            Btn_screenshot.Enabled = false;         
         }
 
         private void Btn_ip_Click(object sender, EventArgs e)
