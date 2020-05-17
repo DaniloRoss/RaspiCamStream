@@ -462,12 +462,14 @@ namespace RaspiCamStream
 
         private void Btn_go_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(Txt_search.Text) == true)
+            listBoxHostnames.Items.Clear();
+
+            if (string.IsNullOrEmpty(txtBoxHostname.Text) == true)
             {
                 MessageBox.Show("inserire un valore come hostname");
                 return;
             }
-            string HostName = Txt_search.Text;
+            string HostName = txtBoxHostname.Text;
 
             IPAddress[] ipaddress = new IPAddress[100];
             try
@@ -476,34 +478,90 @@ namespace RaspiCamStream
             }
             catch (Exception a)
             {
-                Label_search.Text = $"{a}, riprova";
+                LabelIp.Text = $"{a}, riprova";
             }
 
             try
             {
                 foreach (IPAddress ip4 in ipaddress.Where(ip => ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork))
                 {
-                    Label_search.Text = $"l' ip da nome è: {ip4.ToString()}";
+                    LabelIp.Text = $"l' ip da nome è: {ip4.ToString()}";
+
                 }
             }
-            catch (NullReferenceException a)
+            catch (NullReferenceException)
             {
-                Label_search.Text = $"l'hostname non esiste";
+                LabelIp.Text = $"l'hostname non esiste";
                 return;
             }
+
+            if (File.ReadAllText("hostnameListbox.txt").Contains(txtBoxHostname.Text))
+            {
+
+            }
+            else
+            {
+                StreamWriter scrivere = new StreamWriter("hostnameListbox.txt", true);
+                scrivere.WriteLine($"{txtBoxHostname.Text}");
+                scrivere.Close();
+            }
+
+            StreamReader leggere;
+            leggere = new StreamReader("hostnameListbox.txt");
+
+            if (new FileInfo("hostnameListbox.txt").Length == 0)
+            {
+                return;
+            }
+
+            while (leggere.EndOfStream == false)
+            {
+                listBoxHostnames.Items.Add(leggere.ReadLine());
+            }
+
+            leggere.Close();
         }
-        private void btn_visible_Click(object sender, EventArgs e)
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e) // listbox nomi host
         {
-            if (Btn_ip.Visible == true)
+            txtBoxHostname.Text = listBoxHostnames.GetItemText(listBoxHostnames.SelectedItem);
+        }
+
+        private void button3_Click(object sender, EventArgs e) // pulsante elimina cronologia
+        {
+            File.WriteAllText("hostnameListbox.txt", String.Empty);
+            listBoxHostnames.Items.Clear();
+        }
+
+        private void Form1_Load(object sender, EventArgs e) // riempie la listbox
+        {
+
+            StreamReader miofile;
+            try
             {
-                label3.Visible = false;
-                Txt_ip.Visible = false;
-                Btn_ip.Visible = false;
+                miofile = new StreamReader("hostnameListbox.txt");
+            }
+            catch (FileNotFoundException)
+            {
+                StreamWriter scrivere = new StreamWriter("hostnameListbox.txt", true);
+                scrivere.Close();
+            }
+
+            miofile = new StreamReader("hostnameListbox.txt");
+
+            if (new FileInfo("hostnameListbox.txt").Length == 0)
+            {
+                miofile.Close();
                 return;
             }
-            label3.Visible = true;
-            Txt_ip.Visible = true;
-            Btn_ip.Visible = true;
+
+            while (miofile.EndOfStream == false)
+            {
+                listBoxHostnames.Items.Add(miofile.ReadLine());
+            }
+
+            miofile.Close();
+
         }
 
     }
