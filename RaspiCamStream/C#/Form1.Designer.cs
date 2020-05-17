@@ -34,20 +34,25 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Pb_maximize = new System.Windows.Forms.PictureBox();
             this.Pb_minimize = new System.Windows.Forms.PictureBox();
             this.Pb_exit = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.Label_ip = new System.Windows.Forms.Label();
+            this.listBoxHostnames = new System.Windows.Forms.ListBox();
+            this.Btn_eliminacronologia = new Bunifu.Framework.UI.BunifuThinButton2();
             this.Btn_ip = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.Txt_ip = new System.Windows.Forms.TextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.Pb_center = new System.Windows.Forms.PictureBox();
             this.Pb_left = new System.Windows.Forms.PictureBox();
             this.Pb_right = new System.Windows.Forms.PictureBox();
             this.Pb_up = new System.Windows.Forms.PictureBox();
             this.Pb_down = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.Btn_go = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.Txt_ip = new System.Windows.Forms.TextBox();
+            this.Label_search = new System.Windows.Forms.Label();
+            this.Txt_search = new System.Windows.Forms.TextBox();
+            this.btn_visible = new System.Windows.Forms.Button();
             this.Rb_detection = new System.Windows.Forms.RadioButton();
             this.Rb_tracking = new System.Windows.Forms.RadioButton();
             this.Rb_normal = new System.Windows.Forms.RadioButton();
@@ -59,17 +64,12 @@
             this.Label_Search_ip = new System.Windows.Forms.Label();
             this.Timer_tracking = new System.Windows.Forms.Timer(this.components);
             this.Timer_face = new System.Windows.Forms.Timer(this.components);
-            this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.Txt_search = new System.Windows.Forms.TextBox();
-            this.Label_search = new System.Windows.Forms.Label();
-            this.Btn_go = new Bunifu.Framework.UI.BunifuThinButton2();
             this.Picturebox_colore = new System.Windows.Forms.PictureBox();
             this.Btn_change = new Bunifu.Framework.UI.BunifuThinButton2();
             this.Btn_screenshot = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.btn_visible = new System.Windows.Forms.Button();
+            this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Pb_maximize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_exit)).BeginInit();
             this.panel2.SuspendLayout();
@@ -106,7 +106,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DimGray;
-            this.panel1.Controls.Add(this.Pb_maximize);
             this.panel1.Controls.Add(this.Pb_minimize);
             this.panel1.Controls.Add(this.Pb_exit);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -114,18 +113,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1015, 36);
             this.panel1.TabIndex = 0;
-            // 
-            // Pb_maximize
-            // 
-            this.Pb_maximize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Pb_maximize.Image = ((System.Drawing.Image)(resources.GetObject("Pb_maximize.Image")));
-            this.Pb_maximize.Location = new System.Drawing.Point(79, 4);
-            this.Pb_maximize.Name = "Pb_maximize";
-            this.Pb_maximize.Size = new System.Drawing.Size(27, 27);
-            this.Pb_maximize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Pb_maximize.TabIndex = 2;
-            this.Pb_maximize.TabStop = false;
-            this.Pb_maximize.Click += new System.EventHandler(this.Pb_maximize_Click);
             // 
             // Pb_minimize
             // 
@@ -153,49 +140,77 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.Label_ip);
+            this.panel2.Controls.Add(this.listBoxHostnames);
+            this.panel2.Controls.Add(this.Btn_eliminacronologia);
+            this.panel2.Controls.Add(this.Btn_ip);
             this.panel2.Controls.Add(this.panel3);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.Btn_go);
+            this.panel2.Controls.Add(this.Txt_ip);
             this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.Label_search);
+            this.panel2.Controls.Add(this.Txt_search);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 36);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(716, 625);
             this.panel2.TabIndex = 10;
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.btn_visible);
-            this.panel3.Controls.Add(this.Label_ip);
-            this.panel3.Controls.Add(this.Btn_ip);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.Txt_ip);
-            this.panel3.Controls.Add(this.Pb_center);
-            this.panel3.Controls.Add(this.Pb_left);
-            this.panel3.Controls.Add(this.Pb_right);
-            this.panel3.Controls.Add(this.Pb_up);
-            this.panel3.Controls.Add(this.Pb_down);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 441);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(716, 184);
-            this.panel3.TabIndex = 10;
-            // 
             // Label_ip
             // 
             this.Label_ip.AutoSize = true;
             this.Label_ip.ForeColor = System.Drawing.Color.Red;
-            this.Label_ip.Location = new System.Drawing.Point(310, 50);
-            this.Label_ip.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Label_ip.Location = new System.Drawing.Point(459, 450);
             this.Label_ip.Name = "Label_ip";
             this.Label_ip.Size = new System.Drawing.Size(0, 13);
             this.Label_ip.TabIndex = 22;
+            // 
+            // listBoxHostnames
+            // 
+            this.listBoxHostnames.BackColor = System.Drawing.Color.Black;
+            this.listBoxHostnames.ForeColor = System.Drawing.Color.White;
+            this.listBoxHostnames.FormattingEnabled = true;
+            this.listBoxHostnames.ItemHeight = 16;
+            this.listBoxHostnames.Location = new System.Drawing.Point(734, 268);
+            this.listBoxHostnames.Name = "listBoxHostnames";
+            this.listBoxHostnames.Size = new System.Drawing.Size(195, 180);
+            this.listBoxHostnames.TabIndex = 33;
+            this.listBoxHostnames.Click += new System.EventHandler(this.listBoxHostnames_Click);
+            // 
+            // Btn_eliminacronologia
+            // 
+            this.Btn_eliminacronologia.ActiveBorderThickness = 1;
+            this.Btn_eliminacronologia.ActiveCornerRadius = 20;
+            this.Btn_eliminacronologia.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.Btn_eliminacronologia.ActiveForecolor = System.Drawing.Color.White;
+            this.Btn_eliminacronologia.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.Btn_eliminacronologia.BackColor = System.Drawing.Color.Black;
+            this.Btn_eliminacronologia.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn_eliminacronologia.BackgroundImage")));
+            this.Btn_eliminacronologia.ButtonText = "Elimina cronologia";
+            this.Btn_eliminacronologia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_eliminacronologia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_eliminacronologia.ForeColor = System.Drawing.Color.Green;
+            this.Btn_eliminacronologia.IdleBorderThickness = 1;
+            this.Btn_eliminacronologia.IdleCornerRadius = 20;
+            this.Btn_eliminacronologia.IdleFillColor = System.Drawing.Color.Black;
+            this.Btn_eliminacronologia.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.Btn_eliminacronologia.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.Btn_eliminacronologia.Location = new System.Drawing.Point(734, 210);
+            this.Btn_eliminacronologia.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.Btn_eliminacronologia.Name = "Btn_eliminacronologia";
+            this.Btn_eliminacronologia.Size = new System.Drawing.Size(195, 49);
+            this.Btn_eliminacronologia.TabIndex = 34;
+            this.Btn_eliminacronologia.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Btn_eliminacronologia.Click += new System.EventHandler(this.Btn_eliminacronologia_Click);
             // 
             // Btn_ip
             // 
             this.Btn_ip.BackColor = System.Drawing.Color.DarkGreen;
             this.Btn_ip.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_ip.ForeColor = System.Drawing.Color.White;
-            this.Btn_ip.Location = new System.Drawing.Point(413, 80);
-            this.Btn_ip.Margin = new System.Windows.Forms.Padding(2);
+            this.Btn_ip.Location = new System.Drawing.Point(416, 405);
+            this.Btn_ip.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Btn_ip.Name = "Btn_ip";
             this.Btn_ip.Size = new System.Drawing.Size(207, 35);
             this.Btn_ip.TabIndex = 17;
@@ -203,23 +218,19 @@
             this.Btn_ip.UseVisualStyleBackColor = false;
             this.Btn_ip.Click += new System.EventHandler(this.Btn_ip_Click);
             // 
-            // label3
+            // panel3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(453, 23);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(154, 20);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "Inserire Ip della Cam";
-            // 
-            // Txt_ip
-            // 
-            this.Txt_ip.Location = new System.Drawing.Point(413, 48);
-            this.Txt_ip.Name = "Txt_ip";
-            this.Txt_ip.Size = new System.Drawing.Size(208, 20);
-            this.Txt_ip.TabIndex = 15;
+            this.panel3.Controls.Add(this.Pb_center);
+            this.panel3.Controls.Add(this.Pb_left);
+            this.panel3.Controls.Add(this.Pb_right);
+            this.panel3.Controls.Add(this.Pb_up);
+            this.panel3.Controls.Add(this.Pb_down);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 544);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(955, 226);
+            this.panel3.TabIndex = 10;
             // 
             // Pb_center
             // 
@@ -290,15 +301,93 @@
             this.Pb_down.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Pb_down_MouseDown);
             this.Pb_down.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Pb_down_MouseUp);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(469, 335);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(190, 25);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Inserire Ip della Cam";
+            // 
+            // Btn_go
+            // 
+            this.Btn_go.ActiveBorderThickness = 1;
+            this.Btn_go.ActiveCornerRadius = 20;
+            this.Btn_go.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.Btn_go.ActiveForecolor = System.Drawing.Color.White;
+            this.Btn_go.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.Btn_go.BackColor = System.Drawing.Color.Black;
+            this.Btn_go.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn_go.BackgroundImage")));
+            this.Btn_go.ButtonText = "Go";
+            this.Btn_go.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_go.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_go.ForeColor = System.Drawing.Color.Green;
+            this.Btn_go.IdleBorderThickness = 1;
+            this.Btn_go.IdleCornerRadius = 20;
+            this.Btn_go.IdleFillColor = System.Drawing.Color.Black;
+            this.Btn_go.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.Btn_go.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.Btn_go.Location = new System.Drawing.Point(446, 210);
+            this.Btn_go.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.Btn_go.Name = "Btn_go";
+            this.Btn_go.Size = new System.Drawing.Size(89, 49);
+            this.Btn_go.TabIndex = 29;
+            this.Btn_go.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Btn_go.Click += new System.EventHandler(this.Btn_go_Click);
+            // 
+            // Txt_ip
+            // 
+            this.Txt_ip.Location = new System.Drawing.Point(416, 366);
+            this.Txt_ip.Margin = new System.Windows.Forms.Padding(4);
+            this.Txt_ip.Name = "Txt_ip";
+            this.Txt_ip.Size = new System.Drawing.Size(276, 22);
+            this.Txt_ip.TabIndex = 15;
+            // 
+            // Label_search
+            // 
+            this.Label_search.AutoSize = true;
+            this.Label_search.ForeColor = System.Drawing.SystemColors.Control;
+            this.Label_search.Location = new System.Drawing.Point(534, 270);
+            this.Label_search.Name = "Label_search";
+            this.Label_search.Size = new System.Drawing.Size(0, 17);
+            this.Label_search.TabIndex = 24;
+            // 
+            // Txt_search
+            // 
+            this.Txt_search.Location = new System.Drawing.Point(554, 225);
+            this.Txt_search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Txt_search.Name = "Txt_search";
+            this.Txt_search.Size = new System.Drawing.Size(153, 22);
+            this.Txt_search.TabIndex = 23;
+            // 
+            // btn_visible
+            // 
+            this.btn_visible.BackColor = System.Drawing.Color.DarkGreen;
+            this.btn_visible.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_visible.ForeColor = System.Drawing.Color.White;
+            this.btn_visible.Location = new System.Drawing.Point(1267, 106);
+            this.btn_visible.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_visible.Name = "btn_visible";
+            this.btn_visible.Size = new System.Drawing.Size(64, 59);
+            this.btn_visible.TabIndex = 23;
+            this.btn_visible.Text = "IP";
+            this.btn_visible.UseVisualStyleBackColor = false;
+            this.btn_visible.Visible = false;
+            this.btn_visible.Click += new System.EventHandler(this.btn_visible_Click);
+            // 
             // Rb_detection
             // 
             this.Rb_detection.AutoSize = true;
             this.Rb_detection.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Rb_detection.ForeColor = System.Drawing.Color.Transparent;
-            this.Rb_detection.Location = new System.Drawing.Point(757, 284);
-            this.Rb_detection.Margin = new System.Windows.Forms.Padding(2);
+            this.Rb_detection.Location = new System.Drawing.Point(1009, 350);
+            this.Rb_detection.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Rb_detection.Name = "Rb_detection";
-            this.Rb_detection.Size = new System.Drawing.Size(80, 17);
+            this.Rb_detection.Size = new System.Drawing.Size(98, 21);
             this.Rb_detection.TabIndex = 28;
             this.Rb_detection.TabStop = true;
             this.Rb_detection.Text = "Detection";
@@ -311,10 +400,10 @@
             this.Rb_tracking.AutoSize = true;
             this.Rb_tracking.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Rb_tracking.ForeColor = System.Drawing.Color.Transparent;
-            this.Rb_tracking.Location = new System.Drawing.Point(757, 262);
-            this.Rb_tracking.Margin = new System.Windows.Forms.Padding(2);
+            this.Rb_tracking.Location = new System.Drawing.Point(1009, 322);
+            this.Rb_tracking.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Rb_tracking.Name = "Rb_tracking";
-            this.Rb_tracking.Size = new System.Drawing.Size(75, 17);
+            this.Rb_tracking.Size = new System.Drawing.Size(92, 21);
             this.Rb_tracking.TabIndex = 27;
             this.Rb_tracking.TabStop = true;
             this.Rb_tracking.Text = "Tracking";
@@ -327,10 +416,10 @@
             this.Rb_normal.AutoSize = true;
             this.Rb_normal.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Rb_normal.ForeColor = System.Drawing.Color.Transparent;
-            this.Rb_normal.Location = new System.Drawing.Point(757, 240);
-            this.Rb_normal.Margin = new System.Windows.Forms.Padding(2);
+            this.Rb_normal.Location = new System.Drawing.Point(1009, 295);
+            this.Rb_normal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Rb_normal.Name = "Rb_normal";
-            this.Rb_normal.Size = new System.Drawing.Size(64, 17);
+            this.Rb_normal.Size = new System.Drawing.Size(80, 21);
             this.Rb_normal.TabIndex = 26;
             this.Rb_normal.TabStop = true;
             this.Rb_normal.Text = "Normal";
@@ -401,10 +490,9 @@
             // 
             this.Label_Search_ip.AutoSize = true;
             this.Label_Search_ip.ForeColor = System.Drawing.Color.Red;
-            this.Label_Search_ip.Location = new System.Drawing.Point(754, 271);
-            this.Label_Search_ip.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Label_Search_ip.Location = new System.Drawing.Point(1005, 334);
             this.Label_Search_ip.Name = "Label_Search_ip";
-            this.Label_Search_ip.Size = new System.Drawing.Size(0, 13);
+            this.Label_Search_ip.Size = new System.Drawing.Size(0, 17);
             this.Label_Search_ip.TabIndex = 21;
             // 
             // Timer_tracking
@@ -417,63 +505,12 @@
             this.Timer_face.Interval = 10;
             this.Timer_face.Tick += new System.EventHandler(this.Timer_face_Tick);
             // 
-            // bunifuDragControl1
-            // 
-            this.bunifuDragControl1.Fixed = true;
-            this.bunifuDragControl1.Horizontal = true;
-            this.bunifuDragControl1.TargetControl = this.panel1;
-            this.bunifuDragControl1.Vertical = true;
-            // 
-            // Txt_search
-            // 
-            this.Txt_search.Location = new System.Drawing.Point(829, 170);
-            this.Txt_search.Margin = new System.Windows.Forms.Padding(2);
-            this.Txt_search.Name = "Txt_search";
-            this.Txt_search.Size = new System.Drawing.Size(116, 20);
-            this.Txt_search.TabIndex = 23;
-            // 
-            // Label_search
-            // 
-            this.Label_search.AutoSize = true;
-            this.Label_search.ForeColor = System.Drawing.SystemColors.Control;
-            this.Label_search.Location = new System.Drawing.Point(814, 206);
-            this.Label_search.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.Label_search.Name = "Label_search";
-            this.Label_search.Size = new System.Drawing.Size(0, 13);
-            this.Label_search.TabIndex = 24;
-            // 
-            // Btn_go
-            // 
-            this.Btn_go.ActiveBorderThickness = 1;
-            this.Btn_go.ActiveCornerRadius = 20;
-            this.Btn_go.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.Btn_go.ActiveForecolor = System.Drawing.Color.White;
-            this.Btn_go.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.Btn_go.BackColor = System.Drawing.Color.Black;
-            this.Btn_go.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn_go.BackgroundImage")));
-            this.Btn_go.ButtonText = "Go";
-            this.Btn_go.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btn_go.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_go.ForeColor = System.Drawing.Color.Green;
-            this.Btn_go.IdleBorderThickness = 1;
-            this.Btn_go.IdleCornerRadius = 20;
-            this.Btn_go.IdleFillColor = System.Drawing.Color.Black;
-            this.Btn_go.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.Btn_go.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.Btn_go.Location = new System.Drawing.Point(748, 158);
-            this.Btn_go.Margin = new System.Windows.Forms.Padding(5);
-            this.Btn_go.Name = "Btn_go";
-            this.Btn_go.Size = new System.Drawing.Size(67, 40);
-            this.Btn_go.TabIndex = 29;
-            this.Btn_go.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Btn_go.Click += new System.EventHandler(this.Btn_go_Click);
-            // 
             // Picturebox_colore
             // 
-            this.Picturebox_colore.Location = new System.Drawing.Point(843, 240);
-            this.Picturebox_colore.Margin = new System.Windows.Forms.Padding(2);
+            this.Picturebox_colore.Location = new System.Drawing.Point(1124, 295);
+            this.Picturebox_colore.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Picturebox_colore.Name = "Picturebox_colore";
-            this.Picturebox_colore.Size = new System.Drawing.Size(59, 61);
+            this.Picturebox_colore.Size = new System.Drawing.Size(79, 75);
             this.Picturebox_colore.TabIndex = 30;
             this.Picturebox_colore.TabStop = false;
             this.Picturebox_colore.Visible = false;
@@ -496,10 +533,10 @@
             this.Btn_change.IdleFillColor = System.Drawing.Color.Black;
             this.Btn_change.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.Btn_change.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.Btn_change.Location = new System.Drawing.Point(902, 235);
-            this.Btn_change.Margin = new System.Windows.Forms.Padding(5);
+            this.Btn_change.Location = new System.Drawing.Point(1203, 289);
+            this.Btn_change.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Btn_change.Name = "Btn_change";
-            this.Btn_change.Size = new System.Drawing.Size(67, 72);
+            this.Btn_change.Size = new System.Drawing.Size(89, 89);
             this.Btn_change.TabIndex = 31;
             this.Btn_change.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Btn_change.Visible = false;
@@ -523,29 +560,21 @@
             this.Btn_screenshot.IdleFillColor = System.Drawing.Color.Black;
             this.Btn_screenshot.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.Btn_screenshot.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.Btn_screenshot.Location = new System.Drawing.Point(757, 355);
-            this.Btn_screenshot.Margin = new System.Windows.Forms.Padding(5);
+            this.Btn_screenshot.Location = new System.Drawing.Point(1009, 437);
+            this.Btn_screenshot.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Btn_screenshot.Name = "Btn_screenshot";
-            this.Btn_screenshot.Size = new System.Drawing.Size(212, 52);
+            this.Btn_screenshot.Size = new System.Drawing.Size(283, 64);
             this.Btn_screenshot.TabIndex = 32;
             this.Btn_screenshot.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Btn_screenshot.Visible = false;
             this.Btn_screenshot.Click += new System.EventHandler(this.Btn_screenshot_Click);
             // 
-            // btn_visible
+            // bunifuDragControl1
             // 
-            this.btn_visible.BackColor = System.Drawing.Color.DarkGreen;
-            this.btn_visible.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_visible.ForeColor = System.Drawing.Color.White;
-            this.btn_visible.Location = new System.Drawing.Point(642, 60);
-            this.btn_visible.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_visible.Name = "btn_visible";
-            this.btn_visible.Size = new System.Drawing.Size(46, 35);
-            this.btn_visible.TabIndex = 23;
-            this.btn_visible.Text = "IP";
-            this.btn_visible.UseVisualStyleBackColor = false;
-            this.btn_visible.Visible = false;
-            this.btn_visible.Click += new System.EventHandler(this.btn_visible_Click);
+            this.bunifuDragControl1.Fixed = true;
+            this.bunifuDragControl1.Horizontal = true;
+            this.bunifuDragControl1.TargetControl = this.panel1;
+            this.bunifuDragControl1.Vertical = true;
             // 
             // Form1
             // 
@@ -554,14 +583,12 @@
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1015, 661);
             this.ControlBox = false;
+            this.Controls.Add(this.btn_visible);
             this.Controls.Add(this.Btn_screenshot);
             this.Controls.Add(this.Btn_change);
             this.Controls.Add(this.Picturebox_colore);
-            this.Controls.Add(this.Btn_go);
             this.Controls.Add(this.Rb_detection);
-            this.Controls.Add(this.Label_search);
             this.Controls.Add(this.Rb_tracking);
-            this.Controls.Add(this.Txt_search);
             this.Controls.Add(this.Rb_normal);
             this.Controls.Add(this.Label_Search_ip);
             this.Controls.Add(this.Btn_stream);
@@ -573,12 +600,11 @@
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Pb_maximize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_minimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_exit)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_center)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_left)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_right)).EndInit();
@@ -602,7 +628,6 @@
         private System.Windows.Forms.PictureBox Pb_right;
         private System.Windows.Forms.PictureBox Pb_left;
         private System.Windows.Forms.PictureBox Pb_center;
-        private System.Windows.Forms.PictureBox Pb_maximize;
         private System.Windows.Forms.PictureBox Pb_minimize;
         private System.Windows.Forms.PictureBox Pb_exit;
         private System.Windows.Forms.Label label3;
@@ -616,7 +641,6 @@
         private System.Windows.Forms.Label Label_ip;
         private System.Windows.Forms.Timer Timer_tracking;
         private System.Windows.Forms.Timer Timer_face;
-        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private System.Windows.Forms.RadioButton Rb_detection;
         private System.Windows.Forms.RadioButton Rb_tracking;
         private System.Windows.Forms.RadioButton Rb_normal;
@@ -627,9 +651,9 @@
         private Bunifu.Framework.UI.BunifuThinButton2 Btn_change;
         private Bunifu.Framework.UI.BunifuThinButton2 Btn_screenshot;
         private System.Windows.Forms.Button btn_visible;
-        private System.Windows.Forms.ListBox listBx_hostNames;
-        private System.Windows.Forms.Button Btn_DelCronologia;
-
+        private System.Windows.Forms.ListBox listBoxHostnames;
+        private Bunifu.Framework.UI.BunifuThinButton2 Btn_eliminacronologia;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
     }
 }
 
