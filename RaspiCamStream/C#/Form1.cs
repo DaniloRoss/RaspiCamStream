@@ -308,9 +308,8 @@ namespace RaspiCamStream
             listBoxHostnames.Items.Clear();
         }
 
-        private void Form1_Load(object sender, EventArgs e) // riempie la listbox
+        private void Form1_Load_1(object sender, EventArgs e)
         {
-
             try
             {
                 StreamReader miofile = new StreamReader("hostnameListbox.txt");
@@ -323,8 +322,6 @@ namespace RaspiCamStream
             }
 
 
-
-
             using (StreamReader miofile = new StreamReader("hostnameListbox.txt"))
             {
                 if (new FileInfo("hostnameListbox.txt").Length == 0)
@@ -335,10 +332,9 @@ namespace RaspiCamStream
 
                 while (miofile.EndOfStream == false)
                 {
-                    listBx_hostNames.Items.Add(miofile.ReadLine());
+                    listBoxHostnames.Items.Add(miofile.ReadLine());
                 }
             }
-
         }
     }
 }
