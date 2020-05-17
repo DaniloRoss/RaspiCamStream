@@ -432,20 +432,20 @@ namespace RaspiCamStream
                     min_s = s - 40;
                 else
                     min_s = 0;
-                if (v >= 40)
-                    min_v = v - 40;
+                if (v >= 30)
+                    min_v = v - 30;
                 else
                     min_v = 0;
                 if (h <= 169)
                     max_h = h + 10;
                 else
                     max_h = 179;
-                if (s <= 245)
-                    max_s = s + 10;
+                if (s <= 215)
+                    max_s = s + 40;
                 else
                     max_s = 255;
-                if (v <= 245)
-                    max_v = v + 40;
+                if (v <= 205)
+                    max_v = v + 50;
                 else
                     max_v = 255;
 
