@@ -28,11 +28,13 @@ namespace RaspiCamStream
             Btn_change.Visible = false;
             Rb_tracking.Enabled = false;
             Rb_detection.Enabled = false;
-            Btn_screenshot.Enabled = false;         
+            Btn_screenshot.Enabled = false;
+            Txt_search.BringToFront();
+            Label_search.BringToFront();
         }
 
         private void Btn_ip_Click(object sender, EventArgs e)
-        {          
+        {
             if (!Regex.IsMatch(Txt_ip.Text, @"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b"))
             {
                 Label_ip.Text = "indirizzo non valido";
@@ -40,9 +42,9 @@ namespace RaspiCamStream
                 return;
             }
 
-            if (Label_Search_ip.Text != "")
+            if (Label_ip.Text != "")
             {
-                Label_Search_ip.Text = "";
+                Label_ip.Text = "";
             }
 
             ip = Txt_ip.Text.ToString();
@@ -57,9 +59,18 @@ namespace RaspiCamStream
             Btn_stream.Visible = true; Btn_go.Visible = true; Rb_normal.Visible = true;
             Rb_tracking.Visible = true;
             Rb_detection.Visible = true;
-            Picturebox_colore.Visible = true;
-            Btn_change.Visible = true;
             Btn_screenshot.Visible = true;
+            Btn_ip.Visible = false;
+            Txt_ip.Visible = false;
+            label3.Visible = false;
+            Btn_go.Visible = false;
+            Txt_search.Visible = false;
+            Label_search.Visible = false;
+            btn_visible.Visible = true;
+            pictureBox1.Visible = true;
+            Picturebox_colore.Visible = true;
+            listBoxHostnames.Visible = false;
+            Btn_eliminacronologia.Visible = false;
         }
 
         private void Stream_NewFrame(object sender, NewFrameEventArgs eventArgs)
@@ -145,7 +156,7 @@ namespace RaspiCamStream
                 {
                     using (Pen pen = new Pen(Color.Red, 2))
                     {
-                        graphics.DrawRectangle(pen, x, y,  w,  h);
+                        graphics.DrawRectangle(pen, x, y, w, h);
                     }
                 }
                 pictureBox1.Image = bitmap;
@@ -222,7 +233,7 @@ namespace RaspiCamStream
         {
             sendmessage("C");
         }
-    
+
         private void Rb_normal_Click(object sender, EventArgs e)
         {
             if (Timer_face.Enabled == true)
@@ -231,11 +242,11 @@ namespace RaspiCamStream
             }
             if (Timer_tracking.Enabled == true)
             {
-                Timer_tracking.Stop();
-                Picturebox_colore.BackColor = Color.Transparent;                
+                Timer_tracking.Stop();                
             }
             sendmessage("Q");
             Btn_change.Visible = false;
+            Picturebox_colore.BackColor = Color.Transparent;
         }
 
         private void Rb_tracking_Click(object sender, EventArgs e)
@@ -245,21 +256,19 @@ namespace RaspiCamStream
                 Timer_face.Stop();
                 sendmessage("Q");
             }
-            pictureBox1.Enabled = true;
-            Btn_change.Visible = true;
+            pictureBox1.Enabled = true;          
         }
 
         private void Rb_detection_Click(object sender, EventArgs e)
         {
             if (Timer_tracking.Enabled == true)
             {
-                Timer_tracking.Stop();
-                Picturebox_colore.BackColor = Color.Transparent;
-                Btn_change.Visible = false;
-                sendmessage("Q");
+                Timer_tracking.Stop();          
             }
+            sendmessage("Q");
             Timer_face.Start();
             Btn_change.Visible = false;
+            Picturebox_colore.BackColor = Color.Transparent;
         }
 
         private void Timer_tracking_Tick(object sender, EventArgs e)
@@ -302,7 +311,7 @@ namespace RaspiCamStream
         private void Pb_minimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }     
+        }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -323,7 +332,7 @@ namespace RaspiCamStream
 
                 //converte dalla scala di c# con h 0-360 s 0-1 e v 0-1
                 //alla scala di python con h 0-180 s 0-255 e v 0-255
-                int h = (int)(target.GetHue()/2);
+                int h = (int)(target.GetHue() / 2);
                 int s = (int)(target.GetSaturation() * 255);
                 int v = (int)(target.GetBrightness() * 255);
 
@@ -358,6 +367,7 @@ namespace RaspiCamStream
                 sendmessage(HSV);
                 Timer_tracking.Start();
                 pictureBox1.Enabled = false;
+                Btn_change.Visible = true;
             }
         }
 
@@ -421,7 +431,7 @@ namespace RaspiCamStream
             Txt_search.Text = listBoxHostnames.GetItemText(listBoxHostnames.SelectedItem);
         }
 
-        
+
 
         private void listBoxHostnames_Click(object sender, EventArgs e)
         {
