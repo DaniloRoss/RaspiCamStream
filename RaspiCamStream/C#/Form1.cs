@@ -320,6 +320,16 @@ namespace RaspiCamStream
         {
 
             StreamReader miofile;
+            try
+            {
+                miofile = new StreamReader("hostnameListbox.txt");
+            }
+            catch (FileNotFoundException)
+            {
+                StreamWriter scrivere = new StreamWriter("hostnameListbox.txt", true);
+                scrivere.Close();
+            }
+
             miofile = new StreamReader("hostnameListbox.txt");
 
             if (new FileInfo("hostnameListbox.txt").Length == 0)
