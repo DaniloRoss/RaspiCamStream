@@ -607,8 +607,6 @@
         private System.Windows.Forms.PictureBox Pb_exit;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox Txt_ip;
-        private System.Windows.Forms.ListBox listBoxHostnames;
-        private System.Windows.Forms.Button BtnDelHostnames;
         private System.Windows.Forms.Timer Timer_up;
         private System.Windows.Forms.Timer Timer_down;
         private System.Windows.Forms.Timer Timer_right;
@@ -629,6 +627,9 @@
         private Bunifu.Framework.UI.BunifuThinButton2 Btn_change;
         private Bunifu.Framework.UI.BunifuThinButton2 Btn_screenshot;
         private System.Windows.Forms.Button btn_visible;
+        private System.Windows.Forms.ListBox listBx_hostNames;
+        private System.Windows.Forms.Button Btn_DelCronologia;
+
     }
 }
 
