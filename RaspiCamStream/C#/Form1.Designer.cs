@@ -87,8 +87,9 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Black;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(716, 625);
+            this.pictureBox1.Size = new System.Drawing.Size(955, 770);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -96,10 +97,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(56, 184);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(75, 226);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(46, 17);
             this.label1.TabIndex = 3;
             this.label1.Text = "label1";
             // 
@@ -110,17 +110,19 @@
             this.panel1.Controls.Add(this.Pb_exit);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1015, 36);
+            this.panel1.Size = new System.Drawing.Size(1353, 44);
             this.panel1.TabIndex = 0;
             // 
             // Pb_minimize
             // 
             this.Pb_minimize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Pb_minimize.Image = ((System.Drawing.Image)(resources.GetObject("Pb_minimize.Image")));
-            this.Pb_minimize.Location = new System.Drawing.Point(46, 4);
+            this.Pb_minimize.Location = new System.Drawing.Point(61, 5);
+            this.Pb_minimize.Margin = new System.Windows.Forms.Padding(4);
             this.Pb_minimize.Name = "Pb_minimize";
-            this.Pb_minimize.Size = new System.Drawing.Size(27, 27);
+            this.Pb_minimize.Size = new System.Drawing.Size(36, 33);
             this.Pb_minimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Pb_minimize.TabIndex = 1;
             this.Pb_minimize.TabStop = false;
@@ -130,9 +132,10 @@
             // 
             this.Pb_exit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Pb_exit.Image = ((System.Drawing.Image)(resources.GetObject("Pb_exit.Image")));
-            this.Pb_exit.Location = new System.Drawing.Point(13, 4);
+            this.Pb_exit.Location = new System.Drawing.Point(17, 5);
+            this.Pb_exit.Margin = new System.Windows.Forms.Padding(4);
             this.Pb_exit.Name = "Pb_exit";
-            this.Pb_exit.Size = new System.Drawing.Size(27, 27);
+            this.Pb_exit.Size = new System.Drawing.Size(36, 33);
             this.Pb_exit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Pb_exit.TabIndex = 0;
             this.Pb_exit.TabStop = false;
@@ -152,44 +155,19 @@
             this.panel2.Controls.Add(this.Label_search);
             this.panel2.Controls.Add(this.Txt_search);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 36);
+            this.panel2.Location = new System.Drawing.Point(0, 44);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(716, 625);
+            this.panel2.Size = new System.Drawing.Size(955, 770);
             this.panel2.TabIndex = 10;
             // 
-<<<<<<< HEAD:RaspiCamStream/C#/Form1.Designer.cs
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.btn_visible);
-            this.panel3.Controls.Add(this.Label_ip);
-            this.panel3.Controls.Add(this.Btn_ip);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.Txt_ip);
-            this.panel3.Controls.Add(this.Pb_center);
-            this.panel3.Controls.Add(this.Pb_left);
-            this.panel3.Controls.Add(this.Pb_right);
-            this.panel3.Controls.Add(this.Pb_up);
-            this.panel3.Controls.Add(this.Pb_down);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 441);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(716, 184);
-            this.panel3.TabIndex = 10;
-            // 
-=======
->>>>>>> Finazzi_IpScan:RaspiCamStream/C#/Form1.Designer .cs
             // Label_ip
             // 
             this.Label_ip.AutoSize = true;
             this.Label_ip.ForeColor = System.Drawing.Color.Red;
-<<<<<<< HEAD:RaspiCamStream/C#/Form1.Designer.cs
-            this.Label_ip.Location = new System.Drawing.Point(310, 50);
-            this.Label_ip.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-=======
             this.Label_ip.Location = new System.Drawing.Point(459, 450);
->>>>>>> Finazzi_IpScan:RaspiCamStream/C#/Form1.Designer .cs
             this.Label_ip.Name = "Label_ip";
-            this.Label_ip.Size = new System.Drawing.Size(0, 13);
+            this.Label_ip.Size = new System.Drawing.Size(0, 17);
             this.Label_ip.TabIndex = 22;
             // 
             // listBoxHostnames
@@ -235,39 +213,15 @@
             this.Btn_ip.BackColor = System.Drawing.Color.DarkGreen;
             this.Btn_ip.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_ip.ForeColor = System.Drawing.Color.White;
-<<<<<<< HEAD:RaspiCamStream/C#/Form1.Designer.cs
-            this.Btn_ip.Location = new System.Drawing.Point(413, 80);
-            this.Btn_ip.Margin = new System.Windows.Forms.Padding(2);
-=======
             this.Btn_ip.Location = new System.Drawing.Point(416, 405);
             this.Btn_ip.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
->>>>>>> Finazzi_IpScan:RaspiCamStream/C#/Form1.Designer .cs
             this.Btn_ip.Name = "Btn_ip";
-            this.Btn_ip.Size = new System.Drawing.Size(207, 35);
+            this.Btn_ip.Size = new System.Drawing.Size(276, 43);
             this.Btn_ip.TabIndex = 17;
             this.Btn_ip.Text = "Conferma IP";
             this.Btn_ip.UseVisualStyleBackColor = false;
             this.Btn_ip.Click += new System.EventHandler(this.Btn_ip_Click);
             // 
-<<<<<<< HEAD:RaspiCamStream/C#/Form1.Designer.cs
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(453, 23);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(154, 20);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "Inserire Ip della Cam";
-            // 
-            // Txt_ip
-            // 
-            this.Txt_ip.Location = new System.Drawing.Point(413, 48);
-            this.Txt_ip.Name = "Txt_ip";
-            this.Txt_ip.Size = new System.Drawing.Size(208, 20);
-            this.Txt_ip.TabIndex = 15;
-=======
             // panel3
             // 
             this.panel3.Controls.Add(this.Pb_center);
@@ -281,15 +235,15 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(955, 226);
             this.panel3.TabIndex = 10;
->>>>>>> Finazzi_IpScan:RaspiCamStream/C#/Form1.Designer .cs
             // 
             // Pb_center
             // 
             this.Pb_center.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Pb_center.Image = ((System.Drawing.Image)(resources.GetObject("Pb_center.Image")));
-            this.Pb_center.Location = new System.Drawing.Point(183, 60);
+            this.Pb_center.Location = new System.Drawing.Point(244, 74);
+            this.Pb_center.Margin = new System.Windows.Forms.Padding(4);
             this.Pb_center.Name = "Pb_center";
-            this.Pb_center.Size = new System.Drawing.Size(58, 51);
+            this.Pb_center.Size = new System.Drawing.Size(77, 63);
             this.Pb_center.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Pb_center.TabIndex = 14;
             this.Pb_center.TabStop = false;
@@ -300,9 +254,10 @@
             // 
             this.Pb_left.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Pb_left.Image = ((System.Drawing.Image)(resources.GetObject("Pb_left.Image")));
-            this.Pb_left.Location = new System.Drawing.Point(119, 60);
+            this.Pb_left.Location = new System.Drawing.Point(159, 74);
+            this.Pb_left.Margin = new System.Windows.Forms.Padding(4);
             this.Pb_left.Name = "Pb_left";
-            this.Pb_left.Size = new System.Drawing.Size(58, 51);
+            this.Pb_left.Size = new System.Drawing.Size(77, 63);
             this.Pb_left.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Pb_left.TabIndex = 13;
             this.Pb_left.TabStop = false;
@@ -314,9 +269,10 @@
             // 
             this.Pb_right.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Pb_right.Image = ((System.Drawing.Image)(resources.GetObject("Pb_right.Image")));
-            this.Pb_right.Location = new System.Drawing.Point(247, 60);
+            this.Pb_right.Location = new System.Drawing.Point(329, 74);
+            this.Pb_right.Margin = new System.Windows.Forms.Padding(4);
             this.Pb_right.Name = "Pb_right";
-            this.Pb_right.Size = new System.Drawing.Size(58, 51);
+            this.Pb_right.Size = new System.Drawing.Size(77, 63);
             this.Pb_right.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Pb_right.TabIndex = 12;
             this.Pb_right.TabStop = false;
@@ -328,9 +284,10 @@
             // 
             this.Pb_up.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Pb_up.Image = ((System.Drawing.Image)(resources.GetObject("Pb_up.Image")));
-            this.Pb_up.Location = new System.Drawing.Point(183, 0);
+            this.Pb_up.Location = new System.Drawing.Point(244, 0);
+            this.Pb_up.Margin = new System.Windows.Forms.Padding(4);
             this.Pb_up.Name = "Pb_up";
-            this.Pb_up.Size = new System.Drawing.Size(58, 51);
+            this.Pb_up.Size = new System.Drawing.Size(77, 63);
             this.Pb_up.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Pb_up.TabIndex = 11;
             this.Pb_up.TabStop = false;
@@ -342,9 +299,10 @@
             // 
             this.Pb_down.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Pb_down.Image = ((System.Drawing.Image)(resources.GetObject("Pb_down.Image")));
-            this.Pb_down.Location = new System.Drawing.Point(183, 118);
+            this.Pb_down.Location = new System.Drawing.Point(244, 145);
+            this.Pb_down.Margin = new System.Windows.Forms.Padding(4);
             this.Pb_down.Name = "Pb_down";
-            this.Pb_down.Size = new System.Drawing.Size(58, 51);
+            this.Pb_down.Size = new System.Drawing.Size(77, 63);
             this.Pb_down.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Pb_down.TabIndex = 10;
             this.Pb_down.TabStop = false;
@@ -352,8 +310,6 @@
             this.Pb_down.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Pb_down_MouseDown);
             this.Pb_down.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Pb_down_MouseUp);
             // 
-<<<<<<< HEAD:RaspiCamStream/C#/Form1.Designer.cs
-=======
             // label3
             // 
             this.label3.AutoSize = true;
@@ -432,23 +388,15 @@
             this.btn_visible.Visible = false;
             this.btn_visible.Click += new System.EventHandler(this.btn_visible_Click);
             // 
->>>>>>> Finazzi_IpScan:RaspiCamStream/C#/Form1.Designer .cs
             // Rb_detection
             // 
             this.Rb_detection.AutoSize = true;
             this.Rb_detection.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Rb_detection.ForeColor = System.Drawing.Color.Transparent;
-<<<<<<< HEAD:RaspiCamStream/C#/Form1.Designer.cs
-            this.Rb_detection.Location = new System.Drawing.Point(757, 284);
-            this.Rb_detection.Margin = new System.Windows.Forms.Padding(2);
-            this.Rb_detection.Name = "Rb_detection";
-            this.Rb_detection.Size = new System.Drawing.Size(80, 17);
-=======
             this.Rb_detection.Location = new System.Drawing.Point(1009, 350);
             this.Rb_detection.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Rb_detection.Name = "Rb_detection";
             this.Rb_detection.Size = new System.Drawing.Size(98, 21);
->>>>>>> Finazzi_IpScan:RaspiCamStream/C#/Form1.Designer .cs
             this.Rb_detection.TabIndex = 28;
             this.Rb_detection.TabStop = true;
             this.Rb_detection.Text = "Detection";
@@ -461,17 +409,10 @@
             this.Rb_tracking.AutoSize = true;
             this.Rb_tracking.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Rb_tracking.ForeColor = System.Drawing.Color.Transparent;
-<<<<<<< HEAD:RaspiCamStream/C#/Form1.Designer.cs
-            this.Rb_tracking.Location = new System.Drawing.Point(757, 262);
-            this.Rb_tracking.Margin = new System.Windows.Forms.Padding(2);
-            this.Rb_tracking.Name = "Rb_tracking";
-            this.Rb_tracking.Size = new System.Drawing.Size(75, 17);
-=======
             this.Rb_tracking.Location = new System.Drawing.Point(1009, 322);
             this.Rb_tracking.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Rb_tracking.Name = "Rb_tracking";
             this.Rb_tracking.Size = new System.Drawing.Size(92, 21);
->>>>>>> Finazzi_IpScan:RaspiCamStream/C#/Form1.Designer .cs
             this.Rb_tracking.TabIndex = 27;
             this.Rb_tracking.TabStop = true;
             this.Rb_tracking.Text = "Tracking";
@@ -484,17 +425,10 @@
             this.Rb_normal.AutoSize = true;
             this.Rb_normal.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Rb_normal.ForeColor = System.Drawing.Color.Transparent;
-<<<<<<< HEAD:RaspiCamStream/C#/Form1.Designer.cs
-            this.Rb_normal.Location = new System.Drawing.Point(757, 240);
-            this.Rb_normal.Margin = new System.Windows.Forms.Padding(2);
-            this.Rb_normal.Name = "Rb_normal";
-            this.Rb_normal.Size = new System.Drawing.Size(64, 17);
-=======
             this.Rb_normal.Location = new System.Drawing.Point(1009, 295);
             this.Rb_normal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Rb_normal.Name = "Rb_normal";
             this.Rb_normal.Size = new System.Drawing.Size(80, 21);
->>>>>>> Finazzi_IpScan:RaspiCamStream/C#/Form1.Designer .cs
             this.Rb_normal.TabIndex = 26;
             this.Rb_normal.TabStop = true;
             this.Rb_normal.Text = "Normal";
@@ -525,14 +459,14 @@
             this.Btn_stream.IconVisible = true;
             this.Btn_stream.IconZoom = 90D;
             this.Btn_stream.IsTab = false;
-            this.Btn_stream.Location = new System.Drawing.Point(746, 86);
-            this.Btn_stream.Margin = new System.Windows.Forms.Padding(4);
+            this.Btn_stream.Location = new System.Drawing.Point(995, 106);
+            this.Btn_stream.Margin = new System.Windows.Forms.Padding(5);
             this.Btn_stream.Name = "Btn_stream";
             this.Btn_stream.Normalcolor = System.Drawing.Color.DarkGreen;
             this.Btn_stream.OnHovercolor = System.Drawing.Color.Lime;
             this.Btn_stream.OnHoverTextColor = System.Drawing.Color.White;
             this.Btn_stream.selected = false;
-            this.Btn_stream.Size = new System.Drawing.Size(198, 48);
+            this.Btn_stream.Size = new System.Drawing.Size(264, 59);
             this.Btn_stream.TabIndex = 11;
             this.Btn_stream.Text = "Avvia Stream";
             this.Btn_stream.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -653,28 +587,17 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1015, 661);
+            this.ClientSize = new System.Drawing.Size(1353, 814);
             this.ControlBox = false;
-<<<<<<< HEAD:RaspiCamStream/C#/Form1.Designer.cs
-            this.Controls.Add(this.Btn_screenshot);
-            this.Controls.Add(this.Btn_change);
-            this.Controls.Add(this.Picturebox_colore);
-            this.Controls.Add(this.Btn_go);
-            this.Controls.Add(this.Rb_detection);
-            this.Controls.Add(this.Label_search);
-            this.Controls.Add(this.Rb_tracking);
-            this.Controls.Add(this.Txt_search);
-=======
             this.Controls.Add(this.btn_visible);
             this.Controls.Add(this.Btn_screenshot);
             this.Controls.Add(this.Btn_change);
             this.Controls.Add(this.Picturebox_colore);
             this.Controls.Add(this.Rb_detection);
             this.Controls.Add(this.Rb_tracking);
->>>>>>> Finazzi_IpScan:RaspiCamStream/C#/Form1.Designer .cs
             this.Controls.Add(this.Rb_normal);
             this.Controls.Add(this.Label_Search_ip);
             this.Controls.Add(this.Btn_stream);
@@ -682,8 +605,10 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Pb_minimize)).EndInit();
@@ -742,4 +667,3 @@
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
     }
 }
-
