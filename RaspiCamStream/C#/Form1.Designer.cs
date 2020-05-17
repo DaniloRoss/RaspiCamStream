@@ -598,6 +598,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Pb_minimize)).EndInit();
@@ -656,4 +657,3 @@
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
     }
 }
-
