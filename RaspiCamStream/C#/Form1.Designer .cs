@@ -530,16 +530,19 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox Txt_ip;
+
+        private System.Windows.Forms.TextBox txtBoxHostname;
+        private System.Windows.Forms.Button ipFromName;
+        private System.Windows.Forms.Label LabelIp;
         private System.Windows.Forms.ListBox listBoxHostnames;
         private System.Windows.Forms.Button BtnDelHostnames;
+
         private System.Windows.Forms.Timer Timer_up;
         private System.Windows.Forms.Timer Timer_down;
         private System.Windows.Forms.Timer Timer_right;
         private System.Windows.Forms.Timer Timer_left;
         private System.Windows.Forms.Button Btn_ip;
-        private System.Windows.Forms.Label Label_Search_ip;
-        private System.Windows.Forms.Label Label_ip;
+        
     }
 }
 
