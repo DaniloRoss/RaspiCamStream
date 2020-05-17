@@ -7,6 +7,7 @@ using System.Net.Sockets;
 using System.Text.RegularExpressions;
 using AForge.Video;
 using System.Linq;
+using System.IO;
 
 namespace RaspiCamStream
 {
