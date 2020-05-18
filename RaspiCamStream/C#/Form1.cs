@@ -33,13 +33,14 @@ namespace RaspiCamStream
             Rb_tracking.Enabled = false;
             Rb_detection.Enabled = false;
             Btn_screenshot.Enabled = false;
-            NomeSalvataggio.Visible = false;
             pictureBox2.Visible = false;
-            btSalva.Visible = false;
-            btElimina.Visible = false;
+            btZoom.Visible = false;
+            trackBar1.Visible = false;
             Txt_search.BringToFront();
             Label_search.BringToFront();
             Btn_go.BringToFront();
+            btVideo.Enabled = false;
+            btAnteprima.Visible = false;
 
             using (Graphics gfx = Graphics.FromImage(bitmap))
             using (SolidBrush brush = new SolidBrush(Color.FromArgb(1, 1, 1)))
@@ -86,6 +87,10 @@ namespace RaspiCamStream
             listBoxHostnames.Visible = false;
             Btn_eliminacronologia.Visible = false;
             btVideo.Visible = true;
+            btZoom.Visible = true;
+            trackBar1.Visible = true;
+            pictureBox2.Visible = true;
+            label2.Visible = false;
         }
 
         private void Stream_NewFrame(object sender, NewFrameEventArgs eventArgs)
@@ -120,6 +125,7 @@ namespace RaspiCamStream
             Rb_tracking.Enabled = true;
             Rb_detection.Enabled = true;
             Btn_screenshot.Enabled = true;
+            btVideo.Enabled = true;
             Btn_stream.Text = "Interrompi Stream";
         }
 
@@ -266,14 +272,14 @@ namespace RaspiCamStream
                 sendmessage("Q");
             }
             pictureBox1.Enabled = true;
-            Picturebox_colore.Visible = true;            
+            Picturebox_colore.Visible = true;
         }
 
         private void Rb_detection_Click(object sender, EventArgs e)
         {
             if (Timer_tracking.Enabled == true)
             {
-                Timer_tracking.Stop();                
+                Timer_tracking.Stop();
                 sendmessage("Q");
             }
             Timer_face.Start();
@@ -297,13 +303,7 @@ namespace RaspiCamStream
             sendmessage("Q");
             pictureBox1.Enabled = true;
         }
-        #endregion
-
-        private void Btn_screenshot_Click(object sender, EventArgs e)
-        {
-            Bitmap bmp = (Bitmap)pictureBox1.Image;
-            bmp.Save("Screenshot" + DateTime.Now.ToString("dd_MM_yyyy_hh_mm_ss") + ".bmp");
-        }
+        #endregion      
 
         private void Pb_exit_Click(object sender, EventArgs e)
         {
@@ -320,9 +320,9 @@ namespace RaspiCamStream
 
         //BOTTONE PER LA RIDUZIONE DELLA FINESTRA
         private void Pb_minimize_Click(object sender, EventArgs e)
-        {           
+        {
             this.WindowState = FormWindowState.Minimized;
-        }       
+        }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -385,14 +385,16 @@ namespace RaspiCamStream
         private void Btn_go_Click(object sender, EventArgs e)
         {
             listBoxHostnames.Items.Clear();
-
+            label2.Text = "";
+            Label_search.Text = "";
+            
             if (string.IsNullOrEmpty(Txt_search.Text) == true)
             {
                 MessageBox.Show("inserire un valore come hostname");
                 return;
             }
             string HostName = Txt_search.Text;
-
+            Txt_search.Clear();
             IPAddress[] ipaddress = new IPAddress[100];
             try
             {
@@ -407,8 +409,8 @@ namespace RaspiCamStream
             {
                 foreach (IPAddress ip4 in ipaddress.Where(ip => ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork))
                 {
-                    Label_search.Text = $"l' ip da nome è: {ip4.ToString()}";
-
+                    Label_search.Text = "l' ip da nome è: ";
+                    label2.Text = ip4.ToString();
                 }
             }
             catch (NullReferenceException)
@@ -433,6 +435,7 @@ namespace RaspiCamStream
 
             if (new FileInfo("hostnameListbox.txt").Length == 0)
             {
+                leggere.Close();
                 return;
             }
 
@@ -453,7 +456,7 @@ namespace RaspiCamStream
 
         private void Form1_Load(object sender, EventArgs e) // riempie la listbox
         {
-            StreamReader miofile;
+            StreamReader miofile = default(StreamReader);
             try
             {
                 miofile = new StreamReader("hostnameListbox.txt");
@@ -461,7 +464,11 @@ namespace RaspiCamStream
             catch (FileNotFoundException)
             {
                 StreamWriter scrivere = new StreamWriter("hostnameListbox.txt", true);
-                scrivere.Close();
+                scrivere.Close();               
+            }
+            finally
+            {
+                miofile.Close();
             }
 
             miofile = new StreamReader("hostnameListbox.txt");
@@ -479,6 +486,29 @@ namespace RaspiCamStream
 
             miofile.Close();
 
+        }
+
+        private void listBoxHostnames_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Txt_search.Text = listBoxHostnames.SelectedItem.ToString();
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void Btn_eliminacronologia_Click(object sender, EventArgs e)
+        {
+            File.WriteAllText("hostnameListbox.txt", String.Empty);
+            listBoxHostnames.Items.Clear();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            Txt_ip.Text = label2.Text;
         }
 
         private void btn_visible_Click(object sender, EventArgs e)
@@ -505,32 +535,27 @@ namespace RaspiCamStream
             listBoxHostnames.Visible = true;
             Btn_eliminacronologia.Visible = true;
             btVideo.Visible = false;
+            btZoom.Visible = false;
+            trackBar1.Visible = false;
+            label2.Visible = true;
         }
 
-        private void listBoxHostnames_Click(object sender, EventArgs e)
-        {
-            Txt_search.Text = listBoxHostnames.SelectedItem.ToString();
-        }
-        //cattura schermo(img)----------------------------------------------
-
-        private void Btn_Screenshot_Click(object sender, EventArgs e)
+        private void Btn_screenshot_Click(object sender, EventArgs e)
         {
             bmp = (Bitmap)pictureBox1.Image;
-            Bitmap newImage = ResizeBitmap(bmp, pictureBox2.Size.Width, pictureBox2.Size.Height, 0);
+            bmp.Save("Screenshot" + DateTime.Now.ToString("dd_MM_yyyy_hh_mm_ss") + ".bmp");
+
+            Bitmap newImage = ResizeBitmap(bmp, pictureBox2.Size.Width, pictureBox2.Size.Height, 0);            
             pictureBox2.Image = newImage;
+            btAnteprima.Visible = true;
         }
 
-        private void btSalva_Click(object sender, EventArgs e)
+        private void btAnteprima_Click(object sender, EventArgs e)
         {
-
-            bmp.Save(NomeSalvataggio.Text + ".bmp");
-
-        }
-        private void btElimina_Click(object sender, EventArgs e)
-        {
-            NomeSalvataggio.Text = "";
             pictureBox2.Image = null;
+            btAnteprima.Visible = false;
         }
+
         public Bitmap ResizeBitmap(Bitmap bmp, int width, int height, int caso)
         {
             Bitmap result = new Bitmap(width, height);
@@ -607,10 +632,8 @@ namespace RaspiCamStream
         //cattura schermo(video)----------------------------------------------
 
         //zoom----------------------------------------------------------------
-        private void btZoom_Click_1(object sender, EventArgs e)
+        private void btZoom_Click(object sender, EventArgs e)
         {
-
-
 
             if (trackBar1.Value == 0)
             {
@@ -658,14 +681,11 @@ namespace RaspiCamStream
                 Stream.NewFrame += Stream_NewFrame4;
 
             }
-
         }
 
         private void Stream_NewFrame2(object sender, NewFrameEventArgs eventArgs)
         {
             bitmap = (Bitmap)eventArgs.Frame.Clone();
-
-
 
             bitmap = ResizeBitmap(bitmap, bitmap.Width * 15 / 10, bitmap.Height * 15 / 10, 1);
 
@@ -678,8 +698,8 @@ namespace RaspiCamStream
 
             }
 
-
         }
+
         private void Stream_NewFrame3(object sender, NewFrameEventArgs eventArgs)
         {
             bitmap = (Bitmap)eventArgs.Frame.Clone();
@@ -696,9 +716,8 @@ namespace RaspiCamStream
             {
 
             }
-
-
         }
+
         private void Stream_NewFrame4(object sender, NewFrameEventArgs eventArgs)
         {
             bitmap = (Bitmap)eventArgs.Frame.Clone();
@@ -715,14 +734,6 @@ namespace RaspiCamStream
             {
 
             }
-
-
-        }
-        private void Btn_eliminacronologia_Click(object sender, EventArgs e)
-        {
-            File.WriteAllText("hostnameListbox.txt", String.Empty);
-            listBoxHostnames.Items.Clear();
-        }
+        }       
     }
-
 }
