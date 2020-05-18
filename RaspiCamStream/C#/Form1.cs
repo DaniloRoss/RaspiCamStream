@@ -9,6 +9,8 @@ using AForge.Video;
 using System.Linq;
 using System.IO;
 using Accord.Video.FFMPEG;
+using System.IO;
+
 
 namespace RaspiCamStream
 {
@@ -22,6 +24,10 @@ namespace RaspiCamStream
         private delegate void SafeCallDelegate(string ip, string nome, ListView listview);
         string ip = default(string);
         int streamexist = default(int);
+        private string PathFolderImage;
+
+
+
 
         public Form1()
         {
@@ -41,11 +47,9 @@ namespace RaspiCamStream
             Label_search.BringToFront();
             Btn_go.BringToFront();
 
-            using (Graphics gfx = Graphics.FromImage(bitmap))
-            using (SolidBrush brush = new SolidBrush(Color.FromArgb(1, 1, 1)))
-            {
-                gfx.FillRectangle(brush, 0, 0, 1, 1);
-            }
+            
+
+
         }
 
         private void Btn_ip_Click(object sender, EventArgs e)
@@ -515,23 +519,16 @@ namespace RaspiCamStream
 
         private void Btn_Screenshot_Click(object sender, EventArgs e)
         {
-            bmp = (Bitmap)pictureBox1.Image;
-            Bitmap newImage = ResizeBitmap(bmp, pictureBox2.Size.Width, pictureBox2.Size.Height, 0);
+             bmp = (Bitmap)pictureBox1.Image;
+            bmp.Save("Screenshot" + DateTime.Now.ToString("dd_MM_yyyy_hh_mm_ss") + ".bmp");
+           
+            Bitmap newImage = ResizeBitmap(bmp, pictureBox2.Size.Width, pictureBox2.Size.Height,0);
             pictureBox2.Image = newImage;
         }
 
-        private void btSalva_Click(object sender, EventArgs e)
-        {
-
-            bmp.Save(NomeSalvataggio.Text + ".bmp");
-
-        }
-        private void btElimina_Click(object sender, EventArgs e)
-        {
-            NomeSalvataggio.Text = "";
-            pictureBox2.Image = null;
-        }
-        public Bitmap ResizeBitmap(Bitmap bmp, int width, int height, int caso)
+       
+     
+        public Bitmap ResizeBitmap(Bitmap bmp, int width, int height , int caso)
         {
             Bitmap result = new Bitmap(width, height);
             if (caso == 0)
@@ -600,7 +597,8 @@ namespace RaspiCamStream
 
         private void TimerVideo_Tick(object sender, EventArgs e)
         {
-            Bitmap bmp = (Bitmap)pictureBox1.Image;
+
+            bmp = (Bitmap)pictureBox1.Image;
             writer.WriteVideoFrame(bmp);
         }
 
