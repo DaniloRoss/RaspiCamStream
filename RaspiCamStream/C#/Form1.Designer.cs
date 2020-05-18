@@ -37,7 +37,6 @@
             this.Pb_minimize = new System.Windows.Forms.PictureBox();
             this.Pb_exit = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.Label_ip = new System.Windows.Forms.Label();
             this.listBoxHostnames = new System.Windows.Forms.ListBox();
             this.Btn_eliminacronologia = new Bunifu.Framework.UI.BunifuThinButton2();
@@ -49,10 +48,11 @@
             this.Pb_up = new System.Windows.Forms.PictureBox();
             this.Pb_down = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.Btn_go = new Bunifu.Framework.UI.BunifuThinButton2();
             this.Txt_ip = new System.Windows.Forms.TextBox();
+            this.Btn_go = new Bunifu.Framework.UI.BunifuThinButton2();
             this.Label_search = new System.Windows.Forms.Label();
             this.Txt_search = new System.Windows.Forms.TextBox();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.btn_visible = new System.Windows.Forms.Button();
             this.Rb_detection = new System.Windows.Forms.RadioButton();
             this.Rb_tracking = new System.Windows.Forms.RadioButton();
@@ -82,12 +82,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.Pb_exit)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_center)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_left)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_right)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_up)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_down)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picturebox_colore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -159,25 +159,16 @@
             this.panel2.Controls.Add(this.Btn_ip);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.Btn_go);
             this.panel2.Controls.Add(this.Txt_ip);
             this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Controls.Add(this.Label_search);
             this.panel2.Controls.Add(this.Txt_search);
+            this.panel2.Controls.Add(this.Btn_go);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 44);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(955, 770);
-            this.panel2.TabIndex = 10; 
-            // 
-            // trackBar1
-            // 
-            this.trackBar1.Location = new System.Drawing.Point(285, 75);
-            this.trackBar1.Maximum = 3;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(104, 45);
-            this.trackBar1.TabIndex = 23;
+            this.panel2.TabIndex = 10;
             // 
             // Label_ip
             // 
@@ -340,6 +331,14 @@
             this.label3.TabIndex = 16;
             this.label3.Text = "Inserire Ip della Cam";
             // 
+            // Txt_ip
+            // 
+            this.Txt_ip.Location = new System.Drawing.Point(416, 366);
+            this.Txt_ip.Margin = new System.Windows.Forms.Padding(4);
+            this.Txt_ip.Name = "Txt_ip";
+            this.Txt_ip.Size = new System.Drawing.Size(276, 22);
+            this.Txt_ip.TabIndex = 15;
+            // 
             // Btn_go
             // 
             this.Btn_go.ActiveBorderThickness = 1;
@@ -358,21 +357,13 @@
             this.Btn_go.IdleFillColor = System.Drawing.Color.Black;
             this.Btn_go.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.Btn_go.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.Btn_go.Location = new System.Drawing.Point(446, 210);
+            this.Btn_go.Location = new System.Drawing.Point(435, 210);
             this.Btn_go.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Btn_go.Name = "Btn_go";
             this.Btn_go.Size = new System.Drawing.Size(89, 49);
             this.Btn_go.TabIndex = 29;
             this.Btn_go.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Btn_go.Click += new System.EventHandler(this.Btn_go_Click);
-            // 
-            // Txt_ip
-            // 
-            this.Txt_ip.Location = new System.Drawing.Point(416, 366);
-            this.Txt_ip.Margin = new System.Windows.Forms.Padding(4);
-            this.Txt_ip.Name = "Txt_ip";
-            this.Txt_ip.Size = new System.Drawing.Size(276, 22);
-            this.Txt_ip.TabIndex = 15;
             // 
             // Label_search
             // 
@@ -385,11 +376,19 @@
             // 
             // Txt_search
             // 
-            this.Txt_search.Location = new System.Drawing.Point(554, 225);
+            this.Txt_search.Location = new System.Drawing.Point(550, 223);
             this.Txt_search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Txt_search.Name = "Txt_search";
             this.Txt_search.Size = new System.Drawing.Size(153, 22);
             this.Txt_search.TabIndex = 23;
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.Location = new System.Drawing.Point(285, 75);
+            this.trackBar1.Maximum = 3;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(104, 56);
+            this.trackBar1.TabIndex = 23;
             // 
             // btn_visible
             // 
@@ -602,22 +601,12 @@
             this.bunifuDragControl1.Horizontal = true;
             this.bunifuDragControl1.TargetControl = this.panel1;
             this.bunifuDragControl1.Vertical = true;
-            //
-            //Btn_screenshot
-            //
-            this.Btn_screenshot.Location = new System.Drawing.Point(762, 276);
-            this.Btn_screenshot.Margin = new System.Windows.Forms.Padding(5);
-            this.Btn_screenshot.Name = "Btn_screenshot";
-            this.Btn_screenshot.Size = new System.Drawing.Size(212, 52);
-            this.Btn_screenshot.TabIndex = 32;
-            this.Btn_screenshot.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Btn_screenshot.Click += new System.EventHandler(this.Btn_screenshot_Click);
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(762, 436);
+            this.pictureBox2.Location = new System.Drawing.Point(1008, 598);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(212, 152);
+            this.pictureBox2.Size = new System.Drawing.Size(284, 152);
             this.pictureBox2.TabIndex = 33;
             this.pictureBox2.TabStop = false;
             // 
@@ -639,19 +628,19 @@
             this.btVideo.IdleFillColor = System.Drawing.Color.Black;
             this.btVideo.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btVideo.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btVideo.Location = new System.Drawing.Point(762, 338);
+            this.btVideo.Location = new System.Drawing.Point(1008, 500);
             this.btVideo.Margin = new System.Windows.Forms.Padding(5);
             this.btVideo.Name = "btVideo";
-            this.btVideo.Size = new System.Drawing.Size(212, 52);
+            this.btVideo.Size = new System.Drawing.Size(284, 62);
             this.btVideo.TabIndex = 35;
             this.btVideo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btVideo.Click += new System.EventHandler(this.btVideo_Click);
             // 
             // NomeSalvataggio
             // 
-            this.NomeSalvataggio.Location = new System.Drawing.Point(762, 398);
+            this.NomeSalvataggio.Location = new System.Drawing.Point(1009, 570);
             this.NomeSalvataggio.Name = "NomeSalvataggio";
-            this.NomeSalvataggio.Size = new System.Drawing.Size(212, 20);
+            this.NomeSalvataggio.Size = new System.Drawing.Size(283, 22);
             this.NomeSalvataggio.TabIndex = 23;
             // 
             // btSalva
@@ -672,10 +661,10 @@
             this.btSalva.IdleFillColor = System.Drawing.Color.Black;
             this.btSalva.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btSalva.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btSalva.Location = new System.Drawing.Point(762, 596);
+            this.btSalva.Location = new System.Drawing.Point(1009, 758);
             this.btSalva.Margin = new System.Windows.Forms.Padding(5);
             this.btSalva.Name = "btSalva";
-            this.btSalva.Size = new System.Drawing.Size(99, 52);
+            this.btSalva.Size = new System.Drawing.Size(145, 52);
             this.btSalva.TabIndex = 37;
             this.btSalva.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btSalva.Click += new System.EventHandler(this.btSalva_Click);
@@ -698,10 +687,10 @@
             this.btElimina.IdleFillColor = System.Drawing.Color.Black;
             this.btElimina.IdleForecolor = System.Drawing.Color.Red;
             this.btElimina.IdleLineColor = System.Drawing.Color.Red;
-            this.btElimina.Location = new System.Drawing.Point(875, 596);
+            this.btElimina.Location = new System.Drawing.Point(1156, 758);
             this.btElimina.Margin = new System.Windows.Forms.Padding(5);
             this.btElimina.Name = "btElimina";
-            this.btElimina.Size = new System.Drawing.Size(99, 52);
+            this.btElimina.Size = new System.Drawing.Size(136, 52);
             this.btElimina.TabIndex = 38;
             this.btElimina.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btElimina.Click += new System.EventHandler(this.btElimina_Click);
@@ -739,9 +728,7 @@
             this.Controls.Add(this.NomeSalvataggio);
             this.Controls.Add(this.btVideo);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.Btn_go);
             this.Controls.Add(this.Label_search);
-            this.Controls.Add(this.Txt_search);
             this.Controls.Add(this.Rb_normal);
             this.Controls.Add(this.Label_Search_ip);
             this.Controls.Add(this.Btn_stream);
@@ -752,7 +739,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load_1);
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Pb_minimize)).EndInit();
@@ -760,13 +747,12 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_center)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_left)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_right)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_up)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_down)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picturebox_colore)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
@@ -812,7 +798,6 @@
         private System.Windows.Forms.Button btn_visible;
         private System.Windows.Forms.ListBox listBoxHostnames;
         private Bunifu.Framework.UI.BunifuThinButton2 Btn_eliminacronologia;
-        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private Bunifu.Framework.UI.BunifuThinButton2 btVideo;
         private System.Windows.Forms.TextBox NomeSalvataggio;
@@ -822,4 +807,5 @@
         private System.Windows.Forms.Timer TimerVideo;
         private System.Windows.Forms.Button btZoom;
     }
+
 }
