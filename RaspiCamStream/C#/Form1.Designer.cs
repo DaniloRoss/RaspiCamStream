@@ -37,7 +37,6 @@
             this.Pb_minimize = new System.Windows.Forms.PictureBox();
             this.Pb_exit = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btZoom = new System.Windows.Forms.Button();
             this.Label_ip = new System.Windows.Forms.Label();
             this.listBoxHostnames = new System.Windows.Forms.ListBox();
             this.Btn_eliminacronologia = new Bunifu.Framework.UI.BunifuThinButton2();
@@ -72,8 +71,11 @@
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btVideo = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.NomeSalvataggio = new System.Windows.Forms.TextBox();
+            this.btSalva = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.btElimina = new Bunifu.Framework.UI.BunifuThinButton2();
             this.TimerVideo = new System.Windows.Forms.Timer(this.components);
-            this.label2 = new System.Windows.Forms.Label();
+            this.btZoom = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_minimize)).BeginInit();
@@ -167,16 +169,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(955, 770);
             this.panel2.TabIndex = 10;
-            // 
-            // btZoom
-            // 
-            this.btZoom.Location = new System.Drawing.Point(285, 30);
-            this.btZoom.Name = "btZoom";
-            this.btZoom.Size = new System.Drawing.Size(104, 23);
-            this.btZoom.TabIndex = 24;
-            this.btZoom.Text = "Zoom";
-            this.btZoom.UseVisualStyleBackColor = true;
-            this.btZoom.Click += new System.EventHandler(this.btZoom_Click_1);
             // 
             // Label_ip
             // 
@@ -644,21 +636,79 @@
             this.btVideo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btVideo.Click += new System.EventHandler(this.btVideo_Click);
             // 
+            // NomeSalvataggio
+            // 
+            this.NomeSalvataggio.Location = new System.Drawing.Point(1009, 570);
+            this.NomeSalvataggio.Name = "NomeSalvataggio";
+            this.NomeSalvataggio.Size = new System.Drawing.Size(283, 22);
+            this.NomeSalvataggio.TabIndex = 23;
+            // 
+            // btSalva
+            // 
+            this.btSalva.ActiveBorderThickness = 1;
+            this.btSalva.ActiveCornerRadius = 20;
+            this.btSalva.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btSalva.ActiveForecolor = System.Drawing.Color.White;
+            this.btSalva.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btSalva.BackColor = System.Drawing.Color.Black;
+            this.btSalva.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btSalva.BackgroundImage")));
+            this.btSalva.ButtonText = "Salva";
+            this.btSalva.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btSalva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSalva.ForeColor = System.Drawing.Color.Green;
+            this.btSalva.IdleBorderThickness = 1;
+            this.btSalva.IdleCornerRadius = 20;
+            this.btSalva.IdleFillColor = System.Drawing.Color.Black;
+            this.btSalva.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btSalva.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btSalva.Location = new System.Drawing.Point(1009, 758);
+            this.btSalva.Margin = new System.Windows.Forms.Padding(5);
+            this.btSalva.Name = "btSalva";
+            this.btSalva.Size = new System.Drawing.Size(145, 52);
+            this.btSalva.TabIndex = 37;
+            this.btSalva.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btSalva.Click += new System.EventHandler(this.btSalva_Click);
+            // 
+            // btElimina
+            // 
+            this.btElimina.ActiveBorderThickness = 1;
+            this.btElimina.ActiveCornerRadius = 20;
+            this.btElimina.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btElimina.ActiveForecolor = System.Drawing.Color.White;
+            this.btElimina.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btElimina.BackColor = System.Drawing.Color.Black;
+            this.btElimina.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btElimina.BackgroundImage")));
+            this.btElimina.ButtonText = "Elimina";
+            this.btElimina.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btElimina.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btElimina.ForeColor = System.Drawing.Color.Red;
+            this.btElimina.IdleBorderThickness = 1;
+            this.btElimina.IdleCornerRadius = 20;
+            this.btElimina.IdleFillColor = System.Drawing.Color.Black;
+            this.btElimina.IdleForecolor = System.Drawing.Color.Red;
+            this.btElimina.IdleLineColor = System.Drawing.Color.Red;
+            this.btElimina.Location = new System.Drawing.Point(1156, 758);
+            this.btElimina.Margin = new System.Windows.Forms.Padding(5);
+            this.btElimina.Name = "btElimina";
+            this.btElimina.Size = new System.Drawing.Size(136, 52);
+            this.btElimina.TabIndex = 38;
+            this.btElimina.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btElimina.Click += new System.EventHandler(this.btElimina_Click);
+            // 
             // TimerVideo
             // 
             this.TimerVideo.Interval = 25;
             this.TimerVideo.Tick += new System.EventHandler(this.TimerVideo_Tick);
             // 
-            // label2
+            // btZoom
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(799, 445);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(140, 20);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "Ultimo Screenshot";
+            this.btZoom.Location = new System.Drawing.Point(285, 30);
+            this.btZoom.Name = "btZoom";
+            this.btZoom.Size = new System.Drawing.Size(104, 23);
+            this.btZoom.TabIndex = 24;
+            this.btZoom.Text = "Zoom";
+            this.btZoom.UseVisualStyleBackColor = true;
+            this.btZoom.Click += new System.EventHandler(this.btZoom_Click_1);
             // 
             // Form1
             // 
@@ -676,7 +726,6 @@
             this.Controls.Add(this.btElimina);
             this.Controls.Add(this.btSalva);
             this.Controls.Add(this.NomeSalvataggio);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.btVideo);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.Label_search);
@@ -751,10 +800,12 @@
         private Bunifu.Framework.UI.BunifuThinButton2 Btn_eliminacronologia;
         private System.Windows.Forms.PictureBox pictureBox2;
         private Bunifu.Framework.UI.BunifuThinButton2 btVideo;
+        private System.Windows.Forms.TextBox NomeSalvataggio;
+        private Bunifu.Framework.UI.BunifuThinButton2 btSalva;
+        private Bunifu.Framework.UI.BunifuThinButton2 btElimina;
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.Timer TimerVideo;
         private System.Windows.Forms.Button btZoom;
-        private System.Windows.Forms.Label label2;
     }
 
 }
