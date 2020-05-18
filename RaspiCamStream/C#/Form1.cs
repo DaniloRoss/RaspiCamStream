@@ -8,13 +8,15 @@ using System.Text.RegularExpressions;
 using AForge.Video;
 using System.Linq;
 using Accord.Video.FFMPEG;
+using System.IO;
+
 
 
 namespace RaspiCamStream
 {
     public partial class Form1 : Form
     {
-        int x = default(int);
+     
         Bitmap bitmap = new Bitmap(640, 480);
         MJPEGStream Stream;
         private delegate void SafeCallDelegate(string ip, string nome, ListView listview);
@@ -23,6 +25,10 @@ namespace RaspiCamStream
         int streamexist = default(int);
         VideoFileWriter writer = default(VideoFileWriter);
         Bitmap bmp = default(Bitmap);
+        private string PathFolderImage;
+
+
+
 
         public Form1()
         {
@@ -36,11 +42,8 @@ namespace RaspiCamStream
             Btn_screenshot.Enabled = false;
             numIp = 0;
 
-            using (Graphics gfx = Graphics.FromImage(bitmap))
-            using (SolidBrush brush = new SolidBrush(Color.FromArgb(1, 1, 1)))
-            {
-                gfx.FillRectangle(brush, 0, 0, 1, 1);
-            }
+            
+
 
         }
 
@@ -59,7 +62,7 @@ namespace RaspiCamStream
             }
 
             ip = Txt_ip.Text.ToString();
-            Stream = new MJPEGStream($"http://192.168.1.155:4747/video");
+            Stream = new MJPEGStream($"http://192.168.1.156:4747/video");
             try
             {
                 //sendmessage("Q");
@@ -288,21 +291,14 @@ namespace RaspiCamStream
         private void Btn_screenshot_Click(object sender, EventArgs e)
         {
              bmp = (Bitmap)pictureBox1.Image;
+            bmp.Save("Screenshot" + DateTime.Now.ToString("dd_MM_yyyy_hh_mm_ss") + ".bmp");
+           
             Bitmap newImage = ResizeBitmap(bmp, pictureBox2.Size.Width, pictureBox2.Size.Height,0);
             pictureBox2.Image = newImage;
         }
 
-        private void btSalva_Click(object sender, EventArgs e)
-        {
-            
-            bmp.Save(NomeSalvataggio.Text + ".bmp");
-
-        }
-        private void btElimina_Click(object sender, EventArgs e)
-        {
-            NomeSalvataggio.Text = "";
-            pictureBox2.Image = null;
-        }
+       
+     
         public Bitmap ResizeBitmap(Bitmap bmp, int width, int height , int caso)
         {
             Bitmap result = new Bitmap(width, height);
@@ -372,7 +368,8 @@ namespace RaspiCamStream
 
         private void TimerVideo_Tick(object sender, EventArgs e)
         {
-            Bitmap bmp = (Bitmap)pictureBox1.Image;
+
+            bmp = (Bitmap)pictureBox1.Image;
             writer.WriteVideoFrame(bmp);
         }
 
@@ -538,8 +535,8 @@ namespace RaspiCamStream
                 int max_v = default(int);
                 int px = mouseEventArgs.X;
                 int py = mouseEventArgs.Y;
-                var bmp = pictureBox1.Image as Bitmap;
-                Color target = bmp.GetPixel(px, py);
+                var bmpt = pictureBox1.Image as Bitmap;
+                Color target = bmpt.GetPixel(px, py);
                 Picturebox_colore.BackColor = target;
 
                 //converte dalla scala di c# con h 0-360 s 0-1 e v 0-1

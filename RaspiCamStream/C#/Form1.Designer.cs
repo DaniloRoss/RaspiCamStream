@@ -38,6 +38,7 @@
             this.Pb_exit = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btZoom = new System.Windows.Forms.Button();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.Label_ip = new System.Windows.Forms.Label();
             this.Btn_ip = new System.Windows.Forms.Button();
@@ -68,11 +69,8 @@
             this.Btn_screenshot = new Bunifu.Framework.UI.BunifuThinButton2();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btVideo = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.NomeSalvataggio = new System.Windows.Forms.TextBox();
-            this.btSalva = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.btElimina = new Bunifu.Framework.UI.BunifuThinButton2();
             this.TimerVideo = new System.Windows.Forms.Timer(this.components);
-            this.btZoom = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_maximize)).BeginInit();
@@ -186,6 +184,16 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(716, 184);
             this.panel3.TabIndex = 10;
+            // 
+            // btZoom
+            // 
+            this.btZoom.Location = new System.Drawing.Point(285, 30);
+            this.btZoom.Name = "btZoom";
+            this.btZoom.Size = new System.Drawing.Size(104, 23);
+            this.btZoom.TabIndex = 24;
+            this.btZoom.Text = "Zoom";
+            this.btZoom.UseVisualStyleBackColor = true;
+            this.btZoom.Click += new System.EventHandler(this.btZoom_Click_1);
             // 
             // trackBar1
             // 
@@ -301,7 +309,7 @@
             this.Rb_detection.AutoSize = true;
             this.Rb_detection.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Rb_detection.ForeColor = System.Drawing.Color.Transparent;
-            this.Rb_detection.Location = new System.Drawing.Point(762, 243);
+            this.Rb_detection.Location = new System.Drawing.Point(762, 268);
             this.Rb_detection.Margin = new System.Windows.Forms.Padding(2);
             this.Rb_detection.Name = "Rb_detection";
             this.Rb_detection.Size = new System.Drawing.Size(80, 17);
@@ -316,7 +324,7 @@
             this.Rb_tracking.AutoSize = true;
             this.Rb_tracking.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Rb_tracking.ForeColor = System.Drawing.Color.Transparent;
-            this.Rb_tracking.Location = new System.Drawing.Point(762, 221);
+            this.Rb_tracking.Location = new System.Drawing.Point(762, 246);
             this.Rb_tracking.Margin = new System.Windows.Forms.Padding(2);
             this.Rb_tracking.Name = "Rb_tracking";
             this.Rb_tracking.Size = new System.Drawing.Size(75, 17);
@@ -331,7 +339,7 @@
             this.Rb_normal.AutoSize = true;
             this.Rb_normal.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Rb_normal.ForeColor = System.Drawing.Color.Transparent;
-            this.Rb_normal.Location = new System.Drawing.Point(762, 199);
+            this.Rb_normal.Location = new System.Drawing.Point(762, 224);
             this.Rb_normal.Margin = new System.Windows.Forms.Padding(2);
             this.Rb_normal.Name = "Rb_normal";
             this.Rb_normal.Size = new System.Drawing.Size(64, 17);
@@ -364,7 +372,7 @@
             this.Btn_stream.IconVisible = true;
             this.Btn_stream.IconZoom = 90D;
             this.Btn_stream.IsTab = false;
-            this.Btn_stream.Location = new System.Drawing.Point(762, 68);
+            this.Btn_stream.Location = new System.Drawing.Point(762, 88);
             this.Btn_stream.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_stream.Name = "Btn_stream";
             this.Btn_stream.Normalcolor = System.Drawing.Color.DarkGreen;
@@ -403,7 +411,7 @@
             // 
             this.Label_Search_ip.AutoSize = true;
             this.Label_Search_ip.ForeColor = System.Drawing.Color.Red;
-            this.Label_Search_ip.Location = new System.Drawing.Point(759, 230);
+            this.Label_Search_ip.Location = new System.Drawing.Point(759, 235);
             this.Label_Search_ip.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Label_Search_ip.Name = "Label_Search_ip";
             this.Label_Search_ip.Size = new System.Drawing.Size(0, 13);
@@ -428,7 +436,7 @@
             // 
             // Txt_search
             // 
-            this.Txt_search.Location = new System.Drawing.Point(844, 148);
+            this.Txt_search.Location = new System.Drawing.Point(844, 168);
             this.Txt_search.Margin = new System.Windows.Forms.Padding(2);
             this.Txt_search.Name = "Txt_search";
             this.Txt_search.Size = new System.Drawing.Size(130, 20);
@@ -438,7 +446,7 @@
             // 
             this.Label_search.AutoSize = true;
             this.Label_search.ForeColor = System.Drawing.SystemColors.Control;
-            this.Label_search.Location = new System.Drawing.Point(819, 165);
+            this.Label_search.Location = new System.Drawing.Point(819, 185);
             this.Label_search.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Label_search.Name = "Label_search";
             this.Label_search.Size = new System.Drawing.Size(0, 13);
@@ -462,7 +470,7 @@
             this.Btn_go.IdleFillColor = System.Drawing.Color.Black;
             this.Btn_go.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.Btn_go.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.Btn_go.Location = new System.Drawing.Point(762, 138);
+            this.Btn_go.Location = new System.Drawing.Point(762, 158);
             this.Btn_go.Margin = new System.Windows.Forms.Padding(5);
             this.Btn_go.Name = "Btn_go";
             this.Btn_go.Size = new System.Drawing.Size(67, 40);
@@ -472,7 +480,7 @@
             // 
             // Picturebox_colore
             // 
-            this.Picturebox_colore.Location = new System.Drawing.Point(841, 199);
+            this.Picturebox_colore.Location = new System.Drawing.Point(841, 224);
             this.Picturebox_colore.Margin = new System.Windows.Forms.Padding(2);
             this.Picturebox_colore.Name = "Picturebox_colore";
             this.Picturebox_colore.Size = new System.Drawing.Size(59, 61);
@@ -497,7 +505,7 @@
             this.Btn_change.IdleFillColor = System.Drawing.Color.Black;
             this.Btn_change.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.Btn_change.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.Btn_change.Location = new System.Drawing.Point(907, 194);
+            this.Btn_change.Location = new System.Drawing.Point(907, 219);
             this.Btn_change.Margin = new System.Windows.Forms.Padding(5);
             this.Btn_change.Name = "Btn_change";
             this.Btn_change.Size = new System.Drawing.Size(67, 72);
@@ -523,7 +531,7 @@
             this.Btn_screenshot.IdleFillColor = System.Drawing.Color.Black;
             this.Btn_screenshot.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.Btn_screenshot.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.Btn_screenshot.Location = new System.Drawing.Point(762, 276);
+            this.Btn_screenshot.Location = new System.Drawing.Point(762, 311);
             this.Btn_screenshot.Margin = new System.Windows.Forms.Padding(5);
             this.Btn_screenshot.Name = "Btn_screenshot";
             this.Btn_screenshot.Size = new System.Drawing.Size(212, 52);
@@ -533,7 +541,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(762, 436);
+            this.pictureBox2.Location = new System.Drawing.Point(762, 477);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(212, 152);
             this.pictureBox2.TabIndex = 33;
@@ -557,7 +565,7 @@
             this.btVideo.IdleFillColor = System.Drawing.Color.Black;
             this.btVideo.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btVideo.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btVideo.Location = new System.Drawing.Point(762, 338);
+            this.btVideo.Location = new System.Drawing.Point(762, 373);
             this.btVideo.Margin = new System.Windows.Forms.Padding(5);
             this.btVideo.Name = "btVideo";
             this.btVideo.Size = new System.Drawing.Size(212, 52);
@@ -565,79 +573,21 @@
             this.btVideo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btVideo.Click += new System.EventHandler(this.btVideo_Click);
             // 
-            // NomeSalvataggio
-            // 
-            this.NomeSalvataggio.Location = new System.Drawing.Point(762, 398);
-            this.NomeSalvataggio.Name = "NomeSalvataggio";
-            this.NomeSalvataggio.Size = new System.Drawing.Size(212, 20);
-            this.NomeSalvataggio.TabIndex = 23;
-            // 
-            // btSalva
-            // 
-            this.btSalva.ActiveBorderThickness = 1;
-            this.btSalva.ActiveCornerRadius = 20;
-            this.btSalva.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.btSalva.ActiveForecolor = System.Drawing.Color.White;
-            this.btSalva.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.btSalva.BackColor = System.Drawing.Color.Black;
-            this.btSalva.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btSalva.BackgroundImage")));
-            this.btSalva.ButtonText = "Salva";
-            this.btSalva.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btSalva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSalva.ForeColor = System.Drawing.Color.Green;
-            this.btSalva.IdleBorderThickness = 1;
-            this.btSalva.IdleCornerRadius = 20;
-            this.btSalva.IdleFillColor = System.Drawing.Color.Black;
-            this.btSalva.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.btSalva.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btSalva.Location = new System.Drawing.Point(762, 596);
-            this.btSalva.Margin = new System.Windows.Forms.Padding(5);
-            this.btSalva.Name = "btSalva";
-            this.btSalva.Size = new System.Drawing.Size(99, 52);
-            this.btSalva.TabIndex = 37;
-            this.btSalva.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btSalva.Click += new System.EventHandler(this.btSalva_Click);
-            // 
-            // btElimina
-            // 
-            this.btElimina.ActiveBorderThickness = 1;
-            this.btElimina.ActiveCornerRadius = 20;
-            this.btElimina.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.btElimina.ActiveForecolor = System.Drawing.Color.White;
-            this.btElimina.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.btElimina.BackColor = System.Drawing.Color.Black;
-            this.btElimina.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btElimina.BackgroundImage")));
-            this.btElimina.ButtonText = "Elimina";
-            this.btElimina.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btElimina.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btElimina.ForeColor = System.Drawing.Color.Red;
-            this.btElimina.IdleBorderThickness = 1;
-            this.btElimina.IdleCornerRadius = 20;
-            this.btElimina.IdleFillColor = System.Drawing.Color.Black;
-            this.btElimina.IdleForecolor = System.Drawing.Color.Red;
-            this.btElimina.IdleLineColor = System.Drawing.Color.Red;
-            this.btElimina.Location = new System.Drawing.Point(875, 596);
-            this.btElimina.Margin = new System.Windows.Forms.Padding(5);
-            this.btElimina.Name = "btElimina";
-            this.btElimina.Size = new System.Drawing.Size(99, 52);
-            this.btElimina.TabIndex = 38;
-            this.btElimina.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btElimina.Click += new System.EventHandler(this.btElimina_Click);
-            // 
             // TimerVideo
             // 
             this.TimerVideo.Interval = 25;
             this.TimerVideo.Tick += new System.EventHandler(this.TimerVideo_Tick);
             // 
-            // btZoom
+            // label2
             // 
-            this.btZoom.Location = new System.Drawing.Point(285, 30);
-            this.btZoom.Name = "btZoom";
-            this.btZoom.Size = new System.Drawing.Size(104, 23);
-            this.btZoom.TabIndex = 24;
-            this.btZoom.Text = "Zoom";
-            this.btZoom.UseVisualStyleBackColor = true;
-            this.btZoom.Click += new System.EventHandler(this.btZoom_Click_1);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(799, 445);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(140, 20);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Ultimo Screenshot";
             // 
             // Form1
             // 
@@ -646,9 +596,7 @@
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1015, 661);
             this.ControlBox = false;
-            this.Controls.Add(this.btElimina);
-            this.Controls.Add(this.btSalva);
-            this.Controls.Add(this.NomeSalvataggio);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btVideo);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.Btn_screenshot);
@@ -727,12 +675,10 @@
         private Bunifu.Framework.UI.BunifuThinButton2 Btn_screenshot;
         private System.Windows.Forms.PictureBox pictureBox2;
         private Bunifu.Framework.UI.BunifuThinButton2 btVideo;
-        private System.Windows.Forms.TextBox NomeSalvataggio;
-        private Bunifu.Framework.UI.BunifuThinButton2 btSalva;
-        private Bunifu.Framework.UI.BunifuThinButton2 btElimina;
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.Timer TimerVideo;
         private System.Windows.Forms.Button btZoom;
+        private System.Windows.Forms.Label label2;
     }
 }
 
