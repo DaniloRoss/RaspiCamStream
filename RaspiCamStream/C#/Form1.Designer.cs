@@ -42,6 +42,8 @@
             this.Btn_eliminacronologia = new Bunifu.Framework.UI.BunifuThinButton2();
             this.Btn_ip = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.btZoom = new Bunifu.Framework.UI.BunifuThinButton2();
             this.Pb_center = new System.Windows.Forms.PictureBox();
             this.Pb_left = new System.Windows.Forms.PictureBox();
             this.Pb_right = new System.Windows.Forms.PictureBox();
@@ -49,10 +51,9 @@
             this.Pb_down = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.Txt_ip = new System.Windows.Forms.TextBox();
+            this.Txt_search = new System.Windows.Forms.TextBox();
             this.Btn_go = new Bunifu.Framework.UI.BunifuThinButton2();
             this.Label_search = new System.Windows.Forms.Label();
-            this.Txt_search = new System.Windows.Forms.TextBox();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.btn_visible = new System.Windows.Forms.Button();
             this.Rb_detection = new System.Windows.Forms.RadioButton();
             this.Rb_tracking = new System.Windows.Forms.RadioButton();
@@ -71,23 +72,21 @@
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btVideo = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.NomeSalvataggio = new System.Windows.Forms.TextBox();
-            this.btSalva = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.btElimina = new Bunifu.Framework.UI.BunifuThinButton2();
             this.TimerVideo = new System.Windows.Forms.Timer(this.components);
-            this.btZoom = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btAnteprima = new Bunifu.Framework.UI.BunifuThinButton2();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_exit)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_center)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_left)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_right)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_up)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_down)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picturebox_colore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -153,6 +152,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.Label_ip);
             this.panel2.Controls.Add(this.listBoxHostnames);
             this.panel2.Controls.Add(this.Btn_eliminacronologia);
@@ -160,6 +160,7 @@
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.Txt_ip);
+            this.panel2.Controls.Add(this.Label_search);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.Txt_search);
             this.panel2.Controls.Add(this.Btn_go);
@@ -233,6 +234,8 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.trackBar1);
+            this.panel3.Controls.Add(this.btZoom);
             this.panel3.Controls.Add(this.Pb_center);
             this.panel3.Controls.Add(this.Pb_left);
             this.panel3.Controls.Add(this.Pb_right);
@@ -244,6 +247,41 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(955, 226);
             this.panel3.TabIndex = 10;
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.Location = new System.Drawing.Point(646, 46);
+            this.trackBar1.Maximum = 3;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(196, 56);
+            this.trackBar1.TabIndex = 37;
+            // 
+            // btZoom
+            // 
+            this.btZoom.ActiveBorderThickness = 1;
+            this.btZoom.ActiveCornerRadius = 20;
+            this.btZoom.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btZoom.ActiveForecolor = System.Drawing.Color.White;
+            this.btZoom.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btZoom.BackColor = System.Drawing.Color.Black;
+            this.btZoom.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btZoom.BackgroundImage")));
+            this.btZoom.ButtonText = "Zoom";
+            this.btZoom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btZoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btZoom.ForeColor = System.Drawing.Color.Green;
+            this.btZoom.IdleBorderThickness = 1;
+            this.btZoom.IdleCornerRadius = 20;
+            this.btZoom.IdleFillColor = System.Drawing.Color.Black;
+            this.btZoom.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btZoom.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btZoom.Location = new System.Drawing.Point(646, 116);
+            this.btZoom.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.btZoom.Name = "btZoom";
+            this.btZoom.Size = new System.Drawing.Size(196, 64);
+            this.btZoom.TabIndex = 36;
+            this.btZoom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btZoom.Visible = false;
+            this.btZoom.Click += new System.EventHandler(this.btZoom_Click);
             // 
             // Pb_center
             // 
@@ -339,6 +377,14 @@
             this.Txt_ip.Size = new System.Drawing.Size(276, 22);
             this.Txt_ip.TabIndex = 15;
             // 
+            // Txt_search
+            // 
+            this.Txt_search.Location = new System.Drawing.Point(550, 223);
+            this.Txt_search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Txt_search.Name = "Txt_search";
+            this.Txt_search.Size = new System.Drawing.Size(153, 22);
+            this.Txt_search.TabIndex = 23;
+            // 
             // Btn_go
             // 
             this.Btn_go.ActiveBorderThickness = 1;
@@ -368,27 +414,12 @@
             // Label_search
             // 
             this.Label_search.AutoSize = true;
-            this.Label_search.ForeColor = System.Drawing.SystemColors.Control;
-            this.Label_search.Location = new System.Drawing.Point(534, 270);
+            this.Label_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label_search.ForeColor = System.Drawing.Color.White;
+            this.Label_search.Location = new System.Drawing.Point(417, 268);
             this.Label_search.Name = "Label_search";
             this.Label_search.Size = new System.Drawing.Size(0, 17);
             this.Label_search.TabIndex = 24;
-            // 
-            // Txt_search
-            // 
-            this.Txt_search.Location = new System.Drawing.Point(550, 223);
-            this.Txt_search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Txt_search.Name = "Txt_search";
-            this.Txt_search.Size = new System.Drawing.Size(153, 22);
-            this.Txt_search.TabIndex = 23;
-            // 
-            // trackBar1
-            // 
-            this.trackBar1.Location = new System.Drawing.Point(285, 75);
-            this.trackBar1.Maximum = 3;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(104, 56);
-            this.trackBar1.TabIndex = 23;
             // 
             // btn_visible
             // 
@@ -636,79 +667,48 @@
             this.btVideo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btVideo.Click += new System.EventHandler(this.btVideo_Click);
             // 
-            // NomeSalvataggio
-            // 
-            this.NomeSalvataggio.Location = new System.Drawing.Point(1009, 570);
-            this.NomeSalvataggio.Name = "NomeSalvataggio";
-            this.NomeSalvataggio.Size = new System.Drawing.Size(283, 22);
-            this.NomeSalvataggio.TabIndex = 23;
-            // 
-            // btSalva
-            // 
-            this.btSalva.ActiveBorderThickness = 1;
-            this.btSalva.ActiveCornerRadius = 20;
-            this.btSalva.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.btSalva.ActiveForecolor = System.Drawing.Color.White;
-            this.btSalva.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.btSalva.BackColor = System.Drawing.Color.Black;
-            this.btSalva.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btSalva.BackgroundImage")));
-            this.btSalva.ButtonText = "Salva";
-            this.btSalva.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btSalva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSalva.ForeColor = System.Drawing.Color.Green;
-            this.btSalva.IdleBorderThickness = 1;
-            this.btSalva.IdleCornerRadius = 20;
-            this.btSalva.IdleFillColor = System.Drawing.Color.Black;
-            this.btSalva.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.btSalva.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btSalva.Location = new System.Drawing.Point(1009, 758);
-            this.btSalva.Margin = new System.Windows.Forms.Padding(5);
-            this.btSalva.Name = "btSalva";
-            this.btSalva.Size = new System.Drawing.Size(145, 52);
-            this.btSalva.TabIndex = 37;
-            this.btSalva.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btSalva.Click += new System.EventHandler(this.btSalva_Click);
-            // 
-            // btElimina
-            // 
-            this.btElimina.ActiveBorderThickness = 1;
-            this.btElimina.ActiveCornerRadius = 20;
-            this.btElimina.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.btElimina.ActiveForecolor = System.Drawing.Color.White;
-            this.btElimina.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.btElimina.BackColor = System.Drawing.Color.Black;
-            this.btElimina.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btElimina.BackgroundImage")));
-            this.btElimina.ButtonText = "Elimina";
-            this.btElimina.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btElimina.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btElimina.ForeColor = System.Drawing.Color.Red;
-            this.btElimina.IdleBorderThickness = 1;
-            this.btElimina.IdleCornerRadius = 20;
-            this.btElimina.IdleFillColor = System.Drawing.Color.Black;
-            this.btElimina.IdleForecolor = System.Drawing.Color.Red;
-            this.btElimina.IdleLineColor = System.Drawing.Color.Red;
-            this.btElimina.Location = new System.Drawing.Point(1156, 758);
-            this.btElimina.Margin = new System.Windows.Forms.Padding(5);
-            this.btElimina.Name = "btElimina";
-            this.btElimina.Size = new System.Drawing.Size(136, 52);
-            this.btElimina.TabIndex = 38;
-            this.btElimina.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btElimina.Click += new System.EventHandler(this.btElimina_Click);
-            // 
             // TimerVideo
             // 
             this.TimerVideo.Interval = 25;
             this.TimerVideo.Tick += new System.EventHandler(this.TimerVideo_Tick);
             // 
-            // btZoom
+            // label2
             // 
-            this.btZoom.Location = new System.Drawing.Point(285, 30);
-            this.btZoom.Name = "btZoom";
-            this.btZoom.Size = new System.Drawing.Size(104, 23);
-            this.btZoom.TabIndex = 24;
-            this.btZoom.Text = "Zoom";
-            this.btZoom.UseVisualStyleBackColor = true;
-            this.btZoom.Click += new System.EventHandler(this.btZoom_Click_1);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(540, 268);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 17);
+            this.label2.TabIndex = 35;
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // btAnteprima
+            // 
+            this.btAnteprima.ActiveBorderThickness = 1;
+            this.btAnteprima.ActiveCornerRadius = 20;
+            this.btAnteprima.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btAnteprima.ActiveForecolor = System.Drawing.Color.White;
+            this.btAnteprima.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btAnteprima.BackColor = System.Drawing.Color.Black;
+            this.btAnteprima.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btAnteprima.BackgroundImage")));
+            this.btAnteprima.ButtonText = "Ok";
+            this.btAnteprima.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btAnteprima.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAnteprima.ForeColor = System.Drawing.Color.Green;
+            this.btAnteprima.IdleBorderThickness = 1;
+            this.btAnteprima.IdleCornerRadius = 20;
+            this.btAnteprima.IdleFillColor = System.Drawing.Color.Black;
+            this.btAnteprima.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btAnteprima.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btAnteprima.Location = new System.Drawing.Point(1009, 750);
+            this.btAnteprima.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.btAnteprima.Name = "btAnteprima";
+            this.btAnteprima.Size = new System.Drawing.Size(283, 64);
+            this.btAnteprima.TabIndex = 36;
+            this.btAnteprima.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btAnteprima.Visible = false;
+            this.btAnteprima.Click += new System.EventHandler(this.btAnteprima_Click);
             // 
             // Form1
             // 
@@ -717,18 +717,15 @@
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1353, 814);
             this.ControlBox = false;
+            this.Controls.Add(this.btAnteprima);
             this.Controls.Add(this.btn_visible);
             this.Controls.Add(this.Btn_screenshot);
             this.Controls.Add(this.Btn_change);
             this.Controls.Add(this.Picturebox_colore);
             this.Controls.Add(this.Rb_detection);
             this.Controls.Add(this.Rb_tracking);
-            this.Controls.Add(this.btElimina);
-            this.Controls.Add(this.btSalva);
-            this.Controls.Add(this.NomeSalvataggio);
             this.Controls.Add(this.btVideo);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.Label_search);
             this.Controls.Add(this.Rb_normal);
             this.Controls.Add(this.Label_Search_ip);
             this.Controls.Add(this.Btn_stream);
@@ -747,12 +744,13 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_center)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_left)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_right)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_up)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_down)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picturebox_colore)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
@@ -800,12 +798,13 @@
         private Bunifu.Framework.UI.BunifuThinButton2 Btn_eliminacronologia;
         private System.Windows.Forms.PictureBox pictureBox2;
         private Bunifu.Framework.UI.BunifuThinButton2 btVideo;
-        private System.Windows.Forms.TextBox NomeSalvataggio;
-        private Bunifu.Framework.UI.BunifuThinButton2 btSalva;
-        private Bunifu.Framework.UI.BunifuThinButton2 btElimina;
-        private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.Timer TimerVideo;
-        private System.Windows.Forms.Button btZoom;
+        private Bunifu.Framework.UI.BunifuThinButton2 btZoom;
+        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.Label label2;
+        private Bunifu.Framework.UI.BunifuThinButton2 btAnteprima;
     }
 
 }
+
+
