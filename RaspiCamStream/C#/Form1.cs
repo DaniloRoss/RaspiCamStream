@@ -559,6 +559,81 @@ namespace RaspiCamStream
             pictureBox2.Image = null;
             btAnteprima.Visible = false;
         }
+        private void Rb_tracking_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Rb_tracking.Checked == true)
+            {
+                pb_updivieto.Visible = true;
+                pb_leftdivieto.Visible = true;
+                pb_rightdivieto.Visible = true;
+                pb_downdivieto.Visible = true;
+                pb_centerdivieto.Visible = true;
+
+                Pb_up.Enabled = false;
+                Pb_left.Enabled = false;
+                Pb_right.Enabled = false;
+                Pb_down.Enabled = false;
+                Pb_center.Enabled = false;
+                label_divieto.Visible = true;
+                return;
+
+            }
+            if (Rb_tracking.Checked == false)
+            {
+                pb_updivieto.Visible = false;
+                pb_leftdivieto.Visible = false;
+                pb_rightdivieto.Visible = false;
+                pb_downdivieto.Visible = false;
+                pb_centerdivieto.Visible = false;
+
+                Pb_up.Enabled = true;
+                Pb_left.Enabled = true;
+                Pb_right.Enabled = true;
+                Pb_down.Enabled = true;
+                Pb_center.Enabled = true;
+                label_divieto.Visible = false;
+                return;
+
+            }
+        }
+
+        private void Rb_detection_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Rb_detection.Checked == true)
+            {
+                pb_updivieto.Visible = true;
+                pb_leftdivieto.Visible = true;
+                pb_rightdivieto.Visible = true;
+                pb_downdivieto.Visible = true;
+                pb_centerdivieto.Visible = true;
+
+                Pb_up.Enabled = false;
+                Pb_left.Enabled = false;
+                Pb_right.Enabled = false;
+                Pb_down.Enabled = false;
+                Pb_center.Enabled = false;
+                label_divieto.Visible = true;
+                return;
+
+            }
+            if (Rb_detection.Checked == false)
+            {
+                pb_updivieto.Visible = false;
+                pb_leftdivieto.Visible = false;
+                pb_rightdivieto.Visible = false;
+                pb_downdivieto.Visible = false;
+                pb_centerdivieto.Visible = false;
+
+                Pb_up.Enabled = true;
+                Pb_left.Enabled = true;
+                Pb_right.Enabled = true;
+                Pb_down.Enabled = true;
+                Pb_center.Enabled = true;
+                label_divieto.Visible = false;
+                return;
+
+            }
+        }
 
         public Bitmap ResizeBitmap(Bitmap bmp, int width, int height, int caso)
         {
