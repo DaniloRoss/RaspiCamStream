@@ -22,6 +22,10 @@ namespace RaspiCamStream
         private delegate void SafeCallDelegate(string ip, string nome, ListView listview);
         string ip = default(string);
         int streamexist = default(int);
+        private string PathFolderImage;
+
+
+
 
         public Form1()
         {
