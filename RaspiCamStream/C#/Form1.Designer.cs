@@ -33,9 +33,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.Pb_minimize = new System.Windows.Forms.PictureBox();
-            this.Pb_exit = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Btn_ip = new Bunifu.Framework.UI.BunifuThinButton2();
             this.label4 = new System.Windows.Forms.Label();
@@ -76,17 +73,17 @@
             this.Picturebox_colore = new System.Windows.Forms.PictureBox();
             this.Btn_change = new Bunifu.Framework.UI.BunifuThinButton2();
             this.Btn_screenshot = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btVideo = new Bunifu.Framework.UI.BunifuThinButton2();
             this.TimerVideo = new System.Windows.Forms.Timer(this.components);
             this.btAnteprima = new Bunifu.Framework.UI.BunifuThinButton2();
             this.label_tracking = new System.Windows.Forms.Label();
             this.btn_visible = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.Pb_exit = new System.Windows.Forms.PictureBox();
+            this.Pb_minimize = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Pb_minimize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Pb_exit)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_centerdivieto)).BeginInit();
@@ -102,6 +99,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.Pb_down)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picturebox_colore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Pb_exit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Pb_minimize)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -124,44 +124,6 @@
             this.label1.Size = new System.Drawing.Size(46, 17);
             this.label1.TabIndex = 3;
             this.label1.Text = "label1";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.DimGray;
-            this.panel1.Controls.Add(this.Pb_minimize);
-            this.panel1.Controls.Add(this.Pb_exit);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1353, 44);
-            this.panel1.TabIndex = 0;
-            // 
-            // Pb_minimize
-            // 
-            this.Pb_minimize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Pb_minimize.Image = ((System.Drawing.Image)(resources.GetObject("Pb_minimize.Image")));
-            this.Pb_minimize.Location = new System.Drawing.Point(61, 5);
-            this.Pb_minimize.Margin = new System.Windows.Forms.Padding(4);
-            this.Pb_minimize.Name = "Pb_minimize";
-            this.Pb_minimize.Size = new System.Drawing.Size(36, 33);
-            this.Pb_minimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Pb_minimize.TabIndex = 1;
-            this.Pb_minimize.TabStop = false;
-            this.Pb_minimize.Click += new System.EventHandler(this.Pb_minimize_Click);
-            // 
-            // Pb_exit
-            // 
-            this.Pb_exit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Pb_exit.Image = ((System.Drawing.Image)(resources.GetObject("Pb_exit.Image")));
-            this.Pb_exit.Location = new System.Drawing.Point(17, 5);
-            this.Pb_exit.Margin = new System.Windows.Forms.Padding(4);
-            this.Pb_exit.Name = "Pb_exit";
-            this.Pb_exit.Size = new System.Drawing.Size(36, 33);
-            this.Pb_exit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Pb_exit.TabIndex = 0;
-            this.Pb_exit.TabStop = false;
-            this.Pb_exit.Click += new System.EventHandler(this.Pb_exit_Click);
             // 
             // panel2
             // 
@@ -738,13 +700,6 @@
             this.Btn_screenshot.Visible = false;
             this.Btn_screenshot.Click += new System.EventHandler(this.Btn_screenshot_Click);
             // 
-            // bunifuDragControl1
-            // 
-            this.bunifuDragControl1.Fixed = true;
-            this.bunifuDragControl1.Horizontal = true;
-            this.bunifuDragControl1.TargetControl = this.panel1;
-            this.bunifuDragControl1.Vertical = true;
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Location = new System.Drawing.Point(1008, 598);
@@ -850,6 +805,51 @@
             this.btn_visible.Visible = false;
             this.btn_visible.Click += new System.EventHandler(this.btn_visible_Click);
             // 
+            // Pb_exit
+            // 
+            this.Pb_exit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Pb_exit.Image = ((System.Drawing.Image)(resources.GetObject("Pb_exit.Image")));
+            this.Pb_exit.Location = new System.Drawing.Point(17, 5);
+            this.Pb_exit.Margin = new System.Windows.Forms.Padding(4);
+            this.Pb_exit.Name = "Pb_exit";
+            this.Pb_exit.Size = new System.Drawing.Size(36, 33);
+            this.Pb_exit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Pb_exit.TabIndex = 0;
+            this.Pb_exit.TabStop = false;
+            this.Pb_exit.Click += new System.EventHandler(this.Pb_exit_Click);
+            // 
+            // Pb_minimize
+            // 
+            this.Pb_minimize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Pb_minimize.Image = ((System.Drawing.Image)(resources.GetObject("Pb_minimize.Image")));
+            this.Pb_minimize.Location = new System.Drawing.Point(61, 5);
+            this.Pb_minimize.Margin = new System.Windows.Forms.Padding(4);
+            this.Pb_minimize.Name = "Pb_minimize";
+            this.Pb_minimize.Size = new System.Drawing.Size(36, 33);
+            this.Pb_minimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Pb_minimize.TabIndex = 1;
+            this.Pb_minimize.TabStop = false;
+            this.Pb_minimize.Click += new System.EventHandler(this.Pb_minimize_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.DimGray;
+            this.panel1.Controls.Add(this.Pb_minimize);
+            this.panel1.Controls.Add(this.Pb_exit);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1353, 44);
+            this.panel1.TabIndex = 0;
+            // 
+            // bunifuDragControl1
+            // 
+            this.bunifuDragControl1.Fixed = false;
+            this.bunifuDragControl1.Horizontal = true;
+            this.bunifuDragControl1.TargetControl = this.panel1;
+            this.bunifuDragControl1.Vertical = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -874,15 +874,13 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "RaspiCamStream";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Pb_minimize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Pb_exit)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -900,6 +898,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.Pb_down)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picturebox_colore)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Pb_exit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Pb_minimize)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -908,7 +909,6 @@
         #endregion
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private Bunifu.Framework.UI.BunifuFlatButton Btn_stream;
@@ -917,8 +917,6 @@
         private System.Windows.Forms.PictureBox Pb_right;
         private System.Windows.Forms.PictureBox Pb_left;
         private System.Windows.Forms.PictureBox Pb_center;
-        private System.Windows.Forms.PictureBox Pb_minimize;
-        private System.Windows.Forms.PictureBox Pb_exit;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox Txt_ip;
         private System.Windows.Forms.Timer Timer_up;
@@ -929,7 +927,6 @@
         private System.Windows.Forms.Label Label_ip;
         private System.Windows.Forms.Timer Timer_tracking;
         private System.Windows.Forms.Timer Timer_face;
-        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private System.Windows.Forms.RadioButton Rb_detection;
         private System.Windows.Forms.RadioButton Rb_tracking;
         private System.Windows.Forms.RadioButton Rb_normal;
@@ -958,6 +955,10 @@
         private System.Windows.Forms.Label label_tracking;
         private Bunifu.Framework.UI.BunifuThinButton2 Btn_ip;
         private Bunifu.Framework.UI.BunifuThinButton2 btn_visible;
+        private System.Windows.Forms.PictureBox Pb_exit;
+        private System.Windows.Forms.PictureBox Pb_minimize;
+        private System.Windows.Forms.Panel panel1;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
     }
 
 }
