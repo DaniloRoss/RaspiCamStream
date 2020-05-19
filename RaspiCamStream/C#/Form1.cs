@@ -24,9 +24,6 @@ namespace RaspiCamStream
         int streamexist = default(int);
         private string PathFolderImage;
 
-
-
-
         public Form1()
         {
             InitializeComponent();
@@ -44,6 +41,7 @@ namespace RaspiCamStream
             Label_search.BringToFront();
             Btn_go.BringToFront();
             btVideo.Enabled = false;
+            btVideo.Visible = false;
             btAnteprima.Visible = false;
 
             using (Graphics gfx = Graphics.FromImage(bitmap))
@@ -439,6 +437,7 @@ namespace RaspiCamStream
             catch (NullReferenceException)
             {
                 Label_search.Text = $"l'hostname non esiste";
+                label2.Text = "";
                 return;
             }
 
@@ -461,10 +460,9 @@ namespace RaspiCamStream
                 leggere.Close();
                 return;
             }
-
+            listBoxHostnames.Items.Clear();
             while (leggere.EndOfStream == false)
-            {
-                listBoxHostnames.Items.Clear();
+            {                
                 listBoxHostnames.Items.Add(leggere.ReadLine());
             }
 
@@ -483,6 +481,10 @@ namespace RaspiCamStream
             if (!Directory.Exists("screenshots"))
             {
                 DirectoryInfo di = Directory.CreateDirectory("screenshots");
+            }
+            if (!Directory.Exists("video"))
+            {
+                DirectoryInfo di = Directory.CreateDirectory("video");
             }
             StreamReader miofile = default(StreamReader);
             try
@@ -747,7 +749,7 @@ namespace RaspiCamStream
                 btVideo.IdleForecolor = Color.Red;
                 btVideo.IdleLineColor = Color.Red;
                 btVideo.ButtonText = "Termina cattura video";
-
+               
                 writer = new VideoFileWriter();
                 writer.Open("Video" + DateTime.Now.ToString("dd_MM_yyyy_hh_mm_ss") + ".avi", 640, 480, 25, VideoCodec.MPEG4);
                 TimerVideo.Start();
@@ -761,7 +763,6 @@ namespace RaspiCamStream
                 btVideo.ButtonText = "Inizia cattura video";
                 TimerVideo.Stop();
                 writer.Close();
-
             }
         }
 
