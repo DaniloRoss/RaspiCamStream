@@ -26,6 +26,7 @@ namespace RaspiCamStream
 
 
 
+
         public Form1()
         {
             InitializeComponent();
@@ -69,12 +70,31 @@ namespace RaspiCamStream
             ip = Txt_ip.Text.ToString();
             Stream = new MJPEGStream($"http://{ip}:8080/?action=stream");
 
-            sendmessage("C");
+            try
+            {
+                sendmessage("C");
+            }
+            catch
+            {
+                return;
+            }
 
             Stream.NewFrame += Stream_NewFrame;
             streamexist = 1;
             Txt_ip.Clear();
-            Pb_up.Visible = true; Pb_left.Visible = true; Pb_right.Visible = true; Pb_down.Visible = true; Pb_center.Visible = true;
+            if (Rb_normal.Checked == true)
+            {
+                Pb_up.Visible = true; Pb_left.Visible = true; Pb_right.Visible = true; Pb_down.Visible = true; Pb_center.Visible = true;
+            }
+            else
+            {
+                pb_updivieto.Visible = true;
+                pb_downdivieto.Visible = true;
+                pb_leftdivieto.Visible = true;
+                pb_rightdivieto.Visible = true;
+                pb_centerdivieto.Visible = true;
+                label_divieto.Visible = true;
+            }            
             Btn_stream.Visible = true; Btn_go.Visible = true; Rb_normal.Visible = true;
             Rb_tracking.Visible = true;
             Rb_detection.Visible = true;
@@ -94,6 +114,9 @@ namespace RaspiCamStream
             trackBar1.Visible = true;
             pictureBox2.Visible = true;
             label2.Visible = false;
+            Label_search.Text = "";
+            label2.Text = "";
+            label4.Visible = false;
         }
 
         private void Stream_NewFrame(object sender, NewFrameEventArgs eventArgs)
@@ -386,18 +409,15 @@ namespace RaspiCamStream
         }
 
         private void Btn_go_Click(object sender, EventArgs e)
-        {
-            listBoxHostnames.Items.Clear();
-            label2.Text = "";
-            Label_search.Text = "";
-            
+        {         
+
             if (string.IsNullOrEmpty(Txt_search.Text) == true)
             {
                 MessageBox.Show("inserire un valore come hostname");
                 return;
             }
             string HostName = Txt_search.Text;
-            Txt_search.Clear();
+            
             IPAddress[] ipaddress = new IPAddress[100];
             try
             {
@@ -444,6 +464,7 @@ namespace RaspiCamStream
 
             while (leggere.EndOfStream == false)
             {
+                listBoxHostnames.Items.Clear();
                 listBoxHostnames.Items.Add(leggere.ReadLine());
             }
 
@@ -459,6 +480,10 @@ namespace RaspiCamStream
 
         private void Form1_Load(object sender, EventArgs e) // riempie la listbox
         {
+            if (!Directory.Exists("screenshots"))
+            {
+                DirectoryInfo di = Directory.CreateDirectory("screenshots");
+            }
             StreamReader miofile = default(StreamReader);
             try
             {
@@ -467,7 +492,7 @@ namespace RaspiCamStream
             catch (FileNotFoundException)
             {
                 StreamWriter scrivere = new StreamWriter("hostnameListbox.txt", true);
-                scrivere.Close();               
+                scrivere.Close();
             }
             finally
             {
@@ -541,12 +566,19 @@ namespace RaspiCamStream
             btZoom.Visible = false;
             trackBar1.Visible = false;
             label2.Visible = true;
+            pb_updivieto.Visible = false;
+            pb_downdivieto.Visible = false;
+            pb_leftdivieto.Visible = false;
+            pb_rightdivieto.Visible = false;
+            pb_centerdivieto.Visible = false;
+            label_divieto.Visible = false;
+            label4.Visible = true;
         }
 
         private void Btn_screenshot_Click(object sender, EventArgs e)
         {
             PathFolderImage = "screenshots";
-             bmp = (Bitmap)pictureBox1.Image;
+            bmp = (Bitmap)pictureBox1.Image;
             var fileName = Path.Combine(PathFolderImage, $"IMG_{DateTime.Now.ToString("yyyyMMddHHmmss")}.png");
 
             try
@@ -557,9 +589,10 @@ namespace RaspiCamStream
             catch (Exception)
             {
                 MessageBox.Show($"Errore salvataggio immagine :\n{fileName}", "salva", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-           
-            Bitmap newImage = ResizeBitmap(bmp, pictureBox2.Size.Width, pictureBox2.Size.Height,0);
+
+            Bitmap newImage = ResizeBitmap(bmp, pictureBox2.Size.Width, pictureBox2.Size.Height, 0);
             pictureBox2.Image = newImage;
             btAnteprima.Visible = true;
         }
@@ -584,6 +617,11 @@ namespace RaspiCamStream
                 Pb_right.Enabled = false;
                 Pb_down.Enabled = false;
                 Pb_center.Enabled = false;
+                Pb_up.Visible = false;
+                Pb_left.Visible = false;
+                Pb_right.Visible = false;
+                Pb_down.Visible = false;
+                Pb_center.Visible = false;
                 label_divieto.Visible = true;
                 return;
 
@@ -602,6 +640,11 @@ namespace RaspiCamStream
                 Pb_down.Enabled = true;
                 Pb_center.Enabled = true;
                 label_divieto.Visible = false;
+                Pb_up.Visible = true;
+                Pb_left.Visible = true;
+                Pb_right.Visible = true;
+                Pb_down.Visible = true;
+                Pb_center.Visible = true;
                 return;
 
             }
@@ -622,6 +665,11 @@ namespace RaspiCamStream
                 Pb_right.Enabled = false;
                 Pb_down.Enabled = false;
                 Pb_center.Enabled = false;
+                Pb_up.Visible = false;
+                Pb_left.Visible = false;
+                Pb_right.Visible = false;
+                Pb_down.Visible = false;
+                Pb_center.Visible = false;
                 label_divieto.Visible = true;
                 return;
 
@@ -640,6 +688,11 @@ namespace RaspiCamStream
                 Pb_down.Enabled = true;
                 Pb_center.Enabled = true;
                 label_divieto.Visible = false;
+                Pb_up.Visible = true;
+                Pb_left.Visible = true;
+                Pb_right.Visible = true;
+                Pb_down.Visible = true;
+                Pb_center.Visible = true;
                 return;
 
             }
@@ -823,6 +876,6 @@ namespace RaspiCamStream
             {
 
             }
-        }       
+        }
     }
 }

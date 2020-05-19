@@ -43,6 +43,12 @@
             this.Btn_eliminacronologia = new Bunifu.Framework.UI.BunifuThinButton2();
             this.Btn_ip = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label_divieto = new System.Windows.Forms.Label();
+            this.pb_centerdivieto = new System.Windows.Forms.PictureBox();
+            this.pb_leftdivieto = new System.Windows.Forms.PictureBox();
+            this.pb_downdivieto = new System.Windows.Forms.PictureBox();
+            this.pb_rightdivieto = new System.Windows.Forms.PictureBox();
+            this.pb_updivieto = new System.Windows.Forms.PictureBox();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.btZoom = new Bunifu.Framework.UI.BunifuThinButton2();
             this.Pb_center = new System.Windows.Forms.PictureBox();
@@ -55,9 +61,6 @@
             this.Label_search = new System.Windows.Forms.Label();
             this.Txt_search = new System.Windows.Forms.TextBox();
             this.Btn_go = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.Txt_search = new System.Windows.Forms.TextBox();
-            this.Btn_go = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.Label_search = new System.Windows.Forms.Label();
             this.btn_visible = new System.Windows.Forms.Button();
             this.Rb_detection = new System.Windows.Forms.RadioButton();
             this.Rb_tracking = new System.Windows.Forms.RadioButton();
@@ -78,20 +81,18 @@
             this.btVideo = new Bunifu.Framework.UI.BunifuThinButton2();
             this.TimerVideo = new System.Windows.Forms.Timer(this.components);
             this.btAnteprima = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.pb_updivieto = new System.Windows.Forms.PictureBox();
-            this.pb_rightdivieto = new System.Windows.Forms.PictureBox();
-            this.pb_downdivieto = new System.Windows.Forms.PictureBox();
-            this.pb_leftdivieto = new System.Windows.Forms.PictureBox();
-            this.pb_centerdivieto = new System.Windows.Forms.PictureBox();
-            this.label_divieto = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btAnteprima = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_exit)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_centerdivieto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_leftdivieto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_downdivieto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_rightdivieto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_updivieto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_center)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_left)).BeginInit();
@@ -100,11 +101,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Pb_down)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picturebox_colore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_updivieto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_rightdivieto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_downdivieto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_leftdivieto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_centerdivieto)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -168,6 +164,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.Label_ip);
             this.panel2.Controls.Add(this.listBoxHostnames);
@@ -192,10 +189,10 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(405, 218);
+            this.label2.Location = new System.Drawing.Point(540, 268);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 13);
+            this.label2.Size = new System.Drawing.Size(0, 17);
             this.label2.TabIndex = 35;
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
@@ -203,9 +200,8 @@
             // 
             this.Label_ip.AutoSize = true;
             this.Label_ip.ForeColor = System.Drawing.Color.Red;
-            this.Label_ip.Location = new System.Drawing.Point(344, 366);
-            this.Label_ip.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Label_ip.Location = new System.Drawing.Point(459, 450);
+            this.Label_ip.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Label_ip.Name = "Label_ip";
             this.Label_ip.Size = new System.Drawing.Size(0, 17);
             this.Label_ip.TabIndex = 22;
@@ -215,12 +211,9 @@
             this.listBoxHostnames.BackColor = System.Drawing.Color.Black;
             this.listBoxHostnames.ForeColor = System.Drawing.Color.White;
             this.listBoxHostnames.FormattingEnabled = true;
-            this.listBoxHostnames.Location = new System.Drawing.Point(550, 218);
-            this.listBoxHostnames.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.listBoxHostnames.Name = "listBoxHostnames";
-            this.listBoxHostnames.Size = new System.Drawing.Size(147, 147);
             this.listBoxHostnames.ItemHeight = 16;
             this.listBoxHostnames.Location = new System.Drawing.Point(734, 268);
+            this.listBoxHostnames.Margin = new System.Windows.Forms.Padding(2);
             this.listBoxHostnames.Name = "listBoxHostnames";
             this.listBoxHostnames.Size = new System.Drawing.Size(195, 180);
             this.listBoxHostnames.TabIndex = 33;
@@ -244,10 +237,6 @@
             this.Btn_eliminacronologia.IdleFillColor = System.Drawing.Color.Black;
             this.Btn_eliminacronologia.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.Btn_eliminacronologia.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.Btn_eliminacronologia.Location = new System.Drawing.Point(550, 171);
-            this.Btn_eliminacronologia.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.Btn_eliminacronologia.Name = "Btn_eliminacronologia";
-            this.Btn_eliminacronologia.Size = new System.Drawing.Size(146, 40);
             this.Btn_eliminacronologia.Location = new System.Drawing.Point(734, 210);
             this.Btn_eliminacronologia.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Btn_eliminacronologia.Name = "Btn_eliminacronologia";
@@ -261,8 +250,6 @@
             this.Btn_ip.BackColor = System.Drawing.Color.DarkGreen;
             this.Btn_ip.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_ip.ForeColor = System.Drawing.Color.White;
-            this.Btn_ip.Location = new System.Drawing.Point(312, 329);
-            this.Btn_ip.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Btn_ip.Location = new System.Drawing.Point(416, 405);
             this.Btn_ip.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Btn_ip.Name = "Btn_ip";
@@ -288,23 +275,82 @@
             this.panel3.Controls.Add(this.Pb_up);
             this.panel3.Controls.Add(this.Pb_down);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 441);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(716, 184);
             this.panel3.Location = new System.Drawing.Point(0, 544);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(955, 226);
             this.panel3.TabIndex = 10;
             // 
+            // label_divieto
+            // 
+            this.label_divieto.AutoSize = true;
+            this.label_divieto.ForeColor = System.Drawing.Color.Red;
+            this.label_divieto.Location = new System.Drawing.Point(383, 19);
+            this.label_divieto.Name = "label_divieto";
+            this.label_divieto.Size = new System.Drawing.Size(125, 17);
+            this.label_divieto.TabIndex = 42;
+            this.label_divieto.Text = "Controlli disabilitati";
+            this.label_divieto.Visible = false;
+            // 
+            // pb_centerdivieto
+            // 
+            this.pb_centerdivieto.Image = ((System.Drawing.Image)(resources.GetObject("pb_centerdivieto.Image")));
+            this.pb_centerdivieto.Location = new System.Drawing.Point(243, 74);
+            this.pb_centerdivieto.Name = "pb_centerdivieto";
+            this.pb_centerdivieto.Size = new System.Drawing.Size(78, 63);
+            this.pb_centerdivieto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_centerdivieto.TabIndex = 41;
+            this.pb_centerdivieto.TabStop = false;
+            this.pb_centerdivieto.Visible = false;
+            // 
+            // pb_leftdivieto
+            // 
+            this.pb_leftdivieto.Image = ((System.Drawing.Image)(resources.GetObject("pb_leftdivieto.Image")));
+            this.pb_leftdivieto.Location = new System.Drawing.Point(159, 74);
+            this.pb_leftdivieto.Name = "pb_leftdivieto";
+            this.pb_leftdivieto.Size = new System.Drawing.Size(77, 63);
+            this.pb_leftdivieto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_leftdivieto.TabIndex = 40;
+            this.pb_leftdivieto.TabStop = false;
+            this.pb_leftdivieto.Visible = false;
+            // 
+            // pb_downdivieto
+            // 
+            this.pb_downdivieto.Image = ((System.Drawing.Image)(resources.GetObject("pb_downdivieto.Image")));
+            this.pb_downdivieto.Location = new System.Drawing.Point(244, 145);
+            this.pb_downdivieto.Name = "pb_downdivieto";
+            this.pb_downdivieto.Size = new System.Drawing.Size(77, 63);
+            this.pb_downdivieto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_downdivieto.TabIndex = 39;
+            this.pb_downdivieto.TabStop = false;
+            this.pb_downdivieto.Visible = false;
+            // 
+            // pb_rightdivieto
+            // 
+            this.pb_rightdivieto.Image = ((System.Drawing.Image)(resources.GetObject("pb_rightdivieto.Image")));
+            this.pb_rightdivieto.Location = new System.Drawing.Point(329, 74);
+            this.pb_rightdivieto.Name = "pb_rightdivieto";
+            this.pb_rightdivieto.Size = new System.Drawing.Size(78, 63);
+            this.pb_rightdivieto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_rightdivieto.TabIndex = 38;
+            this.pb_rightdivieto.TabStop = false;
+            this.pb_rightdivieto.Visible = false;
+            // 
+            // pb_updivieto
+            // 
+            this.pb_updivieto.Image = ((System.Drawing.Image)(resources.GetObject("pb_updivieto.Image")));
+            this.pb_updivieto.Location = new System.Drawing.Point(244, 0);
+            this.pb_updivieto.Name = "pb_updivieto";
+            this.pb_updivieto.Size = new System.Drawing.Size(77, 63);
+            this.pb_updivieto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_updivieto.TabIndex = 36;
+            this.pb_updivieto.TabStop = false;
+            this.pb_updivieto.Visible = false;
+            // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(484, 37);
-            this.trackBar1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.trackBar1.Maximum = 3;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(147, 45);
             this.trackBar1.Location = new System.Drawing.Point(646, 46);
+            this.trackBar1.Margin = new System.Windows.Forms.Padding(2);
             this.trackBar1.Maximum = 3;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(196, 56);
@@ -328,10 +374,6 @@
             this.btZoom.IdleFillColor = System.Drawing.Color.Black;
             this.btZoom.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btZoom.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btZoom.Location = new System.Drawing.Point(484, 94);
-            this.btZoom.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.btZoom.Name = "btZoom";
-            this.btZoom.Size = new System.Drawing.Size(147, 52);
             this.btZoom.Location = new System.Drawing.Point(646, 116);
             this.btZoom.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.btZoom.Name = "btZoom";
@@ -420,9 +462,6 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(352, 272);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(154, 20);
             this.label3.Location = new System.Drawing.Point(469, 335);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
@@ -432,9 +471,10 @@
             // 
             // Txt_ip
             // 
-            this.Txt_ip.Location = new System.Drawing.Point(312, 297);
+            this.Txt_ip.Location = new System.Drawing.Point(416, 366);
+            this.Txt_ip.Margin = new System.Windows.Forms.Padding(4);
             this.Txt_ip.Name = "Txt_ip";
-            this.Txt_ip.Size = new System.Drawing.Size(208, 20);
+            this.Txt_ip.Size = new System.Drawing.Size(276, 22);
             this.Txt_ip.TabIndex = 15;
             // 
             // Label_search
@@ -442,23 +482,11 @@
             this.Label_search.AutoSize = true;
             this.Label_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label_search.ForeColor = System.Drawing.Color.White;
-            this.Label_search.Location = new System.Drawing.Point(313, 218);
+            this.Label_search.Location = new System.Drawing.Point(417, 268);
             this.Label_search.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Label_search.Name = "Label_search";
-            this.Label_search.Size = new System.Drawing.Size(0, 13);
+            this.Label_search.Size = new System.Drawing.Size(0, 17);
             this.Label_search.TabIndex = 24;
-            // 
-            // Txt_search
-            // 
-            this.Txt_search.Location = new System.Drawing.Point(412, 181);
-            this.Txt_search.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Txt_search.Name = "Txt_search";
-            this.Txt_search.Size = new System.Drawing.Size(116, 20);
-            this.Txt_ip.Location = new System.Drawing.Point(416, 366);
-            this.Txt_ip.Margin = new System.Windows.Forms.Padding(4);
-            this.Txt_ip.Name = "Txt_ip";
-            this.Txt_ip.Size = new System.Drawing.Size(276, 22);
-            this.Txt_ip.TabIndex = 15;
             // 
             // Txt_search
             // 
@@ -486,10 +514,6 @@
             this.Btn_go.IdleFillColor = System.Drawing.Color.Black;
             this.Btn_go.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.Btn_go.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.Btn_go.Location = new System.Drawing.Point(326, 171);
-            this.Btn_go.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.Btn_go.Name = "Btn_go";
-            this.Btn_go.Size = new System.Drawing.Size(67, 40);
             this.Btn_go.Location = new System.Drawing.Point(435, 210);
             this.Btn_go.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Btn_go.Name = "Btn_go";
@@ -498,25 +522,17 @@
             this.Btn_go.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Btn_go.Click += new System.EventHandler(this.Btn_go_Click);
             // 
-            // Label_search
-            // 
-            this.Label_search.AutoSize = true;
-            this.Label_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label_search.ForeColor = System.Drawing.Color.White;
-            this.Label_search.Location = new System.Drawing.Point(417, 268);
-            this.Label_search.Name = "Label_search";
-            this.Label_search.Size = new System.Drawing.Size(0, 17);
-            this.Label_search.TabIndex = 24;
-            // 
             // btn_visible
             // 
             this.btn_visible.BackColor = System.Drawing.Color.DarkGreen;
             this.btn_visible.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_visible.ForeColor = System.Drawing.Color.White;
+            this.btn_visible.Location = new System.Drawing.Point(1267, 106);
             this.btn_visible.Name = "btn_visible";
             this.btn_visible.Size = new System.Drawing.Size(64, 59);
             this.btn_visible.TabIndex = 23;
             this.btn_visible.Text = "IP";
+            this.btn_visible.UseVisualStyleBackColor = false;
             this.btn_visible.Visible = false;
             this.btn_visible.Click += new System.EventHandler(this.btn_visible_Click);
             // 
@@ -525,8 +541,6 @@
             this.Rb_detection.AutoSize = true;
             this.Rb_detection.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Rb_detection.ForeColor = System.Drawing.Color.Transparent;
-            this.Rb_detection.Location = new System.Drawing.Point(757, 284);
-            this.Rb_detection.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Rb_detection.Location = new System.Drawing.Point(1009, 350);
             this.Rb_detection.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Rb_detection.Name = "Rb_detection";
@@ -544,8 +558,6 @@
             this.Rb_tracking.AutoSize = true;
             this.Rb_tracking.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Rb_tracking.ForeColor = System.Drawing.Color.Transparent;
-            this.Rb_tracking.Location = new System.Drawing.Point(757, 262);
-            this.Rb_tracking.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Rb_tracking.Location = new System.Drawing.Point(1009, 322);
             this.Rb_tracking.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Rb_tracking.Name = "Rb_tracking";
@@ -563,8 +575,6 @@
             this.Rb_normal.AutoSize = true;
             this.Rb_normal.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Rb_normal.ForeColor = System.Drawing.Color.Transparent;
-            this.Rb_normal.Location = new System.Drawing.Point(757, 240);
-            this.Rb_normal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Rb_normal.Location = new System.Drawing.Point(1009, 295);
             this.Rb_normal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Rb_normal.Name = "Rb_normal";
@@ -599,8 +609,6 @@
             this.Btn_stream.IconVisible = true;
             this.Btn_stream.IconZoom = 90D;
             this.Btn_stream.IsTab = false;
-            this.Btn_stream.Location = new System.Drawing.Point(746, 86);
-            this.Btn_stream.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Btn_stream.Location = new System.Drawing.Point(995, 106);
             this.Btn_stream.Margin = new System.Windows.Forms.Padding(5);
             this.Btn_stream.Name = "Btn_stream";
@@ -658,8 +666,6 @@
             // 
             // Picturebox_colore
             // 
-            this.Picturebox_colore.Location = new System.Drawing.Point(843, 240);
-            this.Picturebox_colore.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Picturebox_colore.Location = new System.Drawing.Point(1124, 295);
             this.Picturebox_colore.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Picturebox_colore.Name = "Picturebox_colore";
@@ -686,8 +692,6 @@
             this.Btn_change.IdleFillColor = System.Drawing.Color.Black;
             this.Btn_change.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.Btn_change.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.Btn_change.Location = new System.Drawing.Point(902, 235);
-            this.Btn_change.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Btn_change.Location = new System.Drawing.Point(1203, 289);
             this.Btn_change.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Btn_change.Name = "Btn_change";
@@ -715,8 +719,6 @@
             this.Btn_screenshot.IdleFillColor = System.Drawing.Color.Black;
             this.Btn_screenshot.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.Btn_screenshot.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.Btn_screenshot.Location = new System.Drawing.Point(757, 355);
-            this.Btn_screenshot.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Btn_screenshot.Location = new System.Drawing.Point(1009, 437);
             this.Btn_screenshot.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Btn_screenshot.Name = "Btn_screenshot";
@@ -735,11 +737,8 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(756, 486);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(213, 124);
             this.pictureBox2.Location = new System.Drawing.Point(1008, 598);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(284, 152);
             this.pictureBox2.TabIndex = 33;
@@ -763,10 +762,6 @@
             this.btVideo.IdleFillColor = System.Drawing.Color.Black;
             this.btVideo.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btVideo.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btVideo.Location = new System.Drawing.Point(756, 406);
-            this.btVideo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btVideo.Name = "btVideo";
-            this.btVideo.Size = new System.Drawing.Size(213, 50);
             this.btVideo.Location = new System.Drawing.Point(1008, 500);
             this.btVideo.Margin = new System.Windows.Forms.Padding(5);
             this.btVideo.Name = "btVideo";
@@ -779,17 +774,6 @@
             // 
             this.TimerVideo.Interval = 25;
             this.TimerVideo.Tick += new System.EventHandler(this.TimerVideo_Tick);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(540, 268);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 17);
-            this.label2.TabIndex = 35;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // btAnteprima
             // 
@@ -809,10 +793,6 @@
             this.btAnteprima.IdleFillColor = System.Drawing.Color.Black;
             this.btAnteprima.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btAnteprima.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btAnteprima.Location = new System.Drawing.Point(757, 609);
-            this.btAnteprima.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.btAnteprima.Name = "btAnteprima";
-            this.btAnteprima.Size = new System.Drawing.Size(212, 52);
             this.btAnteprima.Location = new System.Drawing.Point(1009, 750);
             this.btAnteprima.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.btAnteprima.Name = "btAnteprima";
@@ -822,71 +802,16 @@
             this.btAnteprima.Visible = false;
             this.btAnteprima.Click += new System.EventHandler(this.btAnteprima_Click);
             // 
-            // pb_updivieto
+            // label4
             // 
-            this.pb_updivieto.Image = global::RaspiCamStream.Properties.Resources.croce;
-            this.pb_updivieto.Location = new System.Drawing.Point(183, 0);
-            this.pb_updivieto.Name = "pb_updivieto";
-            this.pb_updivieto.Size = new System.Drawing.Size(58, 48);
-            this.pb_updivieto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_updivieto.TabIndex = 36;
-            this.pb_updivieto.TabStop = false;
-            this.pb_updivieto.Visible = false;
-            // 
-            // pb_rightdivieto
-            // 
-            this.pb_rightdivieto.Image = global::RaspiCamStream.Properties.Resources.croce;
-            this.pb_rightdivieto.Location = new System.Drawing.Point(247, 60);
-            this.pb_rightdivieto.Name = "pb_rightdivieto";
-            this.pb_rightdivieto.Size = new System.Drawing.Size(58, 48);
-            this.pb_rightdivieto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_rightdivieto.TabIndex = 38;
-            this.pb_rightdivieto.TabStop = false;
-            this.pb_rightdivieto.Visible = false;
-            // 
-            // pb_downdivieto
-            // 
-            this.pb_downdivieto.Image = global::RaspiCamStream.Properties.Resources.croce;
-            this.pb_downdivieto.Location = new System.Drawing.Point(183, 117);
-            this.pb_downdivieto.Name = "pb_downdivieto";
-            this.pb_downdivieto.Size = new System.Drawing.Size(58, 48);
-            this.pb_downdivieto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_downdivieto.TabIndex = 39;
-            this.pb_downdivieto.TabStop = false;
-            this.pb_downdivieto.Visible = false;
-            // 
-            // pb_leftdivieto
-            // 
-            this.pb_leftdivieto.Image = global::RaspiCamStream.Properties.Resources.croce;
-            this.pb_leftdivieto.Location = new System.Drawing.Point(119, 60);
-            this.pb_leftdivieto.Name = "pb_leftdivieto";
-            this.pb_leftdivieto.Size = new System.Drawing.Size(58, 48);
-            this.pb_leftdivieto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_leftdivieto.TabIndex = 40;
-            this.pb_leftdivieto.TabStop = false;
-            this.pb_leftdivieto.Visible = false;
-            // 
-            // pb_centerdivieto
-            // 
-            this.pb_centerdivieto.Image = global::RaspiCamStream.Properties.Resources.croce;
-            this.pb_centerdivieto.Location = new System.Drawing.Point(183, 60);
-            this.pb_centerdivieto.Name = "pb_centerdivieto";
-            this.pb_centerdivieto.Size = new System.Drawing.Size(58, 51);
-            this.pb_centerdivieto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_centerdivieto.TabIndex = 41;
-            this.pb_centerdivieto.TabStop = false;
-            this.pb_centerdivieto.Visible = false;
-            // 
-            // label_divieto
-            // 
-            this.label_divieto.AutoSize = true;
-            this.label_divieto.ForeColor = System.Drawing.Color.Red;
-            this.label_divieto.Location = new System.Drawing.Point(293, 21);
-            this.label_divieto.Name = "label_divieto";
-            this.label_divieto.Size = new System.Drawing.Size(92, 13);
-            this.label_divieto.TabIndex = 42;
-            this.label_divieto.Text = "Controlli disabilitati";
-            this.label_divieto.Visible = false;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(357, 173);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(531, 17);
+            this.label4.TabIndex = 36;
+            this.label4.Text = "Inserire hostname (l\'hostname di default di Raspberry Pi è \"raspberrypi\"";
             // 
             // Form1
             // 
@@ -923,6 +848,11 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_centerdivieto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_leftdivieto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_downdivieto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_rightdivieto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_updivieto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_center)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_left)).EndInit();
@@ -931,11 +861,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Pb_down)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picturebox_colore)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_updivieto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_rightdivieto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_downdivieto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_leftdivieto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_centerdivieto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -992,6 +917,7 @@
         private System.Windows.Forms.PictureBox pb_leftdivieto;
         private System.Windows.Forms.PictureBox pb_downdivieto;
         private System.Windows.Forms.PictureBox pb_rightdivieto;
+        private System.Windows.Forms.Label label4;
     }
 
 }
