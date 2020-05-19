@@ -34,9 +34,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             this.Btn_ip = new Bunifu.Framework.UI.BunifuThinButton2();
             this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.Label_ip = new System.Windows.Forms.Label();
             this.listBoxHostnames = new System.Windows.Forms.ListBox();
             this.Btn_eliminacronologia = new Bunifu.Framework.UI.BunifuThinButton2();
@@ -110,7 +110,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(955, 770);
+            this.pictureBox1.Size = new System.Drawing.Size(955, 771);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -126,9 +126,9 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.Btn_ip);
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.Label_ip);
             this.panel2.Controls.Add(this.listBoxHostnames);
             this.panel2.Controls.Add(this.Btn_eliminacronologia);
@@ -136,15 +136,28 @@
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.Txt_ip);
             this.panel2.Controls.Add(this.Label_search);
-            this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.Txt_search);
             this.panel2.Controls.Add(this.Btn_go);
+            this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 44);
+            this.panel2.Location = new System.Drawing.Point(0, 43);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(955, 770);
+            this.panel2.Size = new System.Drawing.Size(955, 771);
             this.panel2.TabIndex = 10;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(329, 319);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(97, 25);
+            this.label5.TabIndex = 38;
+            this.label5.Text = "Oppure: ";
             // 
             // Btn_ip
             // 
@@ -164,10 +177,10 @@
             this.Btn_ip.IdleFillColor = System.Drawing.Color.Black;
             this.Btn_ip.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.Btn_ip.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.Btn_ip.Location = new System.Drawing.Point(416, 398);
+            this.Btn_ip.Location = new System.Drawing.Point(760, 243);
             this.Btn_ip.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Btn_ip.Name = "Btn_ip";
-            this.Btn_ip.Size = new System.Drawing.Size(276, 59);
+            this.Btn_ip.Size = new System.Drawing.Size(195, 59);
             this.Btn_ip.TabIndex = 37;
             this.Btn_ip.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Btn_ip.Click += new System.EventHandler(this.Btn_ip_Click);
@@ -175,25 +188,14 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(400, 182);
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.DarkGray;
+            this.label4.Location = new System.Drawing.Point(366, 183);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(538, 17);
+            this.label4.Size = new System.Drawing.Size(563, 32);
             this.label4.TabIndex = 36;
-            this.label4.Text = "Inserire l\'hostname, l\'hostname di default di Raspberry Pi è \"raspberrypi\"";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(540, 268);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 17);
-            this.label2.TabIndex = 35;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.label4.Text = "Configurazione indirizzo IP del RaspberryPi";
             // 
             // Label_ip
             // 
@@ -208,13 +210,14 @@
             // listBoxHostnames
             // 
             this.listBoxHostnames.BackColor = System.Drawing.Color.Black;
+            this.listBoxHostnames.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listBoxHostnames.ForeColor = System.Drawing.Color.White;
             this.listBoxHostnames.FormattingEnabled = true;
             this.listBoxHostnames.ItemHeight = 16;
-            this.listBoxHostnames.Location = new System.Drawing.Point(734, 268);
+            this.listBoxHostnames.Location = new System.Drawing.Point(758, 319);
             this.listBoxHostnames.Margin = new System.Windows.Forms.Padding(2);
             this.listBoxHostnames.Name = "listBoxHostnames";
-            this.listBoxHostnames.Size = new System.Drawing.Size(195, 180);
+            this.listBoxHostnames.Size = new System.Drawing.Size(195, 178);
             this.listBoxHostnames.TabIndex = 33;
             this.listBoxHostnames.Click += new System.EventHandler(this.listBoxHostnames_Click);
             // 
@@ -236,7 +239,7 @@
             this.Btn_eliminacronologia.IdleFillColor = System.Drawing.Color.Black;
             this.Btn_eliminacronologia.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.Btn_eliminacronologia.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.Btn_eliminacronologia.Location = new System.Drawing.Point(734, 210);
+            this.Btn_eliminacronologia.Location = new System.Drawing.Point(758, 505);
             this.Btn_eliminacronologia.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Btn_eliminacronologia.Name = "Btn_eliminacronologia";
             this.Btn_eliminacronologia.Size = new System.Drawing.Size(195, 49);
@@ -260,7 +263,7 @@
             this.panel3.Controls.Add(this.Pb_up);
             this.panel3.Controls.Add(this.Pb_down);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 544);
+            this.panel3.Location = new System.Drawing.Point(0, 545);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(955, 226);
@@ -269,10 +272,11 @@
             // label_divieto
             // 
             this.label_divieto.AutoSize = true;
+            this.label_divieto.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_divieto.ForeColor = System.Drawing.Color.Red;
             this.label_divieto.Location = new System.Drawing.Point(383, 19);
             this.label_divieto.Name = "label_divieto";
-            this.label_divieto.Size = new System.Drawing.Size(125, 17);
+            this.label_divieto.Size = new System.Drawing.Size(147, 17);
             this.label_divieto.TabIndex = 42;
             this.label_divieto.Text = "Controlli disabilitati";
             this.label_divieto.Visible = false;
@@ -445,41 +449,44 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(469, 335);
+            this.label3.Location = new System.Drawing.Point(329, 252);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(190, 25);
+            this.label3.Size = new System.Drawing.Size(219, 25);
             this.label3.TabIndex = 16;
-            this.label3.Text = "Inserire Ip della Cam";
+            this.label3.Text = "Indirizzo IP (se noto):";
             // 
             // Txt_ip
             // 
-            this.Txt_ip.Location = new System.Drawing.Point(416, 366);
+            this.Txt_ip.Location = new System.Drawing.Point(582, 256);
             this.Txt_ip.Margin = new System.Windows.Forms.Padding(4);
             this.Txt_ip.Name = "Txt_ip";
-            this.Txt_ip.Size = new System.Drawing.Size(276, 22);
+            this.Txt_ip.Size = new System.Drawing.Size(150, 22);
             this.Txt_ip.TabIndex = 15;
             // 
             // Label_search
             // 
             this.Label_search.AutoSize = true;
             this.Label_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label_search.ForeColor = System.Drawing.Color.White;
-            this.Label_search.Location = new System.Drawing.Point(417, 268);
+            this.Label_search.ForeColor = System.Drawing.Color.Red;
+            this.Label_search.Location = new System.Drawing.Point(443, 422);
             this.Label_search.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Label_search.Name = "Label_search";
-            this.Label_search.Size = new System.Drawing.Size(0, 17);
+            this.Label_search.Size = new System.Drawing.Size(171, 17);
             this.Label_search.TabIndex = 24;
+            this.Label_search.Text = "L\'hostname non esiste";
             // 
             // Txt_search
             // 
-            this.Txt_search.Location = new System.Drawing.Point(515, 223);
+            this.Txt_search.Location = new System.Drawing.Point(582, 323);
             this.Txt_search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Txt_search.Name = "Txt_search";
-            this.Txt_search.Size = new System.Drawing.Size(177, 22);
+            this.Txt_search.Size = new System.Drawing.Size(150, 22);
             this.Txt_search.TabIndex = 23;
+            this.Txt_search.Text = "raspberrypi";
             // 
             // Btn_go
             // 
@@ -490,7 +497,7 @@
             this.Btn_go.ActiveLineColor = System.Drawing.Color.SeaGreen;
             this.Btn_go.BackColor = System.Drawing.Color.Black;
             this.Btn_go.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn_go.BackgroundImage")));
-            this.Btn_go.ButtonText = "Go";
+            this.Btn_go.ButtonText = "Cerca hostname";
             this.Btn_go.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_go.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_go.ForeColor = System.Drawing.Color.Green;
@@ -499,10 +506,10 @@
             this.Btn_go.IdleFillColor = System.Drawing.Color.Black;
             this.Btn_go.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.Btn_go.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.Btn_go.Location = new System.Drawing.Point(416, 210);
+            this.Btn_go.Location = new System.Drawing.Point(334, 367);
             this.Btn_go.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Btn_go.Name = "Btn_go";
-            this.Btn_go.Size = new System.Drawing.Size(89, 49);
+            this.Btn_go.Size = new System.Drawing.Size(398, 49);
             this.Btn_go.TabIndex = 29;
             this.Btn_go.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Btn_go.Click += new System.EventHandler(this.Btn_go_Click);
@@ -838,7 +845,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1015, 36);
+            this.panel1.Size = new System.Drawing.Size(1353, 43);
             this.panel1.TabIndex = 0;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
@@ -937,7 +944,6 @@
         private System.Windows.Forms.Timer TimerVideo;
         private Bunifu.Framework.UI.BunifuThinButton2 btZoom;
         private System.Windows.Forms.TrackBar trackBar1;
-        private System.Windows.Forms.Label label2;
         private Bunifu.Framework.UI.BunifuThinButton2 btAnteprima;
         private System.Windows.Forms.PictureBox pb_updivieto;
         private System.Windows.Forms.Label label_divieto;
@@ -952,6 +958,7 @@
         private System.Windows.Forms.PictureBox Pb_exit;
         private System.Windows.Forms.PictureBox Pb_minimize;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label5;
     }
 
 }

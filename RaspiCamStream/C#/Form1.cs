@@ -45,6 +45,7 @@ namespace RaspiCamStream
             btVideo.Visible = false;
             btAnteprima.Visible = false;
             label_tracking.Visible = false;
+            Label_search.Visible = false;
 
             using (Graphics gfx = Graphics.FromImage(bitmap))
             using (SolidBrush brush = new SolidBrush(Color.FromArgb(1, 1, 1)))
@@ -110,14 +111,14 @@ namespace RaspiCamStream
                 btZoom.Visible = true;
                 trackBar1.Visible = true;
                 pictureBox2.Visible = true;
-                label2.Visible = false;
-                Label_search.Text = "";
-                label2.Text = "";
+                Txt_ip.Clear();
                 label4.Visible = false;
                 Txt_search.Clear();
+                label5.Visible = false;
             }
             catch
             {
+                Txt_ip.Clear();
                 MessageBox.Show("L'IP inserito non è corretto o il raspberry pi non risponde, riprova");
                 return;
             }
@@ -431,23 +432,23 @@ namespace RaspiCamStream
             {
                 ipaddress = Dns.GetHostAddresses(HostName);
             }
-            catch (Exception a)
+            catch
             {
-                Label_search.Text = $"{a}, riprova";
+                Label_search.Visible = true;
             }
 
             try
             {
                 foreach (IPAddress ip4 in ipaddress.Where(ip => ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork))
                 {
-                    Label_search.Text = "l' ip da nome è: ";
-                    label2.Text = ip4.ToString();
+                    Txt_ip.Text = ip4.ToString(); ;
+                    Label_search.Visible = false;
                 }
             }
             catch (NullReferenceException)
             {
-                Label_search.Text = $"l'hostname non esiste";
-                label2.Text = "";
+                Label_search.Visible = true;
+                Txt_search.Clear();
                 return;
             }
 
@@ -546,11 +547,6 @@ namespace RaspiCamStream
             listBoxHostnames.Items.Clear();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-            Txt_ip.Text = label2.Text;
-        }
-
         private void btn_visible_Click(object sender, EventArgs e)
         {
             if (Stream.IsRunning == true)
@@ -577,7 +573,6 @@ namespace RaspiCamStream
             btVideo.Visible = false;
             btZoom.Visible = false;
             trackBar1.Visible = false;
-            label2.Visible = true;
             pb_updivieto.Visible = false;
             pb_downdivieto.Visible = false;
             pb_leftdivieto.Visible = false;
@@ -586,6 +581,10 @@ namespace RaspiCamStream
             label_divieto.Visible = false;
             label4.Visible = true;
             label_tracking.Visible = false;
+            label5.Visible = true;
+            pictureBox2.Visible = false;
+            btAnteprima.Visible = false;
+            pictureBox2.Image = null;
         }
 
         private void Btn_screenshot_Click(object sender, EventArgs e)
