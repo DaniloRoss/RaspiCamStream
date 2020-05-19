@@ -26,13 +26,9 @@ namespace RaspiCamStream
         VideoFileWriter writer = default(VideoFileWriter);
         Bitmap bmp = default(Bitmap);
         private string PathFolderImage;
-<<<<<<< HEAD
-
-=======
         private string PathFolderVideo;
 
 
->>>>>>> parent of 5550f3c... Revert "Cartella per il salvataggio screenshot"
 
 
 
