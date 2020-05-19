@@ -37,11 +37,12 @@
             this.Pb_minimize = new System.Windows.Forms.PictureBox();
             this.Pb_exit = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.Btn_ip = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Label_ip = new System.Windows.Forms.Label();
             this.listBoxHostnames = new System.Windows.Forms.ListBox();
             this.Btn_eliminacronologia = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.Btn_ip = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label_divieto = new System.Windows.Forms.Label();
             this.pb_centerdivieto = new System.Windows.Forms.PictureBox();
@@ -61,7 +62,6 @@
             this.Label_search = new System.Windows.Forms.Label();
             this.Txt_search = new System.Windows.Forms.TextBox();
             this.Btn_go = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.btn_visible = new System.Windows.Forms.Button();
             this.Rb_detection = new System.Windows.Forms.RadioButton();
             this.Rb_tracking = new System.Windows.Forms.RadioButton();
             this.Rb_normal = new System.Windows.Forms.RadioButton();
@@ -81,7 +81,8 @@
             this.btVideo = new Bunifu.Framework.UI.BunifuThinButton2();
             this.TimerVideo = new System.Windows.Forms.Timer(this.components);
             this.btAnteprima = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label_tracking = new System.Windows.Forms.Label();
+            this.btn_visible = new Bunifu.Framework.UI.BunifuThinButton2();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_minimize)).BeginInit();
@@ -164,12 +165,12 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.Btn_ip);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.Label_ip);
             this.panel2.Controls.Add(this.listBoxHostnames);
             this.panel2.Controls.Add(this.Btn_eliminacronologia);
-            this.panel2.Controls.Add(this.Btn_ip);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.Txt_ip);
@@ -183,6 +184,43 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(955, 770);
             this.panel2.TabIndex = 10;
+            // 
+            // Btn_ip
+            // 
+            this.Btn_ip.ActiveBorderThickness = 1;
+            this.Btn_ip.ActiveCornerRadius = 20;
+            this.Btn_ip.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.Btn_ip.ActiveForecolor = System.Drawing.Color.White;
+            this.Btn_ip.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.Btn_ip.BackColor = System.Drawing.Color.Black;
+            this.Btn_ip.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn_ip.BackgroundImage")));
+            this.Btn_ip.ButtonText = "Conferma IP";
+            this.Btn_ip.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_ip.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_ip.ForeColor = System.Drawing.Color.Green;
+            this.Btn_ip.IdleBorderThickness = 1;
+            this.Btn_ip.IdleCornerRadius = 20;
+            this.Btn_ip.IdleFillColor = System.Drawing.Color.Black;
+            this.Btn_ip.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.Btn_ip.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.Btn_ip.Location = new System.Drawing.Point(416, 398);
+            this.Btn_ip.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.Btn_ip.Name = "Btn_ip";
+            this.Btn_ip.Size = new System.Drawing.Size(276, 59);
+            this.Btn_ip.TabIndex = 37;
+            this.Btn_ip.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Btn_ip.Click += new System.EventHandler(this.Btn_ip_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(400, 182);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(538, 17);
+            this.label4.TabIndex = 36;
+            this.label4.Text = "Inserire l\'hostname, l\'hostname di default di Raspberry Pi è \"raspberrypi\"";
             // 
             // label2
             // 
@@ -244,20 +282,6 @@
             this.Btn_eliminacronologia.TabIndex = 34;
             this.Btn_eliminacronologia.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Btn_eliminacronologia.Click += new System.EventHandler(this.Btn_eliminacronologia_Click);
-            // 
-            // Btn_ip
-            // 
-            this.Btn_ip.BackColor = System.Drawing.Color.DarkGreen;
-            this.Btn_ip.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_ip.ForeColor = System.Drawing.Color.White;
-            this.Btn_ip.Location = new System.Drawing.Point(416, 405);
-            this.Btn_ip.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Btn_ip.Name = "Btn_ip";
-            this.Btn_ip.Size = new System.Drawing.Size(276, 43);
-            this.Btn_ip.TabIndex = 17;
-            this.Btn_ip.Text = "Conferma IP";
-            this.Btn_ip.UseVisualStyleBackColor = false;
-            this.Btn_ip.Click += new System.EventHandler(this.Btn_ip_Click);
             // 
             // panel3
             // 
@@ -490,10 +514,10 @@
             // 
             // Txt_search
             // 
-            this.Txt_search.Location = new System.Drawing.Point(550, 223);
+            this.Txt_search.Location = new System.Drawing.Point(515, 223);
             this.Txt_search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Txt_search.Name = "Txt_search";
-            this.Txt_search.Size = new System.Drawing.Size(153, 22);
+            this.Txt_search.Size = new System.Drawing.Size(177, 22);
             this.Txt_search.TabIndex = 23;
             // 
             // Btn_go
@@ -514,27 +538,13 @@
             this.Btn_go.IdleFillColor = System.Drawing.Color.Black;
             this.Btn_go.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.Btn_go.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.Btn_go.Location = new System.Drawing.Point(435, 210);
+            this.Btn_go.Location = new System.Drawing.Point(416, 210);
             this.Btn_go.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Btn_go.Name = "Btn_go";
             this.Btn_go.Size = new System.Drawing.Size(89, 49);
             this.Btn_go.TabIndex = 29;
             this.Btn_go.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Btn_go.Click += new System.EventHandler(this.Btn_go_Click);
-            // 
-            // btn_visible
-            // 
-            this.btn_visible.BackColor = System.Drawing.Color.DarkGreen;
-            this.btn_visible.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_visible.ForeColor = System.Drawing.Color.White;
-            this.btn_visible.Location = new System.Drawing.Point(1267, 106);
-            this.btn_visible.Name = "btn_visible";
-            this.btn_visible.Size = new System.Drawing.Size(64, 59);
-            this.btn_visible.TabIndex = 23;
-            this.btn_visible.Text = "IP";
-            this.btn_visible.UseVisualStyleBackColor = false;
-            this.btn_visible.Visible = false;
-            this.btn_visible.Click += new System.EventHandler(this.btn_visible_Click);
             // 
             // Rb_detection
             // 
@@ -802,16 +812,43 @@
             this.btAnteprima.Visible = false;
             this.btAnteprima.Click += new System.EventHandler(this.btAnteprima_Click);
             // 
-            // label4
+            // label_tracking
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(357, 173);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(531, 17);
-            this.label4.TabIndex = 36;
-            this.label4.Text = "Inserire hostname (l\'hostname di default di Raspberry Pi è \"raspberrypi\"";
+            this.label_tracking.AutoSize = true;
+            this.label_tracking.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_tracking.ForeColor = System.Drawing.Color.White;
+            this.label_tracking.Location = new System.Drawing.Point(1040, 384);
+            this.label_tracking.Name = "label_tracking";
+            this.label_tracking.Size = new System.Drawing.Size(229, 17);
+            this.label_tracking.TabIndex = 37;
+            this.label_tracking.Text = "Seleziona l\'oggetto da seguire";
+            // 
+            // btn_visible
+            // 
+            this.btn_visible.ActiveBorderThickness = 1;
+            this.btn_visible.ActiveCornerRadius = 20;
+            this.btn_visible.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btn_visible.ActiveForecolor = System.Drawing.Color.White;
+            this.btn_visible.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btn_visible.BackColor = System.Drawing.Color.Black;
+            this.btn_visible.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_visible.BackgroundImage")));
+            this.btn_visible.ButtonText = "IP";
+            this.btn_visible.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_visible.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_visible.ForeColor = System.Drawing.Color.Green;
+            this.btn_visible.IdleBorderThickness = 1;
+            this.btn_visible.IdleCornerRadius = 20;
+            this.btn_visible.IdleFillColor = System.Drawing.Color.Black;
+            this.btn_visible.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btn_visible.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btn_visible.Location = new System.Drawing.Point(1262, 98);
+            this.btn_visible.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.btn_visible.Name = "btn_visible";
+            this.btn_visible.Size = new System.Drawing.Size(66, 75);
+            this.btn_visible.TabIndex = 38;
+            this.btn_visible.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_visible.Visible = false;
+            this.btn_visible.Click += new System.EventHandler(this.btn_visible_Click);
             // 
             // Form1
             // 
@@ -820,8 +857,9 @@
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1353, 814);
             this.ControlBox = false;
-            this.Controls.Add(this.btAnteprima);
             this.Controls.Add(this.btn_visible);
+            this.Controls.Add(this.label_tracking);
+            this.Controls.Add(this.btAnteprima);
             this.Controls.Add(this.Btn_screenshot);
             this.Controls.Add(this.Btn_change);
             this.Controls.Add(this.Picturebox_colore);
@@ -838,6 +876,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -886,7 +925,6 @@
         private System.Windows.Forms.Timer Timer_down;
         private System.Windows.Forms.Timer Timer_right;
         private System.Windows.Forms.Timer Timer_left;
-        private System.Windows.Forms.Button Btn_ip;
         private System.Windows.Forms.Label Label_Search_ip;
         private System.Windows.Forms.Label Label_ip;
         private System.Windows.Forms.Timer Timer_tracking;
@@ -901,7 +939,6 @@
         private System.Windows.Forms.PictureBox Picturebox_colore;
         private Bunifu.Framework.UI.BunifuThinButton2 Btn_change;
         private Bunifu.Framework.UI.BunifuThinButton2 Btn_screenshot;
-        private System.Windows.Forms.Button btn_visible;
         private System.Windows.Forms.ListBox listBoxHostnames;
         private Bunifu.Framework.UI.BunifuThinButton2 Btn_eliminacronologia;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -918,8 +955,9 @@
         private System.Windows.Forms.PictureBox pb_downdivieto;
         private System.Windows.Forms.PictureBox pb_rightdivieto;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label_tracking;
+        private Bunifu.Framework.UI.BunifuThinButton2 Btn_ip;
+        private Bunifu.Framework.UI.BunifuThinButton2 btn_visible;
     }
 
 }
-
-

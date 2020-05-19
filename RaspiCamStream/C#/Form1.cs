@@ -25,10 +25,6 @@ namespace RaspiCamStream
         private string PathFolderImage;
         private string PathFolderVideo;
 
-
-
-
-
         public Form1()
         {
             InitializeComponent();
@@ -48,6 +44,7 @@ namespace RaspiCamStream
             btVideo.Enabled = false;
             btVideo.Visible = false;
             btAnteprima.Visible = false;
+            label_tracking.Visible = false;
 
             using (Graphics gfx = Graphics.FromImage(bitmap))
             using (SolidBrush brush = new SolidBrush(Color.FromArgb(1, 1, 1)))
@@ -97,7 +94,7 @@ namespace RaspiCamStream
                 pb_rightdivieto.Visible = true;
                 pb_centerdivieto.Visible = true;
                 label_divieto.Visible = true;
-            }            
+            }
             Btn_stream.Visible = true; Btn_go.Visible = true; Rb_normal.Visible = true;
             Rb_tracking.Visible = true;
             Rb_detection.Visible = true;
@@ -120,6 +117,7 @@ namespace RaspiCamStream
             Label_search.Text = "";
             label2.Text = "";
             label4.Visible = false;
+            Txt_search.Clear();
         }
 
         private void Stream_NewFrame(object sender, NewFrameEventArgs eventArgs)
@@ -291,6 +289,7 @@ namespace RaspiCamStream
             sendmessage("Q");
             Btn_change.Visible = false;
             Picturebox_colore.BackColor = Color.Transparent;
+            label_tracking.Visible = false;
         }
 
         private void Rb_tracking_Click(object sender, EventArgs e)
@@ -302,6 +301,7 @@ namespace RaspiCamStream
             }
             pictureBox1.Enabled = true;
             Picturebox_colore.Visible = true;
+            label_tracking.Visible = true;
         }
 
         private void Rb_detection_Click(object sender, EventArgs e)
@@ -314,6 +314,7 @@ namespace RaspiCamStream
             Timer_face.Start();
             Btn_change.Visible = false;
             Picturebox_colore.BackColor = Color.Transparent;
+            label_tracking.Visible = false;
         }
 
         private void Timer_tracking_Tick(object sender, EventArgs e)
@@ -408,11 +409,12 @@ namespace RaspiCamStream
                 Timer_tracking.Start();
                 pictureBox1.Enabled = false;
                 Btn_change.Visible = true;
+                label_tracking.Visible = false;
             }
         }
 
         private void Btn_go_Click(object sender, EventArgs e)
-        {         
+        {
 
             if (string.IsNullOrEmpty(Txt_search.Text) == true)
             {
@@ -420,7 +422,7 @@ namespace RaspiCamStream
                 return;
             }
             string HostName = Txt_search.Text;
-            
+
             IPAddress[] ipaddress = new IPAddress[100];
             try
             {
@@ -467,7 +469,7 @@ namespace RaspiCamStream
             }
             listBoxHostnames.Items.Clear();
             while (leggere.EndOfStream == false)
-            {                
+            {
                 listBoxHostnames.Items.Add(leggere.ReadLine());
             }
 
@@ -487,7 +489,7 @@ namespace RaspiCamStream
             {
                 DirectoryInfo di = Directory.CreateDirectory("screenshots");
             }
-            if (!Directory.Exists("video"))
+            if (!Directory.Exists("Video"))
             {
                 DirectoryInfo di = Directory.CreateDirectory("video");
             }
@@ -580,6 +582,7 @@ namespace RaspiCamStream
             pb_centerdivieto.Visible = false;
             label_divieto.Visible = false;
             label4.Visible = true;
+            label_tracking.Visible = false;
         }
 
         private void Btn_screenshot_Click(object sender, EventArgs e)
@@ -759,7 +762,7 @@ namespace RaspiCamStream
                 var fileName = Path.Combine(PathFolderVideo, $"Video_{DateTime.Now.ToString("yyyyMMddHHmmss")}");
 
                 writer = new VideoFileWriter();
-                writer.Open(fileName+ ".avi", 640, 480, 25, VideoCodec.MPEG4);
+                writer.Open(fileName + ".avi", 640, 480, 25, VideoCodec.MPEG4);
                 TimerVideo.Start();
             }
             else
