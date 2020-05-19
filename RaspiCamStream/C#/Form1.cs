@@ -73,51 +73,54 @@ namespace RaspiCamStream
             try
             {
                 sendmessage("C");
+
+
+
+                Stream.NewFrame += Stream_NewFrame;
+                streamexist = 1;
+                Txt_ip.Clear();
+                if (Rb_normal.Checked == true)
+                {
+                    Pb_up.Visible = true; Pb_left.Visible = true; Pb_right.Visible = true; Pb_down.Visible = true; Pb_center.Visible = true;
+                }
+                else
+                {
+                    pb_updivieto.Visible = true;
+                    pb_downdivieto.Visible = true;
+                    pb_leftdivieto.Visible = true;
+                    pb_rightdivieto.Visible = true;
+                    pb_centerdivieto.Visible = true;
+                    label_divieto.Visible = true;
+                }
+                Btn_stream.Visible = true; Btn_go.Visible = true; Rb_normal.Visible = true;
+                Rb_tracking.Visible = true;
+                Rb_detection.Visible = true;
+                Btn_screenshot.Visible = true;
+                Btn_ip.Visible = false;
+                Txt_ip.Visible = false;
+                label3.Visible = false;
+                Btn_go.Visible = false;
+                Txt_search.Visible = false;
+                Label_search.Visible = false;
+                btn_visible.Visible = true;
+                pictureBox1.Visible = true;
+                listBoxHostnames.Visible = false;
+                Btn_eliminacronologia.Visible = false;
+                btVideo.Visible = true;
+                btZoom.Visible = true;
+                trackBar1.Visible = true;
+                pictureBox2.Visible = true;
+                label2.Visible = false;
+                Label_search.Text = "";
+                label2.Text = "";
+                label4.Visible = false;
+                Txt_search.Clear();
             }
             catch
             {
+                MessageBox.Show("L'IP inserito non è corretto o il raspberry pi non risponde, riprova");
                 return;
             }
-
-            Stream.NewFrame += Stream_NewFrame;
-            streamexist = 1;
-            Txt_ip.Clear();
-            if (Rb_normal.Checked == true)
-            {
-                Pb_up.Visible = true; Pb_left.Visible = true; Pb_right.Visible = true; Pb_down.Visible = true; Pb_center.Visible = true;
-            }
-            else
-            {
-                pb_updivieto.Visible = true;
-                pb_downdivieto.Visible = true;
-                pb_leftdivieto.Visible = true;
-                pb_rightdivieto.Visible = true;
-                pb_centerdivieto.Visible = true;
-                label_divieto.Visible = true;
-            }
-            Btn_stream.Visible = true; Btn_go.Visible = true; Rb_normal.Visible = true;
-            Rb_tracking.Visible = true;
-            Rb_detection.Visible = true;
-            Btn_screenshot.Visible = true;
-            Btn_ip.Visible = false;
-            Txt_ip.Visible = false;
-            label3.Visible = false;
-            Btn_go.Visible = false;
-            Txt_search.Visible = false;
-            Label_search.Visible = false;
-            btn_visible.Visible = true;
-            pictureBox1.Visible = true;
-            listBoxHostnames.Visible = false;
-            Btn_eliminacronologia.Visible = false;
-            btVideo.Visible = true;
-            btZoom.Visible = true;
-            trackBar1.Visible = true;
-            pictureBox2.Visible = true;
-            label2.Visible = false;
-            Label_search.Text = "";
-            label2.Text = "";
-            label4.Visible = false;
-            Txt_search.Clear();
         }
 
         private void Stream_NewFrame(object sender, NewFrameEventArgs eventArgs)
@@ -165,8 +168,7 @@ namespace RaspiCamStream
             }
             catch (SocketException)
             {
-                MessageBox.Show("L'IP inserito non è corretto o il raspberry pi non risponde, riprova");
-                return;
+                MessageBox.Show("Il raspberry pi non risponde, riprova");
             }
 
             NetworkStream serverStream = clientSocket.GetStream();
