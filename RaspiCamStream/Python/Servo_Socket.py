@@ -8,7 +8,6 @@ import numpy as np
 import os
 
 HOST = ''
-PASSO = 5
 PWH = 1500
 PWV = 1500
 PINV = 18
@@ -18,12 +17,15 @@ pi = pigpio.pi()
 pi.set_mode(PINV, pigpio.OUTPUT)
 pi.set_mode(PINH, pigpio.OUTPUT)
 
-def moveSERVO(direction):
+def moveSERVO(direction, step):
 	global PWV
 	global PWH
-	global PASSO
 	global PINV
 	global PINH
+	if step != 0:
+		PASSO = step
+	else:
+		PASSO = 5
 	if direction == "U":
 		PWV = PWV - PASSO
 
@@ -71,6 +73,7 @@ def trackSERVO(TRACK):
 		color = getCommand()
 		if not color is None:
 			range_decoded = color.decode("utf-8")
+			print "il range " + range_decoded
 			range = range_decoded.split()
 
 			smin_h = range[0]
@@ -117,34 +120,25 @@ def trackSERVO(TRACK):
 					y_medium = int(y + h / 2)
 					break
 
-				#cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
-				#cv2.rectangle(frame, (x_medium, y_medium), (x_medium +3, y_medium+3), (255, 0, 0), 2)
-
 			else:
 
 				gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 				faces = face_cascade.detectMultiScale(gray, 1.3, 5)
 				for (x, y, w, h) in faces:
-					#frame = cv2.rectangle(frame, (x,y), (x+w,y+h), (255,0,0), 2)
 					coordinate = str(x) + "-" + str(y) + "-" + str(w) + "-" + str(h)
-					# print coordinate
 					sendCommand(coordinate)
-					#roi_gray = gray[y:y+h, x:x+w]
-					#roi_color = frame[y:y+h, x:x+w]
-					#eyes = eye_cascade.detectMultiScale(roi_gray)
-					#for (ex, ey, ew, eh) in eyes:
-					#	cv2.rectangle(roi_color, (ex,ey), (ex+ew, ey+eh), (0,255,0), 2)
 					x_medium = int(x + w / 2)
 					y_medium = int(y + h / 2)
 			if TRACK == "T":
+				k = 0.1
 				if x_medium > xc and abs(x_medium - xc) > threshold:
-					moveSERVO("R")
+					moveSERVO("R", abs(x_medium - xc)*k)
 				if x_medium < xc and abs(x_medium - xc) > threshold:
-					moveSERVO("L")
+					moveSERVO("L", abs(x_medium-xc)*k)
 				if y_medium > yc and abs(y_medium - yc) > threshold:
-					moveSERVO("D")
+					moveSERVO("D", abs(y_medium-yc)*k)
 				if y_medium < yc and abs(y_medium - yc) > threshold:
-					moveSERVO("U")
+					moveSERVO("U", abs(y_medium-yc)*k)
 
 		if not frame is None:
 			old_frame_name = frames[0]
@@ -158,23 +152,31 @@ print ("server started")
 print ("waiting for client request")
 
 def getCommand():
-	clientConnection,clientAddress = server.accept()
-	print ("connected client: ", clientAddress)
-	socketData = clientConnection.recv(1024)
-	clientConnection.close()
-	return socketData
+	try:
+		clientConnection,clientAddress = server.accept()
+		print ("connected client: ", clientAddress)
+		socketData = clientConnection.recv(1024)
+		clientConnection.close()
+		return socketData
+	except:
+		print "riprovo"
 
 def sendCommand(COORDINATE):
-	clientConnection,clientAddress = server.accept()
-	coordinate = clientConnection.send(COORDINATE)
-	clientConnection.close()
+	try:
+		clientConnection,clientAddress = server.accept()
+		coordinate = clientConnection.send(COORDINATE)
+		clientConnection.close()
+	except:
+		print "riprovo"
 
-moveSERVO("C")
+moveSERVO("C", 0)
 
 while True:
 	data = getCommand()
 	if data == "T" or data == "F" or data == "Q":
 		trackSERVO(data)
 	else:
-		moveSERVO(data)
+		moveSERVO(data, 0)
 	print ("from client: ", data.decode())
+
+
