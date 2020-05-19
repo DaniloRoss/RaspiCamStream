@@ -809,6 +809,31 @@ namespace RaspiCamStream
             {
 
             }
-        }       
+        }
+
+
+        //sezione codice drag control dell'applicazione 
+        int mov = default(int);
+        int movx = default(int);
+        int movy = default(int);
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            mov = 1;
+            movx = e.X;
+            movy = e.Y;
+        }
+
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            mov = 0;
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mov == 1)
+            {
+                this.SetDesktopLocation(MousePosition.X - movx, MousePosition.Y - movy);
+            }
+        }
     }
 }
