@@ -332,6 +332,7 @@ namespace RaspiCamStream
             Timer_tracking.Stop();
             sendmessage("Q");
             pictureBox1.Enabled = true;
+            label_tracking.Visible = true;
         }
         #endregion      
 
