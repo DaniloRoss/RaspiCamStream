@@ -26,7 +26,13 @@ namespace RaspiCamStream
         VideoFileWriter writer = default(VideoFileWriter);
         Bitmap bmp = default(Bitmap);
         private string PathFolderImage;
+<<<<<<< HEAD
 
+=======
+        private string PathFolderVideo;
+
+
+>>>>>>> parent of 5550f3c... Revert "Cartella per il salvataggio screenshot"
 
 
 
@@ -290,8 +296,19 @@ namespace RaspiCamStream
 
         private void Btn_screenshot_Click(object sender, EventArgs e)
         {
+            PathFolderImage = "screenshots";
              bmp = (Bitmap)pictureBox1.Image;
-            bmp.Save("Screenshot" + DateTime.Now.ToString("dd_MM_yyyy_hh_mm_ss") + ".bmp");
+            var fileName = Path.Combine(PathFolderImage, $"IMG_{DateTime.Now.ToString("yyyyMMddHHmmss")}.png");
+
+            try
+            {
+                pictureBox1.Image.Save(fileName);
+                MessageBox.Show($"immagine salvata in:\n{fileName}", "salva", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show($"Errore salvataggio immagine :\n{fileName}", "salva", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
            
             Bitmap newImage = ResizeBitmap(bmp, pictureBox2.Size.Width, pictureBox2.Size.Height,0);
             pictureBox2.Image = newImage;
