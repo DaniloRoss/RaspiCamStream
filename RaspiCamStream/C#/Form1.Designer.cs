@@ -82,7 +82,6 @@
             this.Pb_exit = new System.Windows.Forms.PictureBox();
             this.Pb_minimize = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -843,13 +842,6 @@
             this.panel1.Size = new System.Drawing.Size(1353, 44);
             this.panel1.TabIndex = 0;
             // 
-            // bunifuDragControl1
-            // 
-            this.bunifuDragControl1.Fixed = false;
-            this.bunifuDragControl1.Horizontal = true;
-            this.bunifuDragControl1.TargetControl = this.panel1;
-            this.bunifuDragControl1.Vertical = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -958,7 +950,6 @@
         private System.Windows.Forms.PictureBox Pb_exit;
         private System.Windows.Forms.PictureBox Pb_minimize;
         private System.Windows.Forms.Panel panel1;
-        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
     }
 
 }
