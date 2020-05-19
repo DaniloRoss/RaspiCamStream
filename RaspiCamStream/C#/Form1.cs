@@ -23,6 +23,11 @@ namespace RaspiCamStream
         string ip = default(string);
         int streamexist = default(int);
         private string PathFolderImage;
+        private string PathFolderVideo;
+
+
+
+
 
         public Form1()
         {
@@ -749,9 +754,12 @@ namespace RaspiCamStream
                 btVideo.IdleForecolor = Color.Red;
                 btVideo.IdleLineColor = Color.Red;
                 btVideo.ButtonText = "Termina cattura video";
-               
+
+                PathFolderVideo = "Video";
+                var fileName = Path.Combine(PathFolderVideo, $"Video_{DateTime.Now.ToString("yyyyMMddHHmmss")}");
+
                 writer = new VideoFileWriter();
-                writer.Open("Video" + DateTime.Now.ToString("dd_MM_yyyy_hh_mm_ss") + ".avi", 640, 480, 25, VideoCodec.MPEG4);
+                writer.Open(fileName+ ".avi", 640, 480, 25, VideoCodec.MPEG4);
                 TimerVideo.Start();
             }
             else
