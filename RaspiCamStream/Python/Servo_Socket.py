@@ -1,8 +1,6 @@
 import socket
 import pigpio
 import time
-import curses
-import curses.wrapper
 import cv2
 import numpy as np
 import os
