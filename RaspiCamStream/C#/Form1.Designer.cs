@@ -70,7 +70,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btVideo = new Bunifu.Framework.UI.BunifuThinButton2();
             this.TimerVideo = new System.Windows.Forms.Timer(this.components);
-            this.label2 = new System.Windows.Forms.Label();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_maximize)).BeginInit();
@@ -86,6 +86,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Pb_down)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picturebox_colore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -541,7 +542,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(762, 477);
+            this.pictureBox2.Location = new System.Drawing.Point(762, 464);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(212, 152);
             this.pictureBox2.TabIndex = 33;
@@ -578,16 +579,15 @@
             this.TimerVideo.Interval = 25;
             this.TimerVideo.Tick += new System.EventHandler(this.TimerVideo_Tick);
             // 
-            // label2
+            // axWindowsMediaPlayer1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(799, 445);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(140, 20);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "Ultimo Screenshot";
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(762, 452);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(212, 179);
+            this.axWindowsMediaPlayer1.TabIndex = 11;
+            this.axWindowsMediaPlayer1.Visible = false;
             // 
             // Form1
             // 
@@ -596,7 +596,7 @@
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1015, 661);
             this.ControlBox = false;
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Controls.Add(this.btVideo);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.Btn_screenshot);
@@ -632,6 +632,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Pb_down)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picturebox_colore)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -678,7 +679,7 @@
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.Timer TimerVideo;
         private System.Windows.Forms.Button btZoom;
-        private System.Windows.Forms.Label label2;
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
     }
 }
 
