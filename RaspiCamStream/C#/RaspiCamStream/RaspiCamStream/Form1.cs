@@ -24,6 +24,7 @@ namespace RaspiCamStream
         int streamexist = default(int);
         private string PathFolderImage;
         private string PathFolderVideo;
+        private string nome;
 
         public Form1()
         {
@@ -589,8 +590,10 @@ namespace RaspiCamStream
 
         private void Btn_screenshot_Click(object sender, EventArgs e)
         {
+            pictureBox2.Visible = true;
+            axWindowsMediaPlayer1.Visible = false;
             PathFolderImage = "screenshots";
-            bmp = (Bitmap)pictureBox1.Image;
+             bmp = (Bitmap)pictureBox1.Image;
             var fileName = Path.Combine(PathFolderImage, $"IMG_{DateTime.Now.ToString("yyyyMMddHHmmss")}.png");
 
             try
@@ -752,7 +755,9 @@ namespace RaspiCamStream
 
         private void btVideo_Click(object sender, EventArgs e)
         {
-            if (btVideo.ButtonText == "Inizia cattura video")
+            PathFolderVideo = "Video";
+
+            if (btVideo.ButtonText=="Inizia cattura video")
             {
                 btVideo.ActiveFillColor = Color.Red;
                 btVideo.ActiveLineColor = Color.Red;
@@ -760,23 +765,29 @@ namespace RaspiCamStream
                 btVideo.IdleLineColor = Color.Red;
                 btVideo.ButtonText = "Termina cattura video";
 
-                PathFolderVideo = "Video";
+                
                 var fileName = Path.Combine(PathFolderVideo, $"Video_{DateTime.Now.ToString("yyyyMMddHHmmss")}");
+                nome = fileName;
 
                 writer = new VideoFileWriter();
-                writer.Open(fileName + ".avi", 640, 480, 25, VideoCodec.MPEG4);
+                writer.Open(fileName+ ".avi", 640, 480, 25, VideoCodec.MPEG4);
                 TimerVideo.Start();
             }
             else
             {
+                pictureBox2.Visible = false;
+
+
                 btVideo.ActiveFillColor = Color.SeaGreen;
                 btVideo.ActiveLineColor = Color.SeaGreen;
                 btVideo.IdleForecolor = Color.SeaGreen;
                 btVideo.IdleLineColor = Color.SeaGreen;
                 btVideo.ButtonText = "Inizia cattura video";
                 TimerVideo.Stop();
+                MessageBox.Show($"video salvato in:\n{nome}", "salva", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 writer.Close();
-            }
+                axWindowsMediaPlayer1.Visible = true;
+                axWindowsMediaPlayer1.URL = "" + $"{ nome}.avi";
         }
 
         private void TimerVideo_Tick(object sender, EventArgs e)

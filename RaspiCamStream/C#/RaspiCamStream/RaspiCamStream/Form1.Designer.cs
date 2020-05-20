@@ -82,6 +82,7 @@
             this.Pb_exit = new System.Windows.Forms.PictureBox();
             this.Pb_minimize = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -101,6 +102,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Pb_exit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_minimize)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -850,6 +852,16 @@
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
+            //
+            // axWindowsMediaPlayer1
+            // 
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(762, 452);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(212, 179);
+            this.axWindowsMediaPlayer1.TabIndex = 11;
+            this.axWindowsMediaPlayer1.Visible = false;
             // 
             // Form1
             // 
@@ -861,6 +873,9 @@
             this.Controls.Add(this.btn_visible);
             this.Controls.Add(this.label_tracking);
             this.Controls.Add(this.btAnteprima);
+            this.Controls.Add(this.axWindowsMediaPlayer1);
+            this.Controls.Add(this.btVideo);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.Btn_screenshot);
             this.Controls.Add(this.Btn_change);
             this.Controls.Add(this.Picturebox_colore);
@@ -902,6 +917,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Pb_exit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_minimize)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -959,6 +975,8 @@
         private System.Windows.Forms.PictureBox Pb_minimize;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btZoom;
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
     }
 
 }
