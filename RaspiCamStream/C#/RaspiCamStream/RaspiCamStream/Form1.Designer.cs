@@ -34,6 +34,11 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TxtPort = new System.Windows.Forms.TextBox();
+            this.TxtHex = new System.Windows.Forms.TextBox();
+            this.btngrok = new Bunifu.Framework.UI.BunifuThinButton2();
             this.label5 = new System.Windows.Forms.Label();
             this.Btn_ip = new Bunifu.Framework.UI.BunifuThinButton2();
             this.label4 = new System.Windows.Forms.Label();
@@ -41,24 +46,27 @@
             this.listBoxHostnames = new System.Windows.Forms.ListBox();
             this.Btn_eliminacronologia = new Bunifu.Framework.UI.BunifuThinButton2();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.label_divieto = new System.Windows.Forms.Label();
-            this.pb_centerdivieto = new System.Windows.Forms.PictureBox();
-            this.pb_leftdivieto = new System.Windows.Forms.PictureBox();
-            this.pb_downdivieto = new System.Windows.Forms.PictureBox();
-            this.pb_rightdivieto = new System.Windows.Forms.PictureBox();
-            this.pb_updivieto = new System.Windows.Forms.PictureBox();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.btZoom = new Bunifu.Framework.UI.BunifuThinButton2();
             this.Pb_center = new System.Windows.Forms.PictureBox();
             this.Pb_left = new System.Windows.Forms.PictureBox();
             this.Pb_right = new System.Windows.Forms.PictureBox();
             this.Pb_up = new System.Windows.Forms.PictureBox();
             this.Pb_down = new System.Windows.Forms.PictureBox();
+            this.pb_centerdivieto = new System.Windows.Forms.PictureBox();
+            this.pb_leftdivieto = new System.Windows.Forms.PictureBox();
+            this.pb_downdivieto = new System.Windows.Forms.PictureBox();
+            this.pb_rightdivieto = new System.Windows.Forms.PictureBox();
+            this.pb_updivieto = new System.Windows.Forms.PictureBox();
+            this.btAnteprima = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.Txt_ip = new System.Windows.Forms.TextBox();
             this.Label_search = new System.Windows.Forms.Label();
             this.Txt_search = new System.Windows.Forms.TextBox();
             this.Btn_go = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.btZoom = new Bunifu.Framework.UI.BunifuThinButton2();
             this.Rb_detection = new System.Windows.Forms.RadioButton();
             this.Rb_tracking = new System.Windows.Forms.RadioButton();
             this.Rb_normal = new System.Windows.Forms.RadioButton();
@@ -73,36 +81,34 @@
             this.Picturebox_colore = new System.Windows.Forms.PictureBox();
             this.Btn_change = new Bunifu.Framework.UI.BunifuThinButton2();
             this.Btn_screenshot = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btVideo = new Bunifu.Framework.UI.BunifuThinButton2();
             this.TimerVideo = new System.Windows.Forms.Timer(this.components);
-            this.btAnteprima = new Bunifu.Framework.UI.BunifuThinButton2();
             this.label_tracking = new System.Windows.Forms.Label();
             this.btn_visible = new Bunifu.Framework.UI.BunifuThinButton2();
             this.Pb_exit = new System.Windows.Forms.PictureBox();
             this.Pb_minimize = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.Labelzoom = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_centerdivieto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_leftdivieto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_downdivieto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_rightdivieto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_updivieto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_center)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_left)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_right)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_up)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_down)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Picturebox_colore)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_centerdivieto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_leftdivieto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_downdivieto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_rightdivieto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_updivieto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Picturebox_colore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_exit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_minimize)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -128,6 +134,11 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.TxtPort);
+            this.panel2.Controls.Add(this.TxtHex);
+            this.panel2.Controls.Add(this.btngrok);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.Btn_ip);
             this.panel2.Controls.Add(this.label4);
@@ -148,18 +159,86 @@
             this.panel2.Size = new System.Drawing.Size(955, 771);
             this.panel2.TabIndex = 10;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(577, 416);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(128, 25);
+            this.label6.TabIndex = 43;
+            this.label6.Text = "Socket port ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(324, 416);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(156, 25);
+            this.label2.TabIndex = 42;
+            this.label2.Text = "Hex streaming ";
+            // 
+            // TxtPort
+            // 
+            this.TxtPort.Location = new System.Drawing.Point(545, 447);
+            this.TxtPort.Margin = new System.Windows.Forms.Padding(4);
+            this.TxtPort.Name = "TxtPort";
+            this.TxtPort.Size = new System.Drawing.Size(187, 22);
+            this.TxtPort.TabIndex = 41;
+            // 
+            // TxtHex
+            // 
+            this.TxtHex.Location = new System.Drawing.Point(303, 447);
+            this.TxtHex.Margin = new System.Windows.Forms.Padding(4);
+            this.TxtHex.Name = "TxtHex";
+            this.TxtHex.Size = new System.Drawing.Size(191, 22);
+            this.TxtHex.TabIndex = 40;
+            // 
+            // btngrok
+            // 
+            this.btngrok.ActiveBorderThickness = 1;
+            this.btngrok.ActiveCornerRadius = 20;
+            this.btngrok.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btngrok.ActiveForecolor = System.Drawing.Color.White;
+            this.btngrok.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btngrok.BackColor = System.Drawing.Color.Black;
+            this.btngrok.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btngrok.BackgroundImage")));
+            this.btngrok.ButtonText = "Connetti via ngrok";
+            this.btngrok.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btngrok.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btngrok.ForeColor = System.Drawing.Color.Green;
+            this.btngrok.IdleBorderThickness = 1;
+            this.btngrok.IdleCornerRadius = 20;
+            this.btngrok.IdleFillColor = System.Drawing.Color.Black;
+            this.btngrok.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btngrok.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btngrok.Location = new System.Drawing.Point(303, 477);
+            this.btngrok.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.btngrok.Name = "btngrok";
+            this.btngrok.Size = new System.Drawing.Size(429, 49);
+            this.btngrok.TabIndex = 39;
+            this.btngrok.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btngrok.Click += new System.EventHandler(this.bunifuThinButton21_Click);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(329, 319);
+            this.label5.Location = new System.Drawing.Point(298, 294);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(97, 25);
+            this.label5.Size = new System.Drawing.Size(294, 25);
             this.label5.TabIndex = 38;
-            this.label5.Text = "Oppure: ";
+            this.label5.Text = "Ricerca IP tramite hostname: ";
             // 
             // Btn_ip
             // 
@@ -179,7 +258,7 @@
             this.Btn_ip.IdleFillColor = System.Drawing.Color.Black;
             this.Btn_ip.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.Btn_ip.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.Btn_ip.Location = new System.Drawing.Point(760, 243);
+            this.Btn_ip.Location = new System.Drawing.Point(760, 215);
             this.Btn_ip.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Btn_ip.Name = "Btn_ip";
             this.Btn_ip.Size = new System.Drawing.Size(195, 59);
@@ -193,7 +272,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.DarkGray;
-            this.label4.Location = new System.Drawing.Point(366, 183);
+            this.label4.Location = new System.Drawing.Point(366, 155);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(563, 32);
             this.label4.TabIndex = 36;
@@ -216,7 +295,7 @@
             this.listBoxHostnames.ForeColor = System.Drawing.Color.White;
             this.listBoxHostnames.FormattingEnabled = true;
             this.listBoxHostnames.ItemHeight = 16;
-            this.listBoxHostnames.Location = new System.Drawing.Point(758, 319);
+            this.listBoxHostnames.Location = new System.Drawing.Point(758, 291);
             this.listBoxHostnames.Margin = new System.Windows.Forms.Padding(2);
             this.listBoxHostnames.Name = "listBoxHostnames";
             this.listBoxHostnames.Size = new System.Drawing.Size(195, 178);
@@ -241,7 +320,7 @@
             this.Btn_eliminacronologia.IdleFillColor = System.Drawing.Color.Black;
             this.Btn_eliminacronologia.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.Btn_eliminacronologia.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.Btn_eliminacronologia.Location = new System.Drawing.Point(758, 505);
+            this.Btn_eliminacronologia.Location = new System.Drawing.Point(758, 477);
             this.Btn_eliminacronologia.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Btn_eliminacronologia.Name = "Btn_eliminacronologia";
             this.Btn_eliminacronologia.Size = new System.Drawing.Size(195, 49);
@@ -251,9 +330,8 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.axWindowsMediaPlayer1);
             this.panel3.Controls.Add(this.label_divieto);
-            this.panel3.Controls.Add(this.trackBar1);
-            this.panel3.Controls.Add(this.btZoom);
             this.panel3.Controls.Add(this.Pb_center);
             this.panel3.Controls.Add(this.Pb_left);
             this.panel3.Controls.Add(this.Pb_right);
@@ -264,12 +342,23 @@
             this.panel3.Controls.Add(this.pb_downdivieto);
             this.panel3.Controls.Add(this.pb_rightdivieto);
             this.panel3.Controls.Add(this.pb_updivieto);
+            this.panel3.Controls.Add(this.btAnteprima);
+            this.panel3.Controls.Add(this.pictureBox2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 545);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(955, 226);
             this.panel3.TabIndex = 10;
+            // 
+            // axWindowsMediaPlayer1
+            // 
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(357, -35);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(273, 217);
+            this.axWindowsMediaPlayer1.TabIndex = 39;
             // 
             // label_divieto
             // 
@@ -282,97 +371,6 @@
             this.label_divieto.TabIndex = 42;
             this.label_divieto.Text = "Controlli disabilitati";
             this.label_divieto.Visible = false;
-            // 
-            // pb_centerdivieto
-            // 
-            this.pb_centerdivieto.Image = ((System.Drawing.Image)(resources.GetObject("pb_centerdivieto.Image")));
-            this.pb_centerdivieto.Location = new System.Drawing.Point(243, 74);
-            this.pb_centerdivieto.Name = "pb_centerdivieto";
-            this.pb_centerdivieto.Size = new System.Drawing.Size(78, 63);
-            this.pb_centerdivieto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_centerdivieto.TabIndex = 41;
-            this.pb_centerdivieto.TabStop = false;
-            this.pb_centerdivieto.Visible = false;
-            // 
-            // pb_leftdivieto
-            // 
-            this.pb_leftdivieto.Image = ((System.Drawing.Image)(resources.GetObject("pb_leftdivieto.Image")));
-            this.pb_leftdivieto.Location = new System.Drawing.Point(159, 74);
-            this.pb_leftdivieto.Name = "pb_leftdivieto";
-            this.pb_leftdivieto.Size = new System.Drawing.Size(77, 63);
-            this.pb_leftdivieto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_leftdivieto.TabIndex = 40;
-            this.pb_leftdivieto.TabStop = false;
-            this.pb_leftdivieto.Visible = false;
-            // 
-            // pb_downdivieto
-            // 
-            this.pb_downdivieto.Image = ((System.Drawing.Image)(resources.GetObject("pb_downdivieto.Image")));
-            this.pb_downdivieto.Location = new System.Drawing.Point(244, 145);
-            this.pb_downdivieto.Name = "pb_downdivieto";
-            this.pb_downdivieto.Size = new System.Drawing.Size(77, 63);
-            this.pb_downdivieto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_downdivieto.TabIndex = 39;
-            this.pb_downdivieto.TabStop = false;
-            this.pb_downdivieto.Visible = false;
-            // 
-            // pb_rightdivieto
-            // 
-            this.pb_rightdivieto.Image = ((System.Drawing.Image)(resources.GetObject("pb_rightdivieto.Image")));
-            this.pb_rightdivieto.Location = new System.Drawing.Point(329, 74);
-            this.pb_rightdivieto.Name = "pb_rightdivieto";
-            this.pb_rightdivieto.Size = new System.Drawing.Size(78, 63);
-            this.pb_rightdivieto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_rightdivieto.TabIndex = 38;
-            this.pb_rightdivieto.TabStop = false;
-            this.pb_rightdivieto.Visible = false;
-            // 
-            // pb_updivieto
-            // 
-            this.pb_updivieto.Image = ((System.Drawing.Image)(resources.GetObject("pb_updivieto.Image")));
-            this.pb_updivieto.Location = new System.Drawing.Point(244, 0);
-            this.pb_updivieto.Name = "pb_updivieto";
-            this.pb_updivieto.Size = new System.Drawing.Size(77, 63);
-            this.pb_updivieto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_updivieto.TabIndex = 36;
-            this.pb_updivieto.TabStop = false;
-            this.pb_updivieto.Visible = false;
-            // 
-            // trackBar1
-            // 
-            this.trackBar1.Location = new System.Drawing.Point(646, 46);
-            this.trackBar1.Margin = new System.Windows.Forms.Padding(2);
-            this.trackBar1.Maximum = 3;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(196, 56);
-            this.trackBar1.TabIndex = 37;
-            // 
-            // btZoom
-            // 
-            this.btZoom.ActiveBorderThickness = 1;
-            this.btZoom.ActiveCornerRadius = 20;
-            this.btZoom.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.btZoom.ActiveForecolor = System.Drawing.Color.White;
-            this.btZoom.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.btZoom.BackColor = System.Drawing.Color.Black;
-            this.btZoom.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btZoom.BackgroundImage")));
-            this.btZoom.ButtonText = "Zoom";
-            this.btZoom.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btZoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btZoom.ForeColor = System.Drawing.Color.Green;
-            this.btZoom.IdleBorderThickness = 1;
-            this.btZoom.IdleCornerRadius = 20;
-            this.btZoom.IdleFillColor = System.Drawing.Color.Black;
-            this.btZoom.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.btZoom.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btZoom.Location = new System.Drawing.Point(646, 116);
-            this.btZoom.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.btZoom.Name = "btZoom";
-            this.btZoom.Size = new System.Drawing.Size(196, 64);
-            this.btZoom.TabIndex = 36;
-            this.btZoom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btZoom.Visible = false;
-            this.btZoom.Click += new System.EventHandler(this.btZoom_Click);
             // 
             // Pb_center
             // 
@@ -448,22 +446,113 @@
             this.Pb_down.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Pb_down_MouseDown);
             this.Pb_down.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Pb_down_MouseUp);
             // 
+            // pb_centerdivieto
+            // 
+            this.pb_centerdivieto.Image = ((System.Drawing.Image)(resources.GetObject("pb_centerdivieto.Image")));
+            this.pb_centerdivieto.Location = new System.Drawing.Point(243, 74);
+            this.pb_centerdivieto.Name = "pb_centerdivieto";
+            this.pb_centerdivieto.Size = new System.Drawing.Size(78, 63);
+            this.pb_centerdivieto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_centerdivieto.TabIndex = 41;
+            this.pb_centerdivieto.TabStop = false;
+            this.pb_centerdivieto.Visible = false;
+            // 
+            // pb_leftdivieto
+            // 
+            this.pb_leftdivieto.Image = ((System.Drawing.Image)(resources.GetObject("pb_leftdivieto.Image")));
+            this.pb_leftdivieto.Location = new System.Drawing.Point(159, 74);
+            this.pb_leftdivieto.Name = "pb_leftdivieto";
+            this.pb_leftdivieto.Size = new System.Drawing.Size(77, 63);
+            this.pb_leftdivieto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_leftdivieto.TabIndex = 40;
+            this.pb_leftdivieto.TabStop = false;
+            this.pb_leftdivieto.Visible = false;
+            // 
+            // pb_downdivieto
+            // 
+            this.pb_downdivieto.Image = ((System.Drawing.Image)(resources.GetObject("pb_downdivieto.Image")));
+            this.pb_downdivieto.Location = new System.Drawing.Point(244, 145);
+            this.pb_downdivieto.Name = "pb_downdivieto";
+            this.pb_downdivieto.Size = new System.Drawing.Size(77, 63);
+            this.pb_downdivieto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_downdivieto.TabIndex = 39;
+            this.pb_downdivieto.TabStop = false;
+            this.pb_downdivieto.Visible = false;
+            // 
+            // pb_rightdivieto
+            // 
+            this.pb_rightdivieto.Image = ((System.Drawing.Image)(resources.GetObject("pb_rightdivieto.Image")));
+            this.pb_rightdivieto.Location = new System.Drawing.Point(329, 74);
+            this.pb_rightdivieto.Name = "pb_rightdivieto";
+            this.pb_rightdivieto.Size = new System.Drawing.Size(78, 63);
+            this.pb_rightdivieto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_rightdivieto.TabIndex = 38;
+            this.pb_rightdivieto.TabStop = false;
+            this.pb_rightdivieto.Visible = false;
+            // 
+            // pb_updivieto
+            // 
+            this.pb_updivieto.Image = ((System.Drawing.Image)(resources.GetObject("pb_updivieto.Image")));
+            this.pb_updivieto.Location = new System.Drawing.Point(244, 0);
+            this.pb_updivieto.Name = "pb_updivieto";
+            this.pb_updivieto.Size = new System.Drawing.Size(77, 63);
+            this.pb_updivieto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_updivieto.TabIndex = 36;
+            this.pb_updivieto.TabStop = false;
+            this.pb_updivieto.Visible = false;
+            // 
+            // btAnteprima
+            // 
+            this.btAnteprima.ActiveBorderThickness = 1;
+            this.btAnteprima.ActiveCornerRadius = 20;
+            this.btAnteprima.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btAnteprima.ActiveForecolor = System.Drawing.Color.White;
+            this.btAnteprima.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btAnteprima.BackColor = System.Drawing.Color.Black;
+            this.btAnteprima.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btAnteprima.BackgroundImage")));
+            this.btAnteprima.ButtonText = "Ok";
+            this.btAnteprima.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btAnteprima.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAnteprima.ForeColor = System.Drawing.Color.Green;
+            this.btAnteprima.IdleBorderThickness = 1;
+            this.btAnteprima.IdleCornerRadius = 20;
+            this.btAnteprima.IdleFillColor = System.Drawing.Color.Black;
+            this.btAnteprima.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btAnteprima.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btAnteprima.Location = new System.Drawing.Point(595, 174);
+            this.btAnteprima.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.btAnteprima.Name = "btAnteprima";
+            this.btAnteprima.Size = new System.Drawing.Size(261, 46);
+            this.btAnteprima.TabIndex = 36;
+            this.btAnteprima.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btAnteprima.Visible = false;
+            this.btAnteprima.Click += new System.EventHandler(this.btAnteprima_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(595, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(262, 164);
+            this.pictureBox2.TabIndex = 33;
+            this.pictureBox2.TabStop = false;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(329, 252);
+            this.label3.Location = new System.Drawing.Point(298, 225);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(219, 25);
+            this.label3.Size = new System.Drawing.Size(225, 25);
             this.label3.TabIndex = 16;
-            this.label3.Text = "Indirizzo IP (se noto):";
+            this.label3.Text = "Indirizzo IP (se noto) :";
             // 
             // Txt_ip
             // 
-            this.Txt_ip.Location = new System.Drawing.Point(582, 256);
+            this.Txt_ip.Location = new System.Drawing.Point(582, 228);
             this.Txt_ip.Margin = new System.Windows.Forms.Padding(4);
             this.Txt_ip.Name = "Txt_ip";
             this.Txt_ip.Size = new System.Drawing.Size(150, 22);
@@ -474,7 +563,7 @@
             this.Label_search.AutoSize = true;
             this.Label_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label_search.ForeColor = System.Drawing.Color.Red;
-            this.Label_search.Location = new System.Drawing.Point(443, 422);
+            this.Label_search.Location = new System.Drawing.Point(459, 319);
             this.Label_search.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Label_search.Name = "Label_search";
             this.Label_search.Size = new System.Drawing.Size(171, 17);
@@ -483,10 +572,10 @@
             // 
             // Txt_search
             // 
-            this.Txt_search.Location = new System.Drawing.Point(582, 323);
+            this.Txt_search.Location = new System.Drawing.Point(622, 295);
             this.Txt_search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Txt_search.Name = "Txt_search";
-            this.Txt_search.Size = new System.Drawing.Size(150, 22);
+            this.Txt_search.Size = new System.Drawing.Size(110, 22);
             this.Txt_search.TabIndex = 23;
             this.Txt_search.Text = "raspberrypi";
             // 
@@ -508,13 +597,49 @@
             this.Btn_go.IdleFillColor = System.Drawing.Color.Black;
             this.Btn_go.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.Btn_go.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.Btn_go.Location = new System.Drawing.Point(334, 367);
+            this.Btn_go.Location = new System.Drawing.Point(303, 339);
             this.Btn_go.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Btn_go.Name = "Btn_go";
-            this.Btn_go.Size = new System.Drawing.Size(398, 49);
+            this.Btn_go.Size = new System.Drawing.Size(429, 49);
             this.Btn_go.TabIndex = 29;
             this.Btn_go.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Btn_go.Click += new System.EventHandler(this.Btn_go_Click);
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.Location = new System.Drawing.Point(1063, 607);
+            this.trackBar1.Margin = new System.Windows.Forms.Padding(2);
+            this.trackBar1.Maximum = 3;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(196, 56);
+            this.trackBar1.TabIndex = 37;
+            // 
+            // btZoom
+            // 
+            this.btZoom.ActiveBorderThickness = 1;
+            this.btZoom.ActiveCornerRadius = 20;
+            this.btZoom.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btZoom.ActiveForecolor = System.Drawing.Color.White;
+            this.btZoom.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btZoom.BackColor = System.Drawing.Color.Black;
+            this.btZoom.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btZoom.BackgroundImage")));
+            this.btZoom.ButtonText = "Zoom";
+            this.btZoom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btZoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btZoom.ForeColor = System.Drawing.Color.Green;
+            this.btZoom.IdleBorderThickness = 1;
+            this.btZoom.IdleCornerRadius = 20;
+            this.btZoom.IdleFillColor = System.Drawing.Color.Black;
+            this.btZoom.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btZoom.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btZoom.Location = new System.Drawing.Point(1063, 685);
+            this.btZoom.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.btZoom.Name = "btZoom";
+            this.btZoom.Size = new System.Drawing.Size(196, 64);
+            this.btZoom.TabIndex = 36;
+            this.btZoom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btZoom.Visible = false;
+            this.btZoom.Click += new System.EventHandler(this.btZoom_Click);
             // 
             // Rb_detection
             // 
@@ -708,15 +833,6 @@
             this.Btn_screenshot.Visible = false;
             this.Btn_screenshot.Click += new System.EventHandler(this.Btn_screenshot_Click);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(1008, 598);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(284, 152);
-            this.pictureBox2.TabIndex = 33;
-            this.pictureBox2.TabStop = false;
-            // 
             // btVideo
             // 
             this.btVideo.ActiveBorderThickness = 1;
@@ -747,33 +863,6 @@
             // 
             this.TimerVideo.Interval = 25;
             this.TimerVideo.Tick += new System.EventHandler(this.TimerVideo_Tick);
-            // 
-            // btAnteprima
-            // 
-            this.btAnteprima.ActiveBorderThickness = 1;
-            this.btAnteprima.ActiveCornerRadius = 20;
-            this.btAnteprima.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.btAnteprima.ActiveForecolor = System.Drawing.Color.White;
-            this.btAnteprima.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.btAnteprima.BackColor = System.Drawing.Color.Black;
-            this.btAnteprima.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btAnteprima.BackgroundImage")));
-            this.btAnteprima.ButtonText = "Ok";
-            this.btAnteprima.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btAnteprima.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAnteprima.ForeColor = System.Drawing.Color.Green;
-            this.btAnteprima.IdleBorderThickness = 1;
-            this.btAnteprima.IdleCornerRadius = 20;
-            this.btAnteprima.IdleFillColor = System.Drawing.Color.Black;
-            this.btAnteprima.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.btAnteprima.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btAnteprima.Location = new System.Drawing.Point(1009, 750);
-            this.btAnteprima.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.btAnteprima.Name = "btAnteprima";
-            this.btAnteprima.Size = new System.Drawing.Size(283, 64);
-            this.btAnteprima.TabIndex = 36;
-            this.btAnteprima.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btAnteprima.Visible = false;
-            this.btAnteprima.Click += new System.EventHandler(this.btAnteprima_Click);
             // 
             // label_tracking
             // 
@@ -852,16 +941,17 @@
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
-            //
-            // axWindowsMediaPlayer1
             // 
-            this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(762, 452);
-            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
-            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(212, 179);
-            this.axWindowsMediaPlayer1.TabIndex = 11;
-            this.axWindowsMediaPlayer1.Visible = false;
+            // Labelzoom
+            // 
+            this.Labelzoom.AutoSize = true;
+            this.Labelzoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Labelzoom.ForeColor = System.Drawing.Color.White;
+            this.Labelzoom.Location = new System.Drawing.Point(1074, 646);
+            this.Labelzoom.Name = "Labelzoom";
+            this.Labelzoom.Size = new System.Drawing.Size(171, 17);
+            this.Labelzoom.TabIndex = 44;
+            this.Labelzoom.Text = "1x      1.5x     2x      4x";
             // 
             // Form1
             // 
@@ -870,24 +960,22 @@
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1353, 814);
             this.ControlBox = false;
+            this.Controls.Add(this.Labelzoom);
+            this.Controls.Add(this.btZoom);
             this.Controls.Add(this.btn_visible);
             this.Controls.Add(this.label_tracking);
-            this.Controls.Add(this.btAnteprima);
-            this.Controls.Add(this.axWindowsMediaPlayer1);
-            this.Controls.Add(this.btVideo);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.Btn_screenshot);
             this.Controls.Add(this.Btn_change);
             this.Controls.Add(this.Picturebox_colore);
             this.Controls.Add(this.Rb_detection);
             this.Controls.Add(this.Rb_tracking);
             this.Controls.Add(this.btVideo);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.Rb_normal);
             this.Controls.Add(this.Label_Search_ip);
             this.Controls.Add(this.Btn_stream);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -901,23 +989,23 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_centerdivieto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_leftdivieto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_downdivieto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_rightdivieto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_updivieto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_center)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_left)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_right)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_up)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_down)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Picturebox_colore)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_centerdivieto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_leftdivieto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_downdivieto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_rightdivieto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_updivieto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Picturebox_colore)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_exit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_minimize)).EndInit();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -975,7 +1063,12 @@
         private System.Windows.Forms.PictureBox Pb_minimize;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btZoom;
+        private Bunifu.Framework.UI.BunifuThinButton2 btngrok;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox TxtPort;
+        private System.Windows.Forms.TextBox TxtHex;
+        private System.Windows.Forms.Label Labelzoom;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
     }
 

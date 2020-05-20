@@ -114,6 +114,18 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AxInterop.WMPLib.dll" size="53760">
+      <assemblyIdentity name="AxInterop.WMPLib" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>2hoydR2M5Qbd28vKTF523MqcpgNDqdoEpDVdpU9Utr4=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Bunifu.Licensing.dll" size="955888">
       <assemblyIdentity name="Bunifu.Licensing" version="1.2.0.0" publicKeyToken="F89B4760BA7DCB6B" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -450,6 +462,18 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Interop.WMPLib.dll" size="330752">
+      <assemblyIdentity name="Interop.WMPLib" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>0S1zy/tUQckrzzQhTpxxnCZuANeg15OMDIGGO22JTl8=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MjpegProcessor.dll" size="9728">
       <assemblyIdentity name="MjpegProcessor" version="1.2.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -462,14 +486,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="RaspiCamStream.exe" size="500144">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="RaspiCamStream.exe" size="503728">
       <assemblyIdentity name="RaspiCamStream" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>R+TKtgfFMMkmywBFzYSn4NOlqkPKBKydWNC+zaP11qQ=</dsig:DigestValue>
+        <dsig:DigestValue>laBAmI5B3lD7nXTVzBYgkh3jpkZ/vSClElhE7A43hUA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -668,13 +692,13 @@
       <dsig:DigestValue>rl5/qDc7Jz+tB+BIbOv9iMGPlRe6YJwrjmU09dnlPcs=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="RaspiCamStream.pdb" size="62976">
+  <file name="RaspiCamStream.pdb" size="65024">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>d1sAjoAo/jVjCa8gVHjUw7E5wEwsXqNG88J848xl78w=</dsig:DigestValue>
+      <dsig:DigestValue>AKNjoeuvcfECACDOQMLZTF1+AX2IItr0TS2lqpQ+K7A=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

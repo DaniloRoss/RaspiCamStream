@@ -20,11 +20,13 @@ namespace RaspiCamStream
         Bitmap bmp = default(Bitmap);
         MJPEGStream Stream;
         private delegate void SafeCallDelegate(string ip, string nome, ListView listview);
+        string streamingip = default(string);
         string ip = default(string);
+        int port = default(int);
         int streamexist = default(int);
         private string PathFolderImage;
         private string PathFolderVideo;
-        private string nome;
+        string nome = default(string);
 
         public Form1()
         {
@@ -47,6 +49,8 @@ namespace RaspiCamStream
             btAnteprima.Visible = false;
             label_tracking.Visible = false;
             Label_search.Visible = false;
+            Labelzoom.Visible = false;
+            axWindowsMediaPlayer1.Visible = false;
 
             using (Graphics gfx = Graphics.FromImage(bitmap))
             using (SolidBrush brush = new SolidBrush(Color.FromArgb(1, 1, 1)))
@@ -57,6 +61,7 @@ namespace RaspiCamStream
 
         private void Btn_ip_Click(object sender, EventArgs e)
         {
+            port = 8081;
             if (!Regex.IsMatch(Txt_ip.Text, @"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b"))
             {
                 Label_ip.Text = "indirizzo non valido";
@@ -69,13 +74,14 @@ namespace RaspiCamStream
                 Label_ip.Text = "";
             }
 
-            ip = Txt_ip.Text.ToString();
-            Stream = new MJPEGStream($"http://{ip}:8080/?action=stream");
+            streamingip = Txt_ip.Text.ToString();
+            ip = Txt_ip.Text.ToString(); ;
+            Stream = new MJPEGStream($"http://{streamingip}:8080/?action=stream");
 
             try
             {
                 sendmessage("C");
-
+                sendmessage("Q");
 
 
                 Stream.NewFrame += Stream_NewFrame;
@@ -116,6 +122,12 @@ namespace RaspiCamStream
                 label4.Visible = false;
                 Txt_search.Clear();
                 label5.Visible = false;
+                btngrok.Visible = false;
+                TxtHex.Visible = false;
+                TxtPort.Visible = false;
+                label2.Visible = false;
+                label6.Visible = false;
+                Labelzoom.Visible = true;
             }
             catch
             {
@@ -166,11 +178,12 @@ namespace RaspiCamStream
             TcpClient clientSocket = new TcpClient();
             try
             {
-                clientSocket.Connect($"{ip}", 8081);
+                clientSocket.Connect($"{ip}", port);
             }
             catch (SocketException)
             {
                 MessageBox.Show("Il raspberry pi non risponde, riprova");
+                return;
             }
 
             NetworkStream serverStream = clientSocket.GetStream();
@@ -200,7 +213,7 @@ namespace RaspiCamStream
                 int h = int.Parse(coordinate[3]);
                 using (Graphics graphics = Graphics.FromImage(bitmap))
                 {
-                    using (Pen pen = new Pen(Color.Red, 2))
+                    using (Pen pen = new Pen(Color.Lime, 3))
                     {
                         graphics.DrawRectangle(pen, x, y, w, h);
                     }
@@ -567,7 +580,6 @@ namespace RaspiCamStream
             label3.Visible = true;
             Btn_go.Visible = true;
             Txt_search.Visible = true;
-            Label_search.Visible = true;
             btn_visible.Visible = false;
             listBoxHostnames.Visible = true;
             Btn_eliminacronologia.Visible = true;
@@ -586,6 +598,14 @@ namespace RaspiCamStream
             pictureBox2.Visible = false;
             btAnteprima.Visible = false;
             pictureBox2.Image = null;
+            btngrok.Visible = true;
+            TxtHex.Visible = true;
+            TxtPort.Visible = true;
+            label2.Visible = true;
+            label6.Visible = true;
+            Labelzoom.Visible = false;
+            Txt_search.Text = "raspberrypi";
+            axWindowsMediaPlayer1.Visible = false;
         }
 
         private void Btn_screenshot_Click(object sender, EventArgs e)
@@ -593,7 +613,7 @@ namespace RaspiCamStream
             pictureBox2.Visible = true;
             axWindowsMediaPlayer1.Visible = false;
             PathFolderImage = "screenshots";
-             bmp = (Bitmap)pictureBox1.Image;
+            bmp = (Bitmap)pictureBox1.Image;
             var fileName = Path.Combine(PathFolderImage, $"IMG_{DateTime.Now.ToString("yyyyMMddHHmmss")}.png");
 
             try
@@ -742,7 +762,14 @@ namespace RaspiCamStream
             {
                 using (Graphics g = Graphics.FromImage(result))
                 {
-                    g.DrawImage(bmp, -(width * 15 / 10 / 4), -(height * 15 / 10 / 4), width, height);
+                    try
+                    {
+                        g.DrawImage(bmp, -(width * 15 / 10 / 4), -(height * 15 / 10 / 4), width, height);                        
+                    }
+                    catch
+                    {
+
+                    }
 
                 }
             }
@@ -757,7 +784,7 @@ namespace RaspiCamStream
         {
             PathFolderVideo = "Video";
 
-            if (btVideo.ButtonText=="Inizia cattura video")
+            if (btVideo.ButtonText == "Inizia cattura video")
             {
                 btVideo.ActiveFillColor = Color.Red;
                 btVideo.ActiveLineColor = Color.Red;
@@ -765,18 +792,18 @@ namespace RaspiCamStream
                 btVideo.IdleLineColor = Color.Red;
                 btVideo.ButtonText = "Termina cattura video";
 
-                
+
                 var fileName = Path.Combine(PathFolderVideo, $"Video_{DateTime.Now.ToString("yyyyMMddHHmmss")}");
                 nome = fileName;
 
                 writer = new VideoFileWriter();
-                writer.Open(fileName+ ".avi", 640, 480, 25, VideoCodec.MPEG4);
+                writer.Open(fileName + ".avi", 640, 480, 25, VideoCodec.MPEG4);
                 TimerVideo.Start();
             }
             else
             {
                 pictureBox2.Visible = false;
-
+                btAnteprima.Visible = false;
 
                 btVideo.ActiveFillColor = Color.SeaGreen;
                 btVideo.ActiveLineColor = Color.SeaGreen;
@@ -788,6 +815,7 @@ namespace RaspiCamStream
                 writer.Close();
                 axWindowsMediaPlayer1.Visible = true;
                 axWindowsMediaPlayer1.URL = "" + $"{ nome}.avi";
+            }
         }
 
         private void TimerVideo_Tick(object sender, EventArgs e)
@@ -925,6 +953,71 @@ namespace RaspiCamStream
             if (mov == 1)
             {
                 this.SetDesktopLocation(MousePosition.X - movx, MousePosition.Y - movy);
+            }
+        }
+
+        private void bunifuThinButton21_Click(object sender, EventArgs e)
+        {
+            streamingip = TxtHex.Text + ".ngrok.io";
+            port = int.Parse(TxtPort.Text);
+            ip = "0.tcp.ngrok.io";
+            Stream = new MJPEGStream($"http://{streamingip}/?action=stream");
+
+            try
+            {
+                sendmessage("C");
+                sendmessage("Q");
+
+                Stream.NewFrame += Stream_NewFrame;
+                streamexist = 1;
+                Txt_ip.Clear();
+                if (Rb_normal.Checked == true)
+                {
+                    Pb_up.Visible = true; Pb_left.Visible = true; Pb_right.Visible = true; Pb_down.Visible = true; Pb_center.Visible = true;
+                }
+                else
+                {
+                    pb_updivieto.Visible = true;
+                    pb_downdivieto.Visible = true;
+                    pb_leftdivieto.Visible = true;
+                    pb_rightdivieto.Visible = true;
+                    pb_centerdivieto.Visible = true;
+                    label_divieto.Visible = true;
+                }
+                Btn_stream.Visible = true; Btn_go.Visible = true; Rb_normal.Visible = true;
+                Rb_tracking.Visible = true;
+                Rb_detection.Visible = true;
+                Btn_screenshot.Visible = true;
+                Btn_ip.Visible = false;
+                Txt_ip.Visible = false;
+                label3.Visible = false;
+                Btn_go.Visible = false;
+                Txt_search.Visible = false;
+                Label_search.Visible = false;
+                btn_visible.Visible = true;
+                pictureBox1.Visible = true;
+                listBoxHostnames.Visible = false;
+                Btn_eliminacronologia.Visible = false;
+                btVideo.Visible = true;
+                btZoom.Visible = true;
+                trackBar1.Visible = true;
+                pictureBox2.Visible = true;
+                Txt_ip.Clear();
+                label4.Visible = false;
+                Txt_search.Clear();
+                label5.Visible = false;
+                btngrok.Visible = false;
+                TxtHex.Visible = false;
+                TxtPort.Visible = false;
+                label2.Visible = false;
+                label6.Visible = false;
+                Labelzoom.Visible = true;
+            }
+            catch
+            {
+                Txt_ip.Clear();
+                MessageBox.Show("L'IP inserito non è corretto o il raspberry pi non risponde, riprova");
+                return;
             }
         }
     }
