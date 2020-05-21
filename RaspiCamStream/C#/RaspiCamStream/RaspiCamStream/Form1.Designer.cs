@@ -89,6 +89,7 @@
             this.Pb_minimize = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Labelzoom = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -134,6 +135,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.TxtPort);
@@ -168,9 +170,9 @@
             this.label6.Location = new System.Drawing.Point(577, 416);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(128, 25);
+            this.label6.Size = new System.Drawing.Size(132, 25);
             this.label6.TabIndex = 43;
-            this.label6.Text = "Socket port ";
+            this.label6.Text = "Porta socket";
             // 
             // label2
             // 
@@ -210,7 +212,7 @@
             this.btngrok.ActiveLineColor = System.Drawing.Color.SeaGreen;
             this.btngrok.BackColor = System.Drawing.Color.Black;
             this.btngrok.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btngrok.BackgroundImage")));
-            this.btngrok.ButtonText = "Connetti via ngrok";
+            this.btngrok.ButtonText = "Connetti via NGROK";
             this.btngrok.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btngrok.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btngrok.ForeColor = System.Drawing.Color.Green;
@@ -233,7 +235,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(298, 294);
+            this.label5.Location = new System.Drawing.Point(298, 264);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(294, 25);
@@ -563,7 +565,7 @@
             this.Label_search.AutoSize = true;
             this.Label_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label_search.ForeColor = System.Drawing.Color.Red;
-            this.Label_search.Location = new System.Drawing.Point(459, 319);
+            this.Label_search.Location = new System.Drawing.Point(459, 289);
             this.Label_search.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Label_search.Name = "Label_search";
             this.Label_search.Size = new System.Drawing.Size(171, 17);
@@ -572,7 +574,7 @@
             // 
             // Txt_search
             // 
-            this.Txt_search.Location = new System.Drawing.Point(622, 295);
+            this.Txt_search.Location = new System.Drawing.Point(622, 265);
             this.Txt_search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Txt_search.Name = "Txt_search";
             this.Txt_search.Size = new System.Drawing.Size(110, 22);
@@ -597,7 +599,7 @@
             this.Btn_go.IdleFillColor = System.Drawing.Color.Black;
             this.Btn_go.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.Btn_go.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.Btn_go.Location = new System.Drawing.Point(303, 339);
+            this.Btn_go.Location = new System.Drawing.Point(303, 309);
             this.Btn_go.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Btn_go.Name = "Btn_go";
             this.Btn_go.Size = new System.Drawing.Size(429, 49);
@@ -953,6 +955,18 @@
             this.Labelzoom.TabIndex = 44;
             this.Labelzoom.Text = "1x      1.5x     2x      4x";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.DarkGray;
+            this.label7.Location = new System.Drawing.Point(351, 373);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(336, 32);
+            this.label7.TabIndex = 44;
+            this.label7.Text = "Connessione via NGROK";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1070,8 +1084,7 @@
         private System.Windows.Forms.TextBox TxtHex;
         private System.Windows.Forms.Label Labelzoom;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
+        private System.Windows.Forms.Label label7;
     }
 
 }
-
-

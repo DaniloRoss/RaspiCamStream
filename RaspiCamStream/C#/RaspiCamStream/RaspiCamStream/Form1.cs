@@ -15,7 +15,6 @@ namespace RaspiCamStream
     public partial class Form1 : Form
     {
         VideoFileWriter writer = default(VideoFileWriter);
-        int x = default(int);
         Bitmap bitmap = new Bitmap(640, 480);
         Bitmap bmp = default(Bitmap);
         MJPEGStream Stream;
@@ -51,6 +50,7 @@ namespace RaspiCamStream
             Label_search.Visible = false;
             Labelzoom.Visible = false;
             axWindowsMediaPlayer1.Visible = false;
+            axWindowsMediaPlayer1.BringToFront();
 
             using (Graphics gfx = Graphics.FromImage(bitmap))
             using (SolidBrush brush = new SolidBrush(Color.FromArgb(1, 1, 1)))
@@ -127,6 +127,7 @@ namespace RaspiCamStream
                 TxtPort.Visible = false;
                 label2.Visible = false;
                 label6.Visible = false;
+                label7.Visible = false;
                 Labelzoom.Visible = true;
             }
             catch
@@ -230,6 +231,7 @@ namespace RaspiCamStream
         #region
         private void Pb_up_MouseDown(object sender, MouseEventArgs e)
         {
+            sendmessage("Q");
             Timer_up.Start();
         }
 
@@ -245,6 +247,7 @@ namespace RaspiCamStream
 
         private void Pb_down_MouseDown(object sender, MouseEventArgs e)
         {
+            sendmessage("Q");
             Timer_down.Start();
         }
 
@@ -260,6 +263,7 @@ namespace RaspiCamStream
 
         private void Pb_right_MouseDown(object sender, MouseEventArgs e)
         {
+            sendmessage("Q");
             Timer_right.Start();
         }
 
@@ -275,6 +279,7 @@ namespace RaspiCamStream
 
         private void Pb_left_MouseDown(object sender, MouseEventArgs e)
         {
+            sendmessage("Q");
             Timer_left.Start();
         }
 
@@ -290,6 +295,7 @@ namespace RaspiCamStream
 
         private void Pb_center_Click(object sender, EventArgs e)
         {
+            sendmessage("Q");
             sendmessage("C");
         }
 
@@ -606,6 +612,7 @@ namespace RaspiCamStream
             Labelzoom.Visible = false;
             Txt_search.Text = "raspberrypi";
             axWindowsMediaPlayer1.Visible = false;
+            label7.Visible = true;
         }
 
         private void Btn_screenshot_Click(object sender, EventArgs e)
@@ -748,14 +755,28 @@ namespace RaspiCamStream
             {
                 using (Graphics g = Graphics.FromImage(result))
                 {
-                    g.DrawImage(bmp, -(width / 4 * 10 / 15), -(height / 4 * 10 / 15), width, height);
+                    try
+                    {
+                        g.DrawImage(bmp, -(width / 4 * 10 / 15), -(height / 4 * 10 / 15), width, height);
+                    }
+                    catch
+                    {
+
+                    }
                 }
             }
             if (caso == 2)
             {
                 using (Graphics g = Graphics.FromImage(result))
                 {
-                    g.DrawImage(bmp, -(width / 4), -(height / 4), width, height);
+                    try
+                    {
+                        g.DrawImage(bmp, -(width / 4), -(height / 4), width, height);
+                    }
+                    catch
+                    {
+
+                    }
                 }
             }
             if (caso == 3)
@@ -764,7 +785,7 @@ namespace RaspiCamStream
                 {
                     try
                     {
-                        g.DrawImage(bmp, -(width * 15 / 10 / 4), -(height * 15 / 10 / 4), width, height);                        
+                        g.DrawImage(bmp, -(width * 15 / 10 / 4), -(height * 15 / 10 / 4), width, height);
                     }
                     catch
                     {
@@ -1012,6 +1033,7 @@ namespace RaspiCamStream
                 label2.Visible = false;
                 label6.Visible = false;
                 Labelzoom.Visible = true;
+                label7.Visible = false;
             }
             catch
             {
