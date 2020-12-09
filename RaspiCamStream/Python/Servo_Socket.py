@@ -14,7 +14,7 @@ PINH = 15
 pi = pigpio.pi()
 pi.set_mode(PINV, pigpio.OUTPUT)
 pi.set_mode(PINH, pigpio.OUTPUT)
-
+#
 def moveSERVO(direction, step):
 	global PWV
 	global PWH
